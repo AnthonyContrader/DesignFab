@@ -16,6 +16,7 @@ public class SensorDAO {
 	private final String DELETE = "DELETE from sensor where id=?";
 
 	public SensorDAO() {
+
 	}
 
 	public List<Sensor> getAllSensor() {
