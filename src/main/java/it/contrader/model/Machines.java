@@ -13,6 +13,12 @@ public class Machines {
 	public Machines() {
 	}
 
+	public Machines( String model, double init_quantity, double final_quantity) {
+		this.setModel(model);
+		this.setInit_quantity(init_quantity);
+		this.setFinal_quantity(final_quantity);
+	}
+	
 	public Machines(int id, String model, double init_quantity, double final_quantity) {
 		this.setId(id);
 		this.setModel(model);

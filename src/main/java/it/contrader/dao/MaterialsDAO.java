@@ -18,7 +18,7 @@ public class MaterialsDAO {
 	public MaterialsDAO() {
 	
 	}
-	public List<Materials> getAllSensor() {
+	public List<Materials> getAllMaterials() {
 
 		List<Materials> MaterialsList = new ArrayList<Materials>();
 		Connection connection = ConnectionSingleton.getInstance();
