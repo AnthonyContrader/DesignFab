@@ -10,13 +10,12 @@ import it.contrader.model.Sensor;
 public class SensorDAO {
 
 	private final String QUERY_ALL = "Select * from sensor";
-	private final String CREATE = "INSERT INTO sensor(sensor_type) VALUES (?)";
+	private final String CREATE = "INSERT INTO sensor(material_name) VALUES (?)";
 	private final String READ = "Select * from sensor where id=?";
 	private final String UPDATE = "UPDATE sensor SET sensor_type=? where id = ?";
 	private final String DELETE = "DELETE from sensor where id=?";
 
 	public SensorDAO() {
-
 	}
 
 	public List<Sensor> getAllSensor() {
@@ -90,6 +89,7 @@ public class SensorDAO {
 				PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement(UPDATE);
 				preparedStatement.setInt(2, sensorToUpdate.getId());
 				preparedStatement.setString(1, sensorToUpdate.getSensor_type());
+				
 
 				int check = preparedStatement.executeUpdate();
 				if (check > 0)
