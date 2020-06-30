@@ -89,7 +89,6 @@ public class SensorDAO {
 				PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement(UPDATE);
 				preparedStatement.setInt(2, sensorToUpdate.getId());
 				preparedStatement.setString(1, sensorToUpdate.getSensor_type());
-				
 
 				int check = preparedStatement.executeUpdate();
 				if (check > 0)
