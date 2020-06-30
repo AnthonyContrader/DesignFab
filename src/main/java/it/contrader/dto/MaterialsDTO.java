@@ -27,6 +27,8 @@ public class MaterialsDTO {
 	public void setMaterialName(String MaterialName) {
 		this.MaterialName=MaterialName;
 	}
+	
+	@Override
 	public String toString() {
 		return  id + "\t"  + MaterialName;}
 	
