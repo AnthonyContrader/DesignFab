@@ -2,11 +2,8 @@ package it.contrader.converter;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import it.contrader.dto.SensorDTO;
-import it.contrader.dto.UserDTO;
 import it.contrader.model.Sensor;
-import it.contrader.model.User;
 
 public class SensorConverter {
 
@@ -16,14 +13,14 @@ public class SensorConverter {
 
 	public SensorDTO toDTO(Sensor sensor) {
 
-		SensorDTO sensorDTO = new SensorDTO(sensor.getId(), sensor.getSensor_type());
+		SensorDTO sensorDTO = new SensorDTO(sensor.getId(), sensor.getSensor_type(), sensor.getId_machine());
 		return sensorDTO;
 
 	}
 
 	public Sensor toEntity(SensorDTO sensorDTO) {
 
-		Sensor sensor = new Sensor(sensorDTO.getId(), sensorDTO.getSensortype());
+		Sensor sensor = new Sensor(sensorDTO.getId(), sensorDTO.getSensortype(), sensorDTO.getId_machine());
 		return sensor;
 
 	}

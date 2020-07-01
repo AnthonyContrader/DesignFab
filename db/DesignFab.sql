@@ -99,7 +99,10 @@ DROP TABLE IF EXISTS `sensor`;
 CREATE TABLE `sensor` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `sensor_type` varchar(20) NOT NULL,
-  PRIMARY KEY (`id`)
+  `id_machine` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `id_machine` (`id_machine`),
+  CONSTRAINT `sensor_ibfk_1` FOREIGN KEY (`id_machine`) REFERENCES `machine` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -173,4 +176,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-07-01 10:07:15
+-- Dump completed on 2020-07-01 10:22:37

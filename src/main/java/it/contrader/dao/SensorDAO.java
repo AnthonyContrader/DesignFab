@@ -10,7 +10,7 @@ import it.contrader.model.Sensor;
 public class SensorDAO {
 
 	private final String QUERY_ALL = "Select * from sensor";
-	private final String CREATE = "INSERT INTO sensor(material_name) VALUES (?)";
+	private final String CREATE = "INSERT INTO sensor(sensor_type) VALUES (?)";
 	private final String READ = "Select * from sensor where id=?";
 	private final String UPDATE = "UPDATE sensor SET sensor_type=? where id = ?";
 	private final String DELETE = "DELETE from sensor where id=?";
@@ -28,8 +28,9 @@ public class SensorDAO {
 			Sensor sensor;
 			while (resultSet.next()) {
 				int id = resultSet.getInt("id");
+				int id_machine = resultSet.getInt("id_machine");
 				String sensor_type = resultSet.getString("sensor_type");
-				sensor = new Sensor(sensor_type);
+				sensor = new Sensor(sensor_type, id_machine);
 				sensor.setId(id);
 				sensorList.add(sensor);
 			}
@@ -64,8 +65,10 @@ public class SensorDAO {
 			ResultSet resultSet = preparedStatement.executeQuery();
 			resultSet.next();
 			String sensor_type;
+			int id_machine;
 			sensor_type = resultSet.getString("sensor_type");
-			Sensor sensor = new Sensor(sensor_type);
+			id_machine = resultSet.getInt("id_machine");
+			Sensor sensor = new Sensor(sensor_type, id_machine);
 			sensor.setId(resultSet.getInt(id));
 			return sensor;
 		} catch (SQLException e) {
