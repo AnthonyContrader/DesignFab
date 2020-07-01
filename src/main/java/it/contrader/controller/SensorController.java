@@ -22,6 +22,7 @@ public class SensorController implements Controller {
 
 		int id;
 		//int id_machines;
+		
 		String sensorType;
 
 		switch (modeSensor) {
