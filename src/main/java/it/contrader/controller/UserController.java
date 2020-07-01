@@ -80,7 +80,7 @@ public class UserController implements Controller {
 		// Arriva qui dalla UserDeleteView. Estrae l'id dell'utente da cancellare e lo passa al Service
 		case "DELETE":
 			id = Integer.parseInt(request.get("id").toString());
-			//Qui chiama il service
+			//Qui chiama il service ??????? il DTO???
 			userService.delete(id);
 			request = new Request();
 			request.put("mode", "mode");
