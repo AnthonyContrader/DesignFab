@@ -89,7 +89,8 @@ public class MachineController implements Controller {
 			break;
 			
 		case "I":
-			MainDispatcher.getInstance().callView(sub_package + "MachineInsert", null);
+			
+			MainDispatcher.getInstance().callView(sub_package + "MachineInsert", null);			
 			break;
 			
 		case "M":
