@@ -14,6 +14,7 @@ public class SensorController implements Controller {
 	private static String sub_package = "sensor.";
 
 	public SensorController() {
+		
 		this.sensorService = new SensorService();
 	}
 
