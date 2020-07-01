@@ -5,13 +5,13 @@ import java.util.ArrayList;
 import java.util.List;
 import it.contrader.main.ConnectionSingleton;
 import it.contrader.model.Machines;
-import it.contrader.model.User;
+
 
 public class MachinesDAO{
 	private final String QUERY_ALL = "Select * from machine";
-	private final String CREATE = "INSERT INTO machine(model, init_quantity,final_quantity) VALUES (?,?,?)";
+	private final String CREATE = "INSERT INTO machine(modello, init_quantity,final_quantity) VALUES (?,?,?)";
 	private final String READ = "Select * from machine where id=?";
-	private final String UPDATE = "UPDATE machine SET model=?, init_quantity, final_quantity where id = ?";
+	private final String UPDATE = "UPDATE machine SET modello=?, init_quantity, final_quantity where id = ?";
 	private final String DELETE = "DELETE from machine where id=?";
 	
 	public MachinesDAO() {
@@ -26,7 +26,7 @@ public class MachinesDAO{
 			Machines machine;
 			while(resultSet.next()) {
 				int id = resultSet.getInt("id");
-				String model = resultSet.getString("model");
+				String model = resultSet.getString("modello");
 				Double init_quantity = resultSet.getDouble("init_quantity");
 				Double final_quantity = resultSet.getDouble("final_quantity");
 				machine= new Machines(model, init_quantity, final_quantity);
@@ -65,7 +65,7 @@ public class MachinesDAO{
 			String model;
 			double init_quantity, final_quantity;
 
-			model = resultSet.getString("model");
+			model = resultSet.getString("modello");
 			init_quantity = resultSet.getDouble("init_quantity");
 			final_quantity = resultSet.getDouble("final_quantity");
 			Machines machine = new Machines(model,init_quantity, final_quantity);
