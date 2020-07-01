@@ -32,6 +32,15 @@ CREATE TABLE `machine` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `machine`
+--
+
+LOCK TABLES `machine` WRITE;
+/*!40000 ALTER TABLE `machine` DISABLE KEYS */;
+/*!40000 ALTER TABLE `machine` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `materials`
 --
 
@@ -41,12 +50,18 @@ DROP TABLE IF EXISTS `materials`;
 CREATE TABLE `materials` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `material_name` varchar(20) NOT NULL,
-  `id_sensor` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `id_sensor` (`id_sensor`),
-  CONSTRAINT `materials_ibfk_1` FOREIGN KEY (`id_sensor`) REFERENCES `sensor` (`id`)
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `materials`
+--
+
+LOCK TABLES `materials` WRITE;
+/*!40000 ALTER TABLE `materials` DISABLE KEYS */;
+/*!40000 ALTER TABLE `materials` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `materials_machine`
@@ -66,6 +81,15 @@ CREATE TABLE `materials_machine` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `materials_machine`
+--
+
+LOCK TABLES `materials_machine` WRITE;
+/*!40000 ALTER TABLE `materials_machine` DISABLE KEYS */;
+/*!40000 ALTER TABLE `materials_machine` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `sensor`
 --
 
@@ -75,12 +99,44 @@ DROP TABLE IF EXISTS `sensor`;
 CREATE TABLE `sensor` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `sensor_type` varchar(20) NOT NULL,
-  `id_machine` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `id_machine` (`id_machine`),
-  CONSTRAINT `sensor_ibfk_1` FOREIGN KEY (`id_machine`) REFERENCES `machine` (`id`)
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `sensor`
+--
+
+LOCK TABLES `sensor` WRITE;
+/*!40000 ALTER TABLE `sensor` DISABLE KEYS */;
+/*!40000 ALTER TABLE `sensor` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `user`
+--
+
+DROP TABLE IF EXISTS `user`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `user` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(20) NOT NULL,
+  `password` varchar(20) NOT NULL,
+  `usertype` varchar(20) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `user`
+--
+
+LOCK TABLES `user` WRITE;
+/*!40000 ALTER TABLE `user` DISABLE KEYS */;
+INSERT INTO `user` VALUES (1,'Marco','ciao','ADMIN');
+/*!40000 ALTER TABLE `user` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `user_machine`
@@ -95,25 +151,18 @@ CREATE TABLE `user_machine` (
   KEY `id_machine` (`id_machine`),
   KEY `id_user` (`id_user`),
   CONSTRAINT `user_machine_ibfk_1` FOREIGN KEY (`id_machine`) REFERENCES `machine` (`id`),
-  CONSTRAINT `user_machine_ibfk_2` FOREIGN KEY (`id_user`) REFERENCES `users` (`id`)
+  CONSTRAINT `user_machine_ibfk_2` FOREIGN KEY (`id_user`) REFERENCES `user` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Table structure for table `users`
+-- Dumping data for table `user_machine`
 --
 
-DROP TABLE IF EXISTS `users`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `users` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `username` varchar(20) NOT NULL,
-  `password_user` varchar(20) NOT NULL,
-  `usertype` varchar(20) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+LOCK TABLES `user_machine` WRITE;
+/*!40000 ALTER TABLE `user_machine` DISABLE KEYS */;
+/*!40000 ALTER TABLE `user_machine` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -124,4 +173,4 @@ CREATE TABLE `users` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-06-30 10:54:12
+-- Dump completed on 2020-07-01 10:07:15
