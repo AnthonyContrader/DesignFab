@@ -44,7 +44,7 @@ public class MachineInsertView extends AbstractView{
 		request.put("modello", model);
 		request.put("init_quantity", init_quantity);
 		request.put("final_quantity", final_quantity);
-		request.put("mode", mode);
+		request.put("modeMachine", mode);
 		MainDispatcher.getInstance().callAction("Machine", "doControl", request);
 		
 	}

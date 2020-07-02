@@ -46,7 +46,7 @@ public class MachineView extends AbstractView {
 	public void submit() {
 		request = new Request();
 		request.put("choice", choice);
-		request.put("mode", "GETCHOICE");
+		request.put("modeMachine", "GETCHOICE");
 		MainDispatcher.getInstance().callAction("Machine", "doControl", this.request);
 	}
 

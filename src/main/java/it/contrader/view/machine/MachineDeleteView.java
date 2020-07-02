@@ -26,7 +26,7 @@ public class MachineDeleteView  extends AbstractView {
 
 	@Override
 	public void showOptions() {
-		System.out.println("Inserisci id della macchina:");
+		System.out.println("Inserisci id della macchina da Cancellare:");
 		id = Integer.parseInt(getInput());
 		
 	}
@@ -35,7 +35,7 @@ public class MachineDeleteView  extends AbstractView {
 	public void submit() {
 		request = new Request();
 		request.put("id", id);
-		request.put("mode", mode);
+		request.put("modeMachine", mode);
 		MainDispatcher.getInstance().callAction("Machine", "doControl", request);
 		
 	}

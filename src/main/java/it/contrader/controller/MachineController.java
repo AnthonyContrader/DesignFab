@@ -21,7 +21,7 @@ public class MachineController implements Controller {
 	public void doControl(Request request) {
 		
 		
-		String mode = (String) request.get("mode");
+		String mode = (String) request.get("modeMachine");
 		
 		String choice = (String) request.get("choice");
 			
@@ -49,7 +49,7 @@ public class MachineController implements Controller {
 				MachinesDTO machineToInsert = new MachinesDTO(model, init_quantity, final_quantity);
 				machineService.insert(machineToInsert);
 				request = new Request();
-				request.put("mode", "mode");
+				request.put("modeMachine", "modeMachine");
 				MainDispatcher.getInstance().callView(sub_package + "MachineInsert", request);
 				break;
 		 
@@ -57,7 +57,7 @@ public class MachineController implements Controller {
 				id = Integer.parseInt(request.get("id").toString());
 				machineService.delete(id);
 				request = new Request();
-				request.put("mode", "mode");
+				request.put("modeMachine", "modeMachine");
 				MainDispatcher.getInstance().callView(sub_package + "MachineDelete", request);
 				break;
 				
@@ -71,7 +71,7 @@ public class MachineController implements Controller {
 				machineToUpdate.setId(id);
 				machineService.update(machineToUpdate);
 				request = new Request();
-				request.put("mode", "mode");
+				request.put("modeMachine", "modeMachine");
 				MainDispatcher.getInstance().callView(sub_package + "MachineUpdate", request);
 				break;
 				

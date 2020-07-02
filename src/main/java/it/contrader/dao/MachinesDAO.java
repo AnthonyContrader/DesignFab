@@ -11,7 +11,7 @@ public class MachinesDAO{
 	private final String QUERY_ALL = "Select * from machine";
 	private final String CREATE = "INSERT INTO machine(modello, init_quantity,final_quantity) VALUES (?,?,?)";
 	private final String READ = "Select * from machine where id=?";
-	private final String UPDATE = "UPDATE machine SET modello=?, init_quantity, final_quantity where id = ?";
+	private final String UPDATE = "UPDATE machine SET modello=?, init_quantity=?, final_quantity=? where id = ?";
 	private final String DELETE = "DELETE from machine where id=?";
 	
 	public MachinesDAO() {
@@ -79,14 +79,12 @@ public class MachinesDAO{
 	}public boolean update(Machines machineToUpdate) {
 		Connection connection = ConnectionSingleton.getInstance();
 
-		// Check if id is present
 		if (machineToUpdate.getId() == 0)
 			return false;
 
 		Machines machineRead = read(machineToUpdate.getId());
 		if (!machineRead.equals(machineToUpdate)) {
 			try {
-				// Fill the userToUpdate object
 				if (machineToUpdate.getModel() == null || machineToUpdate.getModel().equals("")) {
 					machineToUpdate.setModel(machineRead.getModel());
 				}
@@ -99,7 +97,6 @@ public class MachinesDAO{
 					machineToUpdate.setFinal_quantity(machineRead.getFinal_quantity());
 				}
 
-				// Update the user
 				PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement(UPDATE);
 				preparedStatement.setString(1, machineToUpdate.getModel());
 				preparedStatement.setDouble(2, machineToUpdate.getInit_quantity());

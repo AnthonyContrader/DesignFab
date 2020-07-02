@@ -38,7 +38,7 @@ private Request request;
 	public void submit() {
 		request = new Request();
 		request.put("id", id);
-		request.put("mode", mode);
+		request.put("modeMachine", mode);
 		MainDispatcher.getInstance().callAction("Machine", "doControl", request);
 		
 	}
