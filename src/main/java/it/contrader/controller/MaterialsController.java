@@ -1,7 +1,6 @@
 package it.contrader.controller;
 
 import java.util.List;
-
 import it.contrader.dto.MaterialsDTO;
 import it.contrader.main.MainDispatcher;
 import it.contrader.service.MaterialsService;
@@ -18,7 +17,8 @@ public class MaterialsController implements Controller{
 	}
 
 	@Override
-	public void doControl(Request request) {
+	public void doControl(Request request)  {
+		
 		String mode = (String) request.get("modeMaterials");
 		String choice = (String) request.get("choice");
 		
@@ -27,42 +27,53 @@ public class MaterialsController implements Controller{
 		
 		
 		switch (mode) {
+		
 		case "READ":
 			id = Integer.parseInt(request.get("id").toString());
 			MaterialsDTO materialsDTO = materialsService.read(id);
 			request.put("materials", materialsDTO);
 			MainDispatcher.getInstance().callView(sub_package + "MaterialsRead", request);
 			break;
+			
 		case "INSERT":
+			
 			material_name = request.get("material_name").toString();
+			System.out.println(material_name);
 			MaterialsDTO materialsToInsertDTO = new MaterialsDTO(material_name);
-			materialsService.insert(materialsToInsertDTO);
+			materialsService.insert(materialsToInsertDTO);	
 			request = new Request();
 			request.put("modeMaterials", "modeMaterials");
 			MainDispatcher.getInstance().callView(sub_package + "MaterialsInsert", request);
 			break;
+			
 		case "DELETE":
+			
 			id = Integer.parseInt(request.get("id").toString());
-			materialsService.delete(id);
+			materialsService.delete(id);		
 			request = new Request();
 			request.put("modeMaterials", "modeMaterials");
 			MainDispatcher.getInstance().callView(sub_package + "MaterialsDelete", request);
 			break;
+			
 		case "UPDATE":
+			
 			id = Integer.parseInt(request.get("id").toString());
 			material_name = request.get("material_name").toString();
-			MaterialsDTO materialsUpdateDTO = new MaterialsDTO(material_name);
-			materialsUpdateDTO.setId(id); 
-			materialsService.update(materialsUpdateDTO);
+			MaterialsDTO materialsUpdateDTO = new MaterialsDTO(id, material_name);
+			//materialsUpdateDTO.setId(id); 
+			materialsService.update(materialsUpdateDTO);		
 			request = new Request();
-			request.put("modeMaterials", "modeMaterials");
-			MainDispatcher.getInstance().callView(sub_package + "MaterialsUpdate", request);
+			request.put("modeMaterials", "modeMaterials");		
+			MainDispatcher.getInstance().callView(sub_package + "MaterialsUpdate", request);			
 			break;
+			
 		case "MATERIALSLIST":
 			List<MaterialsDTO> materialDTO = materialsService.getAll();
 			request.put("materials", materialDTO);
 			MainDispatcher.getInstance().callView("Materials", request);
 			break;
+			
+		
 			
 		case "GETCHOICE":
 			
@@ -95,11 +106,12 @@ public class MaterialsController implements Controller{
 			
 		default:
 			MainDispatcher.getInstance().callView("Login", null);
-		}
-		
+	}
+			
 	default:
 		MainDispatcher.getInstance().callView("Login", null);
-	}
-	}
+		}
+    }
 }
+
 	

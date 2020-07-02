@@ -17,7 +17,7 @@ public class MaterialsConverter {
 
 	public Materials toEntity(MaterialsDTO materialsDTO) {
 
-		Materials materials = new Materials(materialsDTO.getMatetialName(), materialsDTO.getid());
+		Materials materials = new Materials(materialsDTO.getMaterialName(), materialsDTO.getid());
 		return materials;
 
 	}

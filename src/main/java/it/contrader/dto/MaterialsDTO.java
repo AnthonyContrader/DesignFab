@@ -21,7 +21,7 @@ public class MaterialsDTO {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getMatetialName() {
+	public String getMaterialName() {
 		return MaterialName;
 	}
 	public void setMaterialName(String MaterialName) {

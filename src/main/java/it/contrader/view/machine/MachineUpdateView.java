@@ -47,7 +47,7 @@ public class MachineUpdateView extends AbstractView{
 
 	@Override
 	public void submit() {
-		
+		try {
 		request = new Request();
 		request.put("id", id);
 		request.put("modello", model);
@@ -55,7 +55,10 @@ public class MachineUpdateView extends AbstractView{
 		request.put("final_quantity", final_quantity);
 		request.put("modeMachine", mode);
 		MainDispatcher.getInstance().callAction("Machine", "doControl", request);
+		}catch(NullPointerException e) {
+			e.printStackTrace();
 		}
-		
 	}
+		
+  }
 

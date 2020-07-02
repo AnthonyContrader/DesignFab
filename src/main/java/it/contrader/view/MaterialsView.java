@@ -47,6 +47,7 @@ public class MaterialsView  extends AbstractView{
 		request = new Request();
 		request.put("choice", choice);
 		request.put("modeMaterials", "GETCHOICE");
+		System.out.println(request.toString());
 		MainDispatcher.getInstance().callAction("Materials", "doControl", this.request);
 	}
 

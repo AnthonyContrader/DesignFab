@@ -11,9 +11,9 @@ public class MaterialsDAO {
 	
 	private final String QUERY_ALL = "Select * from materials";
 	private final String CREATE = "INSERT INTO materials(material_name) VALUES (?)";
-	private final String READ = "Select * from materials where id=?";
-	private final String UPDATE = "UPDATE material SET material_name=? where id = ?";
-	private final String DELETE = "DELETE from materials where id=?";
+	private final String READ = "Select * from materials where id= ?";
+	private final String UPDATE = "UPDATE material SET material_name= ? where id= ?";
+	private final String DELETE = "DELETE from materials where id= ?";
 	
 	public MaterialsDAO() {
 	
@@ -76,25 +76,23 @@ public class MaterialsDAO {
 			if (materialToUpdate.getId() == 0)
 				return false;
 
-			Materials material = getMaterialRead(materialToUpdate.getId());
-			if (!material.equals(materialToUpdate)) {
+			Materials materialRead = getMaterialRead(materialToUpdate.getId());
+			if (!materialRead.equals(materialToUpdate)) {
+			  try {
 				if (materialToUpdate.getName() == null || materialToUpdate.getName().equals("")) {
-					materialToUpdate.setName(material.getName());
+					materialToUpdate.setName(materialRead.getName());
 				}
-
-				try {
 					PreparedStatement preparedStatement = connection.prepareStatement(UPDATE);
-					preparedStatement.setInt(2, materialToUpdate.getId());
 					preparedStatement.setString(1, materialToUpdate.getName());
-					
-
+					preparedStatement.setInt(2, materialToUpdate.getId());
 					int check = preparedStatement.executeUpdate();
 					if (check > 0)
 						return true;
-					return false;
-				} catch (SQLException e) {
-
+					else
+						return false;
+				} catch (SQLException e)  {
 					e.printStackTrace();
+					return false;
 				}
 			}
 			return false;

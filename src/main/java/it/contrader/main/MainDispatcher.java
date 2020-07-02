@@ -56,7 +56,6 @@ public class MainDispatcher {
 			Method metodo = oggettoController.getClass().getMethod(action, Request.class);
 			metodo.invoke(oggettoController, request);
 		} catch (Throwable e) {
-	
 		}
 	}
 	
