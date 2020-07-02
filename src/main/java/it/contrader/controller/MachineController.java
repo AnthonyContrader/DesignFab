@@ -41,6 +41,7 @@ public class MachineController implements Controller {
 				break;
 				
 		 case "INSERT":
+			 System.out.println("SONO CASO INSERT");
 				model = request.get("modello").toString();
 				init_quantity = Double.parseDouble(request.get("init_quantity").toString());
 				final_quantity =Double.parseDouble( request.get("final_quantity").toString());
@@ -89,7 +90,7 @@ public class MachineController implements Controller {
 			break;
 			
 		case "I":
-			
+			System.out.println("SONO NEL CASO I");
 			MainDispatcher.getInstance().callView(sub_package + "MachineInsert", null);			
 			break;
 			

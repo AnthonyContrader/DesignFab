@@ -74,7 +74,6 @@ public class MainDispatcher {
 	public void callView(String view, Request request) {
 		
 		View oggettoView = (View) ReflectionUtils.instantiateClass("it.contrader.view." + view + "View");
-		System.out.println(oggettoView.toString());
 		oggettoView.showResults(request);
 		oggettoView.showOptions();
 		oggettoView.submit();

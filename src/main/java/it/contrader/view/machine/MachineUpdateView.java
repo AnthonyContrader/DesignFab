@@ -30,13 +30,13 @@ public class MachineUpdateView extends AbstractView{
 	@Override
 	public void showOptions() {
 		try {
-			System.out.println("Inserisci id dell'utente:");
+			System.out.println("Inserisci id della Macchina:");
 			id = Integer.parseInt(getInput());
-			System.out.println("Inserisci username dell'utente:");
+			System.out.println("Inserisci il Modello:");
 			model = getInput();
-			System.out.println("Inserisci password dell'utente:");
+			System.out.println("Inserisci quantità iniziale:");
 			init_quantity = Double.parseDouble(getInput());
-			System.out.println("Inserisci tipo dell'utente:");
+			System.out.println("Inserisci quantità finale:");
 			final_quantity = Double.parseDouble(getInput());
 			
 		} catch (Exception e) {
@@ -54,7 +54,7 @@ public class MachineUpdateView extends AbstractView{
 		request.put("init_quantity", init_quantity);
 		request.put("final_quantity", final_quantity);
 		request.put("mode", mode);
-		MainDispatcher.getInstance().callAction("User", "doControl", request);
+		MainDispatcher.getInstance().callAction("Machine", "doControl", request);
 		}
 		
 	}
