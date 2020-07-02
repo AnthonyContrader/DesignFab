@@ -17,11 +17,11 @@ public class SensorController implements Controller {
 
 	@Override
 	public void doControl(Request request) {
-		String modeSensor = (String) request.get("mode");
+		String modeSensor = (String) request.get("modeSensor");
 		String choiceSensor = (String) request.get("choice");
 
 		int id;
-		//int id_machines;
+		int id_machines;
 		
 		String sensorType;
 
@@ -36,10 +36,11 @@ public class SensorController implements Controller {
 			
 		case "INSERT":
 			sensorType = request.get("sensor_type").toString();
-			SensorDTO sensorToInsertDTO = new SensorDTO(sensorType);
+			id_machines = (int) request.get("id_machine");
+			SensorDTO sensorToInsertDTO = new SensorDTO(sensorType,id_machines);
 			sensorService.insert(sensorToInsertDTO);
 			request = new Request();
-			request.put("mode", "mode");
+			request.put("modeSensor", "modeSensor");
 			MainDispatcher.getInstance().callView(sub_package + "SensorInsert", request);
 			break;
 			
@@ -47,25 +48,26 @@ public class SensorController implements Controller {
 			id = Integer.parseInt(request.get("id").toString());
 			sensorService.delete(id);
 			request = new Request();
-			request.put("mode", "mode");
+			request.put("modeSensor", "modeSensor");
 			MainDispatcher.getInstance().callView(sub_package + "SensorDelete", request);
 			break;
 			
 		case "UPDATE":
-			id = Integer.parseInt(request.get("id").toString());
+			id = Integer.parseInt(request.get("id_sensor").toString());
 			sensorType = request.get("sensor_type").toString();
 			SensorDTO sensorUpdateDTO = new SensorDTO(sensorType);
 			sensorUpdateDTO.setId(id); // ???????
+			System.out.println("Entro in update con: "+sensorUpdateDTO.getId()+" "+sensorType);
 			sensorService.update(sensorUpdateDTO);
 			request = new Request();
-			request.put("mode", "mode");
+			request.put("modeSensor", "modeSensor");
 			MainDispatcher.getInstance().callView(sub_package + "SensorUpdate", request);
 			break;
 			
 		case "SENSORLIST":
 			List<SensorDTO> sensorsDTO = sensorService.getAll();
 			request.put("sensors", sensorsDTO);
-			MainDispatcher.getInstance().callView(sub_package + "Sensor", request);
+			MainDispatcher.getInstance().callView("Sensor", request);
 			break;
 		
 		
@@ -77,6 +79,7 @@ public class SensorController implements Controller {
 					break;
 	
 				case "I":
+					System.out.println("Ci entro?");
 					MainDispatcher.getInstance().callView(sub_package + "SensorInsert", null);
 					break;
 	

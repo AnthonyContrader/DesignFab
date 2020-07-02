@@ -26,6 +26,12 @@ public class SensorDTO{
 		this.sensortype = sensortype;
 	}
 	
+	public SensorDTO(String sensortype, int id_machine) {
+		this.sensortype = sensortype;
+		this.id_machine = id_machine;
+		
+	}
+	
 	public SensorDTO (int id, String sensortype, int id_machine) {
 		this.id = id;
 		this.sensortype = sensortype;

@@ -31,12 +31,13 @@ public class SensorService {
 
 
 	public boolean insert(SensorDTO dto) {
-		return sensorDAO.insert(sensorConverter.toEntity(dto));
+		return sensorDAO.insert(sensorConverter.toEntityInsert(dto));
 	}
 
 
 	public boolean update(SensorDTO dto) {
-		return sensorDAO.update(sensorConverter.toEntity(dto));
+		System.out.println("DDDDDDDDDDDDDDDDDDDDDDDDDD " +dto.getId());
+		return sensorDAO.update(sensorConverter.toEntityUpdate(dto));
 	}
 
 

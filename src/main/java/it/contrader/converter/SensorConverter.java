@@ -18,11 +18,16 @@ public class SensorConverter {
 
 	}
 
-	public Sensor toEntity(SensorDTO sensorDTO) {
+	public Sensor toEntityUpdate(SensorDTO sensorDTO) {
 
 		Sensor sensor = new Sensor(sensorDTO.getId(), sensorDTO.getSensortype(), sensorDTO.getId_machine());
 		return sensor;
 
+	}
+	
+	public Sensor toEntityInsert(SensorDTO sensorDTO) {
+		Sensor sensor = new Sensor(sensorDTO.getSensortype(), sensorDTO.getId_machine());
+		return sensor;
 	}
 
 	public List<SensorDTO> toDTOList(List<Sensor> sensorList) {

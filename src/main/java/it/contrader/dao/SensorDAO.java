@@ -6,17 +6,20 @@ import java.util.List;
 
 import it.contrader.main.ConnectionSingleton;
 import it.contrader.model.Sensor;
+import it.contrader.model.User;
 
 public class SensorDAO {
 
 	private final String QUERY_ALL = "Select * from sensor";
-	private final String CREATE = "INSERT INTO sensor(sensor_type) VALUES (?)";
+	private final String CREATE = "insert into sensor (sensor_type, id_machine) values (?,?)";
 	private final String READ = "Select * from sensor where id=?";
-	private final String UPDATE = "UPDATE sensor SET sensor_type=? where id = ?";
+	private final String UPDATE = "UPDATE sensor SET sensor_type=? where id=?";
 	private final String DELETE = "DELETE from sensor where id=?";
 
 	public SensorDAO() {
 	}
+
+
 
 	public List<Sensor> getAllSensor() {
 
@@ -48,6 +51,7 @@ public class SensorDAO {
 		try {
 			PreparedStatement preparedStatement = connection.prepareStatement(CREATE);
 			preparedStatement.setString(1, sensor.getSensor_type());
+			preparedStatement.setInt(2, sensor.getId_machine());
 			preparedStatement.execute();
 			return true;
 		} catch (SQLException e) {
@@ -84,6 +88,7 @@ public class SensorDAO {
 
 		Sensor sensor = getSensorRead(sensorToUpdate.getId());
 		if (!sensor.equals(sensorToUpdate)) {
+
 			if (sensorToUpdate.getSensor_type() == null || sensorToUpdate.getSensor_type().equals("")) {
 				sensorToUpdate.setSensor_type(sensor.getSensor_type());
 			}
@@ -92,7 +97,6 @@ public class SensorDAO {
 				PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement(UPDATE);
 				preparedStatement.setInt(2, sensorToUpdate.getId());
 				preparedStatement.setString(1, sensorToUpdate.getSensor_type());
-				
 
 				int check = preparedStatement.executeUpdate();
 				if (check > 0)
