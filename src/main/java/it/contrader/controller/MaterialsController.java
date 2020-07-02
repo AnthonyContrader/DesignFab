@@ -8,8 +8,9 @@ import it.contrader.service.MaterialsService;
 
 public class MaterialsController implements Controller{
 	
-	private MaterialsService materialsService;
+	
 	private static String sub_package = "materials.";
+	private MaterialsService materialsService;
 	
 	public MaterialsController() {
 		
@@ -18,14 +19,14 @@ public class MaterialsController implements Controller{
 
 	@Override
 	public void doControl(Request request) {
-		String modeMaterials = (String) request.get("mode");
-		String choiceMaterials = (String) request.get("choice");
+		String mode = (String) request.get("modeMaterials");
+		String choice = (String) request.get("choice");
 		
 		int id;
 		String material_name;
 		
 		
-		switch (modeMaterials) {
+		switch (mode) {
 		case "READ":
 			id = Integer.parseInt(request.get("id").toString());
 			MaterialsDTO materialsDTO = materialsService.read(id);
@@ -37,36 +38,36 @@ public class MaterialsController implements Controller{
 			MaterialsDTO materialsToInsertDTO = new MaterialsDTO(material_name);
 			materialsService.insert(materialsToInsertDTO);
 			request = new Request();
-			request.put("mode", "mode");
-			MainDispatcher.getInstance().callView(sub_package + "SensorInsert", request);
+			request.put("modeMaterials", "modeMaterials");
+			MainDispatcher.getInstance().callView(sub_package + "MaterialsInsert", request);
 			break;
 		case "DELETE":
 			id = Integer.parseInt(request.get("id").toString());
 			materialsService.delete(id);
 			request = new Request();
-			request.put("mode", "mode");
-			MainDispatcher.getInstance().callView(sub_package + "SensorDelete", request);
+			request.put("modeMaterials", "modeMaterials");
+			MainDispatcher.getInstance().callView(sub_package + "MaterialsDelete", request);
 			break;
 		case "UPDATE":
 			id = Integer.parseInt(request.get("id").toString());
-			material_name = request.get("sensor_type").toString();
-			MaterialsDTO sensorUpdateDTO = new MaterialsDTO(material_name);
-			sensorUpdateDTO.setId(id); // ???????
-			materialsService.update(sensorUpdateDTO);
+			material_name = request.get("material_name").toString();
+			MaterialsDTO materialsUpdateDTO = new MaterialsDTO(material_name);
+			materialsUpdateDTO.setId(id); 
+			materialsService.update(materialsUpdateDTO);
 			request = new Request();
-			request.put("mode", "mode");
-			MainDispatcher.getInstance().callView(sub_package + "SensorUpdate", request);
+			request.put("modeMaterials", "modeMaterials");
+			MainDispatcher.getInstance().callView(sub_package + "MaterialsUpdate", request);
 			break;
-		case "SENSORLIST":
-			List<MaterialsDTO> sensorsDTO = materialsService.getAll();
-			request.put("sensors", sensorsDTO);
-			MainDispatcher.getInstance().callView(sub_package + "Sensor", request);
+		case "MATERIALSLIST":
+			List<MaterialsDTO> materialDTO = materialsService.getAll();
+			request.put("materials", materialDTO);
+			MainDispatcher.getInstance().callView("Materials", request);
 			break;
 			
 		case "GETCHOICE":
 			
 			//toUpperCase() mette in maiuscolo la scelta
-	switch (choiceMaterials.toUpperCase()) {
+	switch (choice.toUpperCase()) {
 	
 		case "L":
 			MainDispatcher.getInstance().callView(sub_package + "MaterialsRead", null);
