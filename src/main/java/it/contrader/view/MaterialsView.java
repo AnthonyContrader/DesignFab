@@ -12,9 +12,6 @@ public class MaterialsView  extends AbstractView{
 	private Request request;
 	private String choice;
 
-	public MaterialsView() {
-		
-	}
 
 	@Override
 	public void showResults(Request request) {
@@ -47,7 +44,6 @@ public class MaterialsView  extends AbstractView{
 		request = new Request();
 		request.put("choice", choice);
 		request.put("modeMaterials", "GETCHOICE");
-		System.out.println(request.toString());
 		MainDispatcher.getInstance().callAction("Materials", "doControl", this.request);
 	}
 
