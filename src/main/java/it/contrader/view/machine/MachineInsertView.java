@@ -15,9 +15,10 @@ public class MachineInsertView extends AbstractView{
 	private final String mode = "INSERT";
 	 
 	
-	MachineInsertView() {
+	public MachineInsertView() {
 		
 	}
+	
 	@Override
 	public void showResults(Request request) {
 		if (request!=null) {
@@ -31,7 +32,7 @@ public class MachineInsertView extends AbstractView{
 	public void showOptions() {
 		System.out.println("Inserisci il Modello del Macchinario: ");
 		model = getInput();
-		System.out.println("Inserisci la Quantità di materiale inserita: ");
+		System.out.println("Inserisci la Quantitï¿½ di materiale inserita: ");
 		init_quantity = Double.parseDouble(getInput());	
 		final_quantity = (init_quantity /100) * 30;
 	}

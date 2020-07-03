@@ -13,7 +13,7 @@ private Request request;
 	
 	private final String mode = "READ";
 	
-	MachineReadView() {
+	public MachineReadView() {
 		
 	}
 	

@@ -14,6 +14,9 @@ private Request request;
 	
 	private final String mode = "CALCULATE";
 	 
+	public MachineLogicView() {
+		
+	}
 	
 	@Override
 	public void showResults(Request request) {
@@ -25,7 +28,7 @@ private Request request;
 
 	@Override
 	public void showOptions() {
-		System.out.println("Inserisci la Quantità di materiale prodotta:");
+		System.out.println("Inserisci la Quantitï¿½ di materiale prodotta:");
 		final_quantity = (init_quantity /100) * 30;
 		
 	}

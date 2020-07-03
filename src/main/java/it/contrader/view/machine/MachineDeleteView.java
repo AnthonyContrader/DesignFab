@@ -11,7 +11,7 @@ public class MachineDeleteView  extends AbstractView {
 	private final String mode = "DELETE";
 	
 	
-	MachineDeleteView() {
+	public MachineDeleteView() {
 		
 	}
 	

@@ -12,7 +12,7 @@ public class MaterialsUpdateView extends AbstractView {
 	private String material_name;
 	private final String mode = "UPDATE";
 
-	MaterialsUpdateView() {
+	public MaterialsUpdateView() {
 
 	}
 

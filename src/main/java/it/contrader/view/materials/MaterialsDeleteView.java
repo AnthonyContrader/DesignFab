@@ -11,7 +11,7 @@ public class MaterialsDeleteView extends AbstractView {
 	private final String mode = "DELETE";
 	
 	
-	MaterialsDeleteView() {
+	public MaterialsDeleteView() {
 		
 	}
 	
