@@ -8,11 +8,11 @@ import it.contrader.model.Machines;
 
 
 public class MachinesDAO{
-	private final String QUERY_ALL = "Select * from machine";
+	private final String QUERY_ALL = "SELECT * FROM machine";
 	private final String CREATE = "INSERT INTO machine(modello, init_quantity,final_quantity) VALUES (?,?,?)";
-	private final String READ = "Select * from machine where id=?";
-	private final String UPDATE = "UPDATE machine SET modello=?, init_quantity=?, final_quantity=? where id = ?";
-	private final String DELETE = "DELETE from machine where id=?";
+	private final String READ = "SELECT * FROM machine where id=?";
+	private final String UPDATE = "UPDATE machine SET modello=?, init_quantity=?, final_quantity=? WHERE id=?";
+	private final String DELETE = "DELETE FROM machine WHERE id=?";
 	
 	public MachinesDAO() {
 		

@@ -21,6 +21,13 @@ public class MachinesConverter {
 		return machines;
 
 	}
+	
+	public Machines toEntityInsert(MachinesDTO machinesDTO) {
+
+		Machines machines = new Machines(machinesDTO.getModel(),machinesDTO.getInit_quantity(),machinesDTO.getFinal_quantity());
+		return machines;
+
+	}
 
 	
 

@@ -2,17 +2,17 @@ package it.contrader.dto;
 
 public class MaterialsDTO {
 	private int id;
-	private String MaterialName;
+	private String material_name;
 
 	public MaterialsDTO() {
 	}
 
-	public MaterialsDTO(String MaterialName) {
-		this.MaterialName=MaterialName;
+	public MaterialsDTO(String material_name) {
+		this.material_name=material_name;
 	}
-	public MaterialsDTO (int id, String MaterialName) {
+	public MaterialsDTO (String material_name,int id) {
 		this.id=id;
-		this.MaterialName=MaterialName;
+		this.material_name=material_name;
 	}
 
 	public int getid() {
@@ -22,15 +22,15 @@ public class MaterialsDTO {
 		this.id = id;
 	}
 	public String getMaterialName() {
-		return MaterialName;
+		return material_name;
 	}
-	public void setMaterialName(String MaterialName) {
-		this.MaterialName=MaterialName;
+	public void setMaterialName(String material_name) {
+		this.material_name=material_name;
 	}
 	
 	@Override
 	public String toString() {
-		return  id + "\t"  + MaterialName;}
+		return  id + "\t"  + material_name;}
 	
 
 }

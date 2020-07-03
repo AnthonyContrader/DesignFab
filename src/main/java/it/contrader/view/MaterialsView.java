@@ -6,12 +6,10 @@ import it.contrader.controller.Request;
 import it.contrader.dto.MaterialsDTO;
 import it.contrader.main.MainDispatcher;
 
+public class MaterialsView extends AbstractView {
 
-public class MaterialsView  extends AbstractView{
-	
 	private Request request;
 	private String choice;
-
 
 	@Override
 	public void showResults(Request request) {
@@ -19,15 +17,14 @@ public class MaterialsView  extends AbstractView{
 			System.out.println("\n------------------- Gestione Materiali ----------------\n");
 			System.out.println("ID\tTipo di materiale");
 			System.out.println("----------------------------------------------------\n");
-			
+
 			@SuppressWarnings("unchecked")
 			List<MaterialsDTO> materials = (List<MaterialsDTO>) request.get("materials");
-			for (MaterialsDTO m: materials)
+			for (MaterialsDTO m : materials)
 				System.out.println(m);
 			System.out.println();
 		}
 	}
-
 
 	@Override
 	public void showOptions() {
@@ -36,7 +33,6 @@ public class MaterialsView  extends AbstractView{
 
 		this.choice = getInput();
 
-		
 	}
 
 	@Override
@@ -46,6 +42,5 @@ public class MaterialsView  extends AbstractView{
 		request.put("modeMaterials", "GETCHOICE");
 		MainDispatcher.getInstance().callAction("Materials", "doControl", this.request);
 	}
-
 
 }

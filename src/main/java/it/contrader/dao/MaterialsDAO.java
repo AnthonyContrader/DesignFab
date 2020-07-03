@@ -12,7 +12,7 @@ public class MaterialsDAO {
 	private final String QUERY_ALL = "Select * from materials";
 	private final String CREATE = "INSERT INTO materials(material_name) VALUES (?)";
 	private final String READ = "Select * from materials where id= ?";
-	private final String UPDATE = "UPDATE material SET material_name= ? where id= ?";
+	private final String UPDATE = "UPDATE materials SET material_name= ? where id= ?";
 	private final String DELETE = "DELETE from materials where id= ?";
 	
 	public MaterialsDAO() {
@@ -62,8 +62,8 @@ public class MaterialsDAO {
 				ResultSet resultSet = preparedStatement.executeQuery();
 				resultSet.next();
 				String material_name= resultSet.getString("material_name");
-				Materials material = new Materials(material_name);
-				material.setId(resultSet.getInt(id));
+				Materials material = new Materials(material_name, id);
+				//material.setId(resultSet.getInt(id));
 				return material;
 			} catch (SQLException e) {
 				// e.printStackTrace();

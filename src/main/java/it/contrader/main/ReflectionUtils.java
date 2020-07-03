@@ -6,6 +6,7 @@ public class ReflectionUtils<T> {
         try {
             return Class.forName(nomeClasse).newInstance();
         } catch (Throwable e) {
+        	e.printStackTrace();
             return null;
         }
     }

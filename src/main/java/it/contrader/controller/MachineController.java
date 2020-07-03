@@ -89,7 +89,6 @@ public class MachineController implements Controller {
 			break;
 			
 		case "I":
-			System.out.println("SONO NEL CASO I");
 			MainDispatcher.getInstance().callView(sub_package + "MachineInsert", null);			
 			break;
 			
@@ -101,6 +100,10 @@ public class MachineController implements Controller {
 			MainDispatcher.getInstance().callView(sub_package + "MachineDelete", null);
 			break;
 			
+		/*case "R":
+			MainDispatcher.getInstance().callView(sub_package +"MachineLogic", null);
+			break;*/
+			
 		case "E":
 			MainDispatcher.getInstance().callView("Login", null);
 			break;
@@ -108,16 +111,14 @@ public class MachineController implements Controller {
 		case "B":
 			MainDispatcher.getInstance().callView("HomeAdmin", null);
 			break;
-			
+							
 		default:
 			MainDispatcher.getInstance().callView("Login", null);
 		}
 		
 	default:
 		MainDispatcher.getInstance().callView("Login", null);
-		 
-		 
-		 
+		 	 
 		 }	
 	
 	}

@@ -72,11 +72,12 @@ public class MainDispatcher {
  * 						request, poi showOption ed infine submit()
 	 */
 	public void callView(String view, Request request) {
-		
+		System.out.println(view);
 		View oggettoView = (View) ReflectionUtils.instantiateClass("it.contrader.view." + view + "View");
 		System.out.println("OGGETTO VIEW" + oggettoView);
 		oggettoView.showResults(request);
 		oggettoView.showOptions();
 		oggettoView.submit();
 	}
+	
 }

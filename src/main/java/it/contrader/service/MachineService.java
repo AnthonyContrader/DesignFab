@@ -24,7 +24,7 @@ public class MachineService {
 	}
 
 	public boolean insert(MachinesDTO dto) { //CREATE DTO in oggetto e lo passa al DAO
-		return machinesDAO.insert(machinesConverter.toEntity(dto));
+		return machinesDAO.insert(machinesConverter.toEntityInsert(dto));
 	}
 
 	public MachinesDTO read(int id) { //READ  oggetto in DTO

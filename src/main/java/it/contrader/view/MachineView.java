@@ -20,7 +20,7 @@ public class MachineView extends AbstractView {
 	public void showResults(Request request) {
 		if (request != null) {
 			System.out.println("\n------------------- Gestione Macchinari ----------------\n");
-			System.out.println("ID\tModello\tQuantità\tIniziale\tQuantità Finale");
+			System.out.println("ID\tModello\tQuantità Iniziale\tQuantità Finale");
 			System.out.println("----------------------------------------------------\n");
 			
 			@SuppressWarnings("unchecked")
@@ -39,7 +39,6 @@ public class MachineView extends AbstractView {
 
 		this.choice = getInput();
 
-		
 	}
 
 	@Override

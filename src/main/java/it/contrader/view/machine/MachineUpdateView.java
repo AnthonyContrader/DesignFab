@@ -36,8 +36,7 @@ public class MachineUpdateView extends AbstractView{
 			model = getInput();
 			System.out.println("cambia quantità iniziale:");
 			init_quantity = Double.parseDouble(getInput());
-			System.out.println("cambia quantità finale:");
-			final_quantity = Double.parseDouble(getInput());
+			final_quantity = (init_quantity /100) * 30;
 			
 		} catch (Exception e) {
 

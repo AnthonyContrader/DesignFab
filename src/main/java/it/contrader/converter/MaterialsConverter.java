@@ -10,7 +10,7 @@ public class MaterialsConverter {
 
 	public MaterialsDTO toDTO(Materials materials) {
 
-		MaterialsDTO materialsDTO = new MaterialsDTO(materials.getId(), materials.getName());
+		MaterialsDTO materialsDTO = new MaterialsDTO( materials.getName(),materials.getId());
 		return materialsDTO;
 
 	}
