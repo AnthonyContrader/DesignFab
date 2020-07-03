@@ -23,7 +23,7 @@ public class MaterialsService {
 	}
 
 	public boolean insert(MaterialsDTO dto) { //CREATE DTO in oggetto e lo passa al DAO
-		return materialsDAO.insert(materialsConverter.toEntity(dto));
+		return materialsDAO.insert(materialsConverter.toEntityInsert(dto));
 	}
 
 	public MaterialsDTO read(int id) { //READ  oggetto in DTO
@@ -31,7 +31,7 @@ public class MaterialsService {
 	}
 
 	public boolean update(MaterialsDTO dto) { //UPDATE passa il DTO al DAO per modifica
-		return materialsDAO.update(materialsConverter.toEntity(dto));
+		return materialsDAO.update(materialsConverter.toEntityUpdate(dto));
 	}
 
 	public boolean delete(int id) { //DELETE

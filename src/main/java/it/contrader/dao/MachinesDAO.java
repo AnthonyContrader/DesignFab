@@ -6,43 +6,43 @@ import java.util.List;
 import it.contrader.main.ConnectionSingleton;
 import it.contrader.model.Machines;
 
-
-public class MachinesDAO{
+public class MachinesDAO {
 	private final String QUERY_ALL = "SELECT * FROM machine";
 	private final String CREATE = "INSERT INTO machine(modello, init_quantity,final_quantity) VALUES (?,?,?)";
 	private final String READ = "SELECT * FROM machine where id=?";
 	private final String UPDATE = "UPDATE machine SET modello=?, init_quantity=?, final_quantity=? WHERE id=?";
 	private final String DELETE = "DELETE FROM machine WHERE id=?";
-	
+
 	public MachinesDAO() {
-		
+
 	}
-	public List<Machines> getAll(){
-		List<Machines> MachineList= new ArrayList<>();
+
+	public List<Machines> getAll() {
+		List<Machines> MachineList = new ArrayList<>();
 		Connection connection = ConnectionSingleton.getInstance();
 		try {
 			Statement statement = connection.createStatement();
 			ResultSet resultSet = statement.executeQuery(QUERY_ALL);
 			Machines machine;
-			while(resultSet.next()) {
+			while (resultSet.next()) {
 				int id = resultSet.getInt("id");
 				String model = resultSet.getString("modello");
 				Double init_quantity = resultSet.getDouble("init_quantity");
 				Double final_quantity = resultSet.getDouble("final_quantity");
-				machine= new Machines(model, init_quantity, final_quantity);
+				machine = new Machines(model, init_quantity, final_quantity);
 				machine.setId(id);
 				MachineList.add(machine);
 			}
+		} catch (SQLException e) {
+			e.printStackTrace();
 		}
-			catch (SQLException e) {
-				e.printStackTrace();
-			}
-			return MachineList;
-				
-			}
+		return MachineList;
+
+	}
+
 	public boolean insert(Machines machineToInsert) {
 		Connection connection = ConnectionSingleton.getInstance();
-		try {	
+		try {
 			PreparedStatement preparedStatement = connection.prepareStatement(CREATE);
 			preparedStatement.setString(1, machineToInsert.getModel());
 			preparedStatement.setDouble(2, machineToInsert.getInit_quantity());
@@ -53,10 +53,11 @@ public class MachinesDAO{
 			return false;
 		}
 
-	}public Machines read(int machineId) {
+	}
+
+	public Machines read(int machineId) {
 		Connection connection = ConnectionSingleton.getInstance();
 		try {
-
 
 			PreparedStatement preparedStatement = connection.prepareStatement(READ);
 			preparedStatement.setInt(1, machineId);
@@ -68,7 +69,7 @@ public class MachinesDAO{
 			model = resultSet.getString("modello");
 			init_quantity = resultSet.getDouble("init_quantity");
 			final_quantity = resultSet.getDouble("final_quantity");
-			Machines machine = new Machines(model,init_quantity, final_quantity);
+			Machines machine = new Machines(model, init_quantity, final_quantity);
 			machine.setId(resultSet.getInt("id"));
 
 			return machine;
@@ -76,7 +77,9 @@ public class MachinesDAO{
 			return null;
 		}
 
-	}public boolean update(Machines machineToUpdate) {
+	}
+
+	public boolean update(Machines machineToUpdate) {
 		Connection connection = ConnectionSingleton.getInstance();
 
 		if (machineToUpdate.getId() == 0)
@@ -89,11 +92,11 @@ public class MachinesDAO{
 					machineToUpdate.setModel(machineRead.getModel());
 				}
 
-				if (machineToUpdate.getInit_quantity()<0 ) {
+				if (machineToUpdate.getInit_quantity() < 0) {
 					machineToUpdate.setInit_quantity(machineRead.getInit_quantity());
 				}
 
-				if (machineToUpdate.getFinal_quantity()<0 ) {
+				if (machineToUpdate.getFinal_quantity() < 0) {
 					machineToUpdate.setFinal_quantity(machineRead.getFinal_quantity());
 				}
 
@@ -115,7 +118,9 @@ public class MachinesDAO{
 
 		return false;
 
-	}public boolean delete(int id) {
+	}
+
+	public boolean delete(int id) {
 		Connection connection = ConnectionSingleton.getInstance();
 		try {
 			PreparedStatement preparedStatement = connection.prepareStatement(DELETE);
@@ -129,7 +134,4 @@ public class MachinesDAO{
 		return false;
 	}
 
-
-
-	}
-
+}

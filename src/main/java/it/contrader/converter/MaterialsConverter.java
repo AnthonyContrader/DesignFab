@@ -15,7 +15,15 @@ public class MaterialsConverter {
 
 	}
 
-	public Materials toEntity(MaterialsDTO materialsDTO) {
+	public Materials toEntityInsert(MaterialsDTO materialsDTO) {
+
+		Materials materials = new Materials(materialsDTO.getMaterialName());
+		return materials;
+
+	}
+	
+	
+	public Materials toEntityUpdate(MaterialsDTO materialsDTO) {
 
 		Materials materials = new Materials(materialsDTO.getMaterialName(), materialsDTO.getid());
 		return materials;
