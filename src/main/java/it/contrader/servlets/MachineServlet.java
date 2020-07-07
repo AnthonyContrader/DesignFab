@@ -76,6 +76,7 @@ public class MachineServlet extends HttpServlet {
 			ans = service.update(dto);
 			updateList(request);
 			getServletContext().getRequestDispatcher("/machine/machineManager.jsp").forward(request, response);
+			System.out.println(model);
 			break;
 
 		case "DELETE":

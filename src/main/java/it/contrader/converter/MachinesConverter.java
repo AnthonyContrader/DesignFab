@@ -20,7 +20,7 @@ public class MachinesConverter implements Converter<Machines, MachinesDTO>{
 
 	@Override
 	public Machines toEntity(MachinesDTO dto) {
-		Machines machine = new Machines(dto.getModel(), dto.getInit_quantity(), dto.getFinal_quantity());
+		Machines machine = new Machines(dto.getId(), dto.getModel(), dto.getInit_quantity(), dto.getFinal_quantity());
 		return machine;
 	}
 
