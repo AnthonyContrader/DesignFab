@@ -14,7 +14,7 @@ public class SensorDAO implements DAO<Sensor>{
 	private final String READ = "Select * from sensor where id=?";
 	private final String UPDATE = "UPDATE sensor SET sensor_type=? where id=?";
 	private final String DELETE = "DELETE from sensor where id=?";
-
+	private final String MACHINE_SENSOR_READ = "SELECT model from machine, sensor where machine.id = sensor.id_machine";
 	public SensorDAO() {
 	}
 

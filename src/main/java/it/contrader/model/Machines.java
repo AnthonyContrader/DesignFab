@@ -13,6 +13,10 @@ public class Machines {
 	public Machines() {
 	}
 
+	public Machines(String model) {
+		this.setModel(model);
+	}
+	
 	public Machines( String model, double init_quantity, double final_quantity) {
 		this.setModel(model);
 		this.setInit_quantity(init_quantity);
