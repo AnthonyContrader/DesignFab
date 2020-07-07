@@ -15,7 +15,8 @@
 <div class="navbar">
   <a class="active" href="homeadmin.jsp">Home</a>
   <a href="UserServlet?mode=userlist">Users</a>
-  <a href="LogoutServlet" id="logout">Logout</a>
+  <a href="MachineServlet?mode=machinelist">Machines</a>
+   <a href="LogoutServlet" id="logout">Logout</a>
 </div>
 
 <div class="main">
