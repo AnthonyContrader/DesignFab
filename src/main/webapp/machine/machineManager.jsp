@@ -6,7 +6,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <link href="../css/vittoriostyle.css" rel="stylesheet">
-<title>User Manager</title>
+<title>Machine Manager</title>
 </head>
 <body>
 <%@ include file="../css/header.jsp" %>
@@ -59,7 +59,7 @@
       <label for="model">Model</label>
     </div>
     <div class="col-75">
-      <input type="text" id="model" name="Model" placeholder="inserisci modello">
+      <input type="text" id="model" name="model" placeholder="inserisci modello">
     </div>
   </div>
   <div class="row">
@@ -67,7 +67,7 @@
      <label for="init_quantity">Quantità iniziale</label>
     </div>
     <div class="col-75">
-      <input type="text" id="init_quantity" name="Quantità iniziale" placeholder="inserisci quantità iniziale"> 
+      <input type="text" id="init_quantity" name="init_quantity" placeholder="inserisci quantità iniziale"> 
     </div>
     </div>
     <div class="row">
@@ -75,7 +75,7 @@
      <label for="final_quantity">Quantità finale</label>
     </div>
     <div class="col-75">
-      <input type="text" id="final_quantity" name="Quantità finale" placeholder="inserisci quantità finale"> 
+      <input type="text" id="final_quantity" name="final_quantity" placeholder="inserisci quantità finale"> 
     </div>
   </div>
   <div class="row">		

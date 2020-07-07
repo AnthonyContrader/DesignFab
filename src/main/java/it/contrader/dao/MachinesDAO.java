@@ -8,9 +8,9 @@ import it.contrader.model.Machines;
 
 public class MachinesDAO implements DAO<Machines>{
 	private final String QUERY_ALL = "SELECT * FROM machine";
-	private final String CREATE = "INSERT INTO machine(modello, init_quantity,final_quantity) VALUES (?,?,?)";
+	private final String CREATE = "INSERT INTO machine(model, init_quantity,final_quantity) VALUES (?,?,?)";
 	private final String READ = "SELECT * FROM machine where id=?";
-	private final String UPDATE = "UPDATE machine SET modello=?, init_quantity=?, final_quantity=? WHERE id=?";
+	private final String UPDATE = "UPDATE machine SET model=?, init_quantity=?, final_quantity=? WHERE id=?";
 	private final String DELETE = "DELETE FROM machine WHERE id=?";
 
 	public MachinesDAO() {
@@ -26,7 +26,7 @@ public class MachinesDAO implements DAO<Machines>{
 			Machines machine;
 			while (resultSet.next()) {
 				int id = resultSet.getInt("id");
-				String model = resultSet.getString("modello");
+				String model = resultSet.getString("model");
 				Double init_quantity = resultSet.getDouble("init_quantity");
 				Double final_quantity = resultSet.getDouble("final_quantity");
 				machine = new Machines(model, init_quantity, final_quantity);
@@ -66,7 +66,7 @@ public class MachinesDAO implements DAO<Machines>{
 			String model;
 			double init_quantity, final_quantity;
 
-			model = resultSet.getString("modello");
+			model = resultSet.getString("model");
 			init_quantity = resultSet.getDouble("init_quantity");
 			final_quantity = resultSet.getDouble("final_quantity");
 			Machines machine = new Machines(model, init_quantity, final_quantity);
