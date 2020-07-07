@@ -42,7 +42,7 @@ public class UserServlet extends HttpServlet {
 			updateList(request);
 			getServletContext().getRequestDispatcher("/user/usermanager.jsp").forward(request, response);
 			break;
-
+			
 		case "READ":
 			id = Integer.parseInt(request.getParameter("id"));
 			dto = service.read(id);

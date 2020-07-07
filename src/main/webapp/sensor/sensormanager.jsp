@@ -1,3 +1,4 @@
+<%@page import="it.contrader.dto.SensorDTO"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1" import="java.util.List"
 	import="it.contrader.dto.UserDTO"%>
@@ -6,40 +7,37 @@
 <head>
 <meta charset="ISO-8859-1">
 <link href="../css/vittoriostyle.css" rel="stylesheet">
-<title>User Manager</title>
+<title>Sensor Manager</title>
 </head>
 <body>
 <%@ include file="../css/header.jsp" %>
 
 <div class="navbar">
   <a  href="homeadmin.jsp">Home</a>
-  <a class="active" href="UserServlet?mode=userlist">Users</a>
+  <a class="active" href="UserServlet?mode=sensorlist">Sensor</a>
   <a href="LogoutServlet" id="logout">Logout</a>
 </div>
 <div class="main">
 	<%
-		List<UserDTO> list = (List<UserDTO>) request.getAttribute("list");
+		List<SensorDTO> list = (List<SensorDTO>) request.getAttribute("list");
 	%>
 
 <br>
 
 	<table>
 		<tr>
-			<th>Username</th>
-			<th>Password</th>
-			<th>Usertype</th>
+			<th>Sensor Type</th>
+			<th>Machine Name</th>
 			<th></th>
 			<th></th>
 		</tr>
 		<%
-			for (UserDTO u : list) {
+			for (SensorDTO u : list) {
 		%>
 		<tr>
 			<td><a href=UserServlet?mode=read&id=<%=u.getId()%>>
-					<%=u.getUsername()%>
+					<%=u.getSensortype()%>
 			</a></td>
-			<td><%=u.getPassword()%></td>
-			<td><%=u.getUsertype()%></td>
 			<td><a href=UserServlet?mode=read&update=true&id=<%=u.getId()%>>Edit</a>
 			</td>
 			<td><a href=UserServlet?mode=delete&id=<%=u.getId()%>>Delete</a>
@@ -56,10 +54,10 @@
 <form id="floatright" action="UserServlet?mode=insert" method="post">
   <div class="row">
     <div class="col-25">
-      <label for="user">Username</label>
+      <label for="user">Type</label>
     </div>
     <div class="col-75">
-      <input type="text" id="user" name="username" placeholder="inserisci username">
+      <input type="text" id="type" name="sensor_type" placeholder="inserisci username">
     </div>
   </div>
   <div class="row">

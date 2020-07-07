@@ -42,4 +42,14 @@
     <servlet-name>MachineServlet</servlet-name>
     <url-pattern>/MachineServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SensorServlet</display-name>
+    <servlet-name>SensorServlet</servlet-name>
+    <servlet-class>it.contrader.servlets.SensorServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SensorServlet</servlet-name>
+    <url-pattern>/SensorServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
