@@ -1,7 +1,7 @@
 <%@page import="it.contrader.dto.SensorDTO"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1" import="java.util.List"
-	import="it.contrader.dto.UserDTO"%>
+	import="it.contrader.dto.SensorDTO"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,7 +14,7 @@
 
 <div class="navbar">
   <a  href="homeadmin.jsp">Home</a>
-  <a class="active" href="UserServlet?mode=sensorlist">Sensor</a>
+  <a class="active" href="SensorServlet?mode=sensorlist">Sensor</a>
   <a href="LogoutServlet" id="logout">Logout</a>
 </div>
 <div class="main">
@@ -27,7 +27,7 @@
 	<table>
 		<tr>
 			<th>Sensor Type</th>
-			<th>Machine Name</th>
+			<th></th>
 			<th></th>
 			<th></th>
 		</tr>
@@ -35,12 +35,12 @@
 			for (SensorDTO u : list) {
 		%>
 		<tr>
-			<td><a href=UserServlet?mode=read&id=<%=u.getId()%>>
+			<td><a href=SensorServlet?mode=read&id=<%=u.getId()%>>
 					<%=u.getSensortype()%>
 			</a></td>
-			<td><a href=UserServlet?mode=read&update=true&id=<%=u.getId()%>>Edit</a>
+			<td><a href=SensorServlet?mode=read&update=true&id=<%=u.getId()%>>Edit</a>
 			</td>
-			<td><a href=UserServlet?mode=delete&id=<%=u.getId()%>>Delete</a>
+			<td><a href=SensorServlet?mode=delete&id=<%=u.getId()%>>Delete</a>
 			</td>
 
 		</tr>
@@ -51,35 +51,15 @@
 
 
 
-<form id="floatright" action="UserServlet?mode=insert" method="post">
+<form id="floatright" action="SensorServlet?mode=insert" method="post">
   <div class="row">
     <div class="col-25">
-      <label for="user">Type</label>
+      <label for="sensor_type">Sensor Type</label>
     </div>
     <div class="col-75">
-      <input type="text" id="type" name="sensor_type" placeholder="inserisci username">
+      <input type="text" id="sensor_type" name="sensor_type" placeholder="inserisci il tipo di Sensore">
     </div>
-  </div>
-  <div class="row">
-    <div class="col-25">
-     <label for="pass">Password</label>
-    </div>
-    <div class="col-75">
-      <input type="text" id="pass" name="password" placeholder="inserisci password"> 
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-25">
-      <label for="type">Usertype</label>
-    </div>
-   		 <div class="col-75">
- 			<select id="type" name="usertype">
-  				<option value="ADMIN">ADMIN</option>
-  				<option value="USER">USER</option>
- 
-			</select>
-    	</div>
-  </div>
+  </div> 
       <button type="submit" >Insert</button>
 </form>
 

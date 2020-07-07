@@ -9,10 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import it.contrader.dto.SensorDTO;
-import it.contrader.dto.UserDTO;
 import it.contrader.service.SensorService;
 import it.contrader.service.Service;
-import it.contrader.service.UserService;
 
 /**
  * Servlet implementation class SensorServlet
@@ -25,8 +23,8 @@ public class SensorServlet extends HttpServlet {
 	 */
 
 	public void updateList(HttpServletRequest request) {
-		Service<UserDTO> service = new UserService();
-		List<UserDTO> listDTO = service.getAll();
+		Service<SensorDTO> service = new SensorService();
+		List<SensorDTO> listDTO = service.getAll();
 		request.setAttribute("list", listDTO);
 	}
 
@@ -42,10 +40,12 @@ public class SensorServlet extends HttpServlet {
 		int id;
 		boolean ans;
 		switch (mode.toUpperCase()) {
+		
 		case "SENSORLIST":
 			updateList(req);
 			getServletContext().getRequestDispatcher("/sensor/sensormanager.jsp").forward(req, resp);
 			break;
+			
 		case "READ":
 			id = Integer.parseInt(req.getParameter("id"));
 			sensorDTO = sensorService.read(id);
@@ -58,20 +58,20 @@ public class SensorServlet extends HttpServlet {
 
 		case "INSERT":
 			String sensor_type = req.getParameter("sensor_type").toString();
-			int id_machine = Integer.parseInt(req.getParameter("id_machine").toString());
-			sensorDTO = new SensorDTO(sensor_type, id_machine);
+			sensorDTO = new SensorDTO(sensor_type);
 			ans = sensorService.insert(sensorDTO);
 			updateList(req);
 			getServletContext().getRequestDispatcher("/sensor/sensormanager.jsp").forward(req, resp);
 			break;
+			
 		case "UPDATE":
 			 sensor_type = req.getParameter("sensor_type");
-			 id_machine = Integer.parseInt(req.getParameter("id_machine").toString());
-			 sensorDTO = new SensorDTO(sensor_type, id_machine);
+			 sensorDTO = new SensorDTO(sensor_type);
 			 ans = sensorService.update(sensorDTO);
 			 updateList(req);
 			 getServletContext().getRequestDispatcher("/sensor/sensormanager.jsp").forward(req, resp);
 			 break;
+			 
 		case "DELETE":
 			id = Integer.parseInt(req.getParameter("id"));
 			ans = sensorService.delete(id);
@@ -83,24 +83,5 @@ public class SensorServlet extends HttpServlet {
 			
 	}
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
 
 }
