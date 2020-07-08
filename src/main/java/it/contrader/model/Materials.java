@@ -6,14 +6,14 @@ public class Materials {
 	
 	private String material_name;
 	
-	private double quantity;
+	private double quantity_materials;
 	
 	public double getQuantity() {
-		return quantity;
+		return quantity_materials;
 	}
 
-	public void setQuantity(double quantity) {
-		this.quantity = quantity;
+	public void setQuantity(double quantity_materials) {
+		this.quantity_materials = quantity_materials;
 	}
 
 	public Materials() {
@@ -23,9 +23,9 @@ public class Materials {
 	public Materials (String name) {
 		this.material_name = name;
 	}
-	public Materials (String name, double quantity) {
+	public Materials (String name, double quantity_materials) {
 		this.material_name = name;
-		this.quantity = quantity;
+		this.quantity_materials = quantity_materials;
 	}
 	
 	public Materials (String name, int id) {
@@ -33,9 +33,9 @@ public class Materials {
 		this.id = id;
 	}
 	
-	public Materials (String name, double quantity, int id) {
+	public Materials (String name, double quantity_materials, int id) {
 		this.material_name = name;
-		this.quantity = quantity;
+		this.quantity_materials = quantity_materials;
 		this.id = id;
 	}
 
@@ -57,7 +57,7 @@ public class Materials {
 
 	@Override
 	public String toString() {
-		return  id + "\t\t"  + material_name + "\t" + quantity;
+		return  id + "\t\t"  + material_name + "\t" + quantity_materials;
 	}
 	
 	@Override
@@ -72,7 +72,7 @@ public class Materials {
 		Materials other = (Materials) obj;
 		if (id != other.id)
 			return false;
-		if (quantity != other.quantity)
+		if (quantity_materials != other.quantity_materials)
 			return false;
 		if (material_name == null) 
 			if (other.material_name != null)

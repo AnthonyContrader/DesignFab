@@ -12,7 +12,7 @@ img:hover {
 }
 
 @keyframes shake {
-  0% { transform: translate(1px, 1px) rotate(0deg); }
+  0%  { transform: translate(1px, 1px) rotate(0deg); }
   10% { transform: translate(-1px, -2px) rotate(-1deg); }
   20% { transform: translate(-3px, 0px) rotate(1deg); }
   30% { transform: translate(3px, 2px) rotate(0deg); }
@@ -29,9 +29,9 @@ img:hover {
 <body>
 
 <p>TEST:</p>
-<img src="plastic.png" alt="Plastic" width="100" height="200">
-<img src="Paper.png" alt="Paper" width="100" height="200">
-<img src="Glass.png" alt="Paper" width="100" height="200">
+<img src="Immagini/plastic.png" alt="Plastic" width="100" height="200">
+<img src="Immagini/Paper.png" alt="Paper" width="100" height="200">
+<img src="Immagini/Glass.png" alt="Paper" width="100" height="200">
 
 </body>
 </html>

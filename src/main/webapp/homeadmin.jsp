@@ -17,6 +17,7 @@
   <a href="UserServlet?mode=userlist">Users</a>
   <a href="MachineServlet?mode=machinelist">Machines</a>
    <a href="SensorServlet?mode=sensorlist">Sensors</a>
+   <a href="MaterialsServlet?mode=materialslist">Materials</a>
    <a href="LogoutServlet" id="logout">Logout</a>
 </div>
 

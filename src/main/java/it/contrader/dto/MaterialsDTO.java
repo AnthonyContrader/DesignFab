@@ -3,7 +3,7 @@ package it.contrader.dto;
 public class MaterialsDTO {
 	private int id;
 	private String material_name;
-	private double quantity;
+	private double quantity_materials;
 	
 	public MaterialsDTO() {
 	}
@@ -11,8 +11,8 @@ public class MaterialsDTO {
 	public MaterialsDTO(String material_name) {
 		this.material_name=material_name;
 	}
-	public MaterialsDTO (String material_name,double quantity) {
-		this.quantity=quantity;
+	public MaterialsDTO (String material_name,double quantity_materials) {
+		this.quantity_materials=quantity_materials;
 		this.material_name=material_name;
 	}
 	
@@ -21,8 +21,8 @@ public class MaterialsDTO {
 		this.material_name=material_name;
 	}
 
-	public MaterialsDTO (String material_name, double quantity, int id) {
-		this.quantity=quantity;
+	public MaterialsDTO (String material_name, double quantity_materials, int id) {
+		this.quantity_materials=quantity_materials;
 		this.id=id;
 		this.material_name=material_name;
 	}
@@ -31,11 +31,11 @@ public class MaterialsDTO {
 		return id;
 	}
 	public double getQuantity() {
-		return quantity;
+		return quantity_materials;
 	}
 
-	public void setQuantity(double quantity) {
-		this.quantity = quantity;
+	public void setQuantity(double quantity_materials) {
+		this.quantity_materials = quantity_materials;
 	}
 
 	public void setId(int id) {
@@ -50,7 +50,7 @@ public class MaterialsDTO {
 	
 	@Override
 	public String toString() {
-		return  id + "\t"  + material_name + "\t" + quantity;}
+		return  id + "\t"  + material_name + "\t" + quantity_materials;}
 	
 
 }

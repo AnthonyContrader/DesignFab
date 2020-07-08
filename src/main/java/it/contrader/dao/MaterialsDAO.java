@@ -6,13 +6,13 @@ import java.util.List;
 import it.contrader.utils.ConnectionSingleton;
 import it.contrader.model.Materials;
 
-public class MaterialsDAO implements DAO<Materials>{
+public class MaterialsDAO implements DAO<Materials> {
 
-	private final String QUERY_ALL = "Select * from materials";
+	private final String QUERY_ALL = "SELECT * FROM materials";
 	private final String CREATE = "INSERT INTO materials(material_name, quantity_materials) VALUES (?, ?)";
-	private final String READ = "Select * from materials where id= ?";
-	private final String UPDATE = "UPDATE materials SET material_name= ?, quantity_materials = ? where id= ?";
-	private final String DELETE = "DELETE from materials where id= ?";
+	private final String READ = "Select * from materials WHERE id= ?";
+	private final String UPDATE = "UPDATE materials SET material_name=?, quantity_materials=? WHERE id= ?";
+	private final String DELETE = "DELETE FROM materials WHERE id= ?";
 
 	public MaterialsDAO() {
 
@@ -75,18 +75,19 @@ public class MaterialsDAO implements DAO<Materials>{
 
 	public boolean update(Materials materialToUpdate) {
 		Connection connection = ConnectionSingleton.getInstance();
-		
+
 		if (materialToUpdate.getId() == 0)
 			return false;
 		Materials materialRead = read(materialToUpdate.getId());
-	
-		if ((materialRead.getId()==materialToUpdate.getId() 
-				&& !materialRead.equals(materialToUpdate.getMaterial_name()) 
-				&& materialRead.getQuantity() == materialToUpdate.getQuantity())) {
+		if (!materialRead.equals(materialToUpdate)) {
 			try {
 				if (materialToUpdate.getMaterial_name() == null || materialToUpdate.getMaterial_name().equals("")) {
 					materialToUpdate.setMaterial_name(materialRead.getMaterial_name());
 				}
+				if (materialToUpdate.getQuantity() < 0) {
+					materialToUpdate.setQuantity(materialRead.getQuantity());
+				}
+		
 				PreparedStatement preparedStatement = connection.prepareStatement(UPDATE);
 				preparedStatement.setString(1, materialToUpdate.getMaterial_name());
 				preparedStatement.setDouble(2, materialToUpdate.getQuantity());

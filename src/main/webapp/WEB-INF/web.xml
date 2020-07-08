@@ -52,4 +52,14 @@
     <servlet-name>SensorServlet</servlet-name>
     <url-pattern>/SensorServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>MaterialsServlet</display-name>
+    <servlet-name>MaterialsServlet</servlet-name>
+    <servlet-class>it.contrader.servlets.MaterialsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MaterialsServlet</servlet-name>
+    <url-pattern>/MaterialsServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
