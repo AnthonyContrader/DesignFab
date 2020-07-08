@@ -28,10 +28,17 @@ img:hover {
 </head>
 <body>
 
-<p>TEST:</p>
-<img src="Immagini/plastic.png" alt="Plastic" width="100" height="200">
-<img src="Immagini/Paper.png" alt="Paper" width="100" height="200">
-<img src="Immagini/Glass.png" alt="Paper" width="100" height="200">
+<form class="work" action="WorkServlet" method="post">
+  <label for="fname">TEST:</label>
+  <input type="text" id="fname" name="fname">
+  <button type="submit" value="work" name="button" style = background-color:Tomato;>Avvio</button>
+</form>
 
+<form>
+<p>TEST:</p>
+	<img src="Immagini/plastic.png" alt="Plastic" width="100" height="200">
+	<img src="Immagini/Paper.png" alt="Paper" width="100" height="200">
+	<img src="Immagini/Glass.png" alt="Paper" width="100" height="200">
+</form>
 </body>
 </html>

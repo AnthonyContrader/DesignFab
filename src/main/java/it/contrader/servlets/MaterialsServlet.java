@@ -11,7 +11,6 @@ import it.contrader.dto.MaterialsDTO;
 import it.contrader.service.MaterialsService;
 import it.contrader.service.Service;
 
-
 public class MaterialsServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -31,7 +30,7 @@ public class MaterialsServlet extends HttpServlet {
 		MaterialsDTO dto;
 		int id;
 		boolean ans;
-
+		try {
 		switch (mode.toUpperCase()) {
 
 		case "MATERIALSLIST":
@@ -82,6 +81,11 @@ public class MaterialsServlet extends HttpServlet {
 			updateList(request);
 			getServletContext().getRequestDispatcher("/materials/materialManager.jsp").forward(request, response);
 			break;
+		}
+		}catch(Exception e) {
+			e.printStackTrace();			
+			request.setAttribute("ERRORE", e.getLocalizedMessage());
+			getServletContext().getRequestDispatcher("/error.jsp").forward(request, response);
 		}
 	}
 

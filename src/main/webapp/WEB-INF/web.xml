@@ -3,6 +3,14 @@
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
+  <error-page>
+    <error-code>404</error-code>
+    <location>/error.jsp</location>
+  </error-page>
+  <error-page>
+    <exception-type>java.lang.Throwable</exception-type>
+    <location>/error.jsp</location>
+  </error-page>
   <servlet>
     <servlet-name>LoginServlet</servlet-name>
     <servlet-class>it.contrader.servlets.LoginServlet</servlet-class>
@@ -61,5 +69,15 @@
   <servlet-mapping>
     <servlet-name>MaterialsServlet</servlet-name>
     <url-pattern>/MaterialsServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>WorkServlet</display-name>
+    <servlet-name>WorkServlet</servlet-name>
+    <servlet-class>it.contrader.servlets.WorkServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>WorkServlet</servlet-name>
+    <url-pattern>/WorkServlet</url-pattern>
   </servlet-mapping>
 </web-app>
