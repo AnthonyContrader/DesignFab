@@ -11,6 +11,16 @@ public class MaterialsDTO {
 	public MaterialsDTO(String material_name) {
 		this.material_name=material_name;
 	}
+	
+	public MaterialsDTO (double quantity_materials) {
+		this.quantity_materials=quantity_materials;
+	}
+	
+	public MaterialsDTO (double quantity_materials, int id) {
+		this.quantity_materials=quantity_materials;
+		this.id=id;
+	}
+	
 	public MaterialsDTO (String material_name,double quantity_materials) {
 		this.quantity_materials=quantity_materials;
 		this.material_name=material_name;

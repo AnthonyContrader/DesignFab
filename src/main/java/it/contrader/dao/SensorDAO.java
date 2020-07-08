@@ -126,4 +126,12 @@ public class SensorDAO implements DAO<Sensor>{
 
 	}
 
+
+
+	@Override
+	public boolean updateQuantity(Sensor dto) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }

@@ -11,6 +11,7 @@ public class MachinesDAO implements DAO<Machines>{
 	private final String CREATE = "INSERT INTO machine(model, init_quantity,final_quantity) VALUES (?,?,?)";
 	private final String READ = "SELECT * FROM machine where id=?";
 	private final String UPDATE = "UPDATE machine SET model=?, init_quantity=?, final_quantity=? WHERE id=?";
+	private final String UPDATE_QUANTITY = "UPDATE machine SET init_quantity=?, final_quantity=? WHERE id=?";
 	private final String DELETE = "DELETE FROM machine WHERE id=?";
 
 	public MachinesDAO() {
@@ -117,6 +118,45 @@ public class MachinesDAO implements DAO<Machines>{
 		}
 
 		return false;
+
+	}
+	public boolean updateQuantity(Machines machineToUpdate) {
+		Connection connection = ConnectionSingleton.getInstance();
+
+		if (machineToUpdate.getId() == 0)
+			return false;
+
+		Machines machineRead = read(machineToUpdate.getId());
+		//if (!machineRead.equals(machineToUpdate)) {
+			try {
+			//	if (machineToUpdate.getModel() == null || machineToUpdate.getModel().equals("")) {
+			//		machineToUpdate.setModel(machineRead.getModel());
+			//	}
+
+				if (machineToUpdate.getInit_quantity() < 0) {
+					machineToUpdate.setInit_quantity(machineRead.getInit_quantity());
+				}
+
+				if (machineToUpdate.getFinal_quantity() < 0) {
+					machineToUpdate.setFinal_quantity(machineRead.getFinal_quantity());
+				}
+
+				PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement(UPDATE_QUANTITY);
+				preparedStatement.setDouble(1, machineToUpdate.getInit_quantity());
+				preparedStatement.setDouble(2, machineToUpdate.getFinal_quantity());
+				preparedStatement.setInt(3, machineToUpdate.getId());
+				int a = preparedStatement.executeUpdate();
+				if (a > 0)
+					return true;
+				else
+					return false;
+
+			} catch (SQLException e) {
+				return false;
+			}
+		//}
+
+	//	return false;
 
 	}
 

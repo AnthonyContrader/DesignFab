@@ -12,6 +12,17 @@ public class MachinesDTO{
 		this.final_quantity = final_quantity;
 	}
 
+	public MachinesDTO (double init_quantity, double final_quantity) {
+		this.init_quantity = init_quantity;
+		this.final_quantity = final_quantity;
+	}
+	
+	public MachinesDTO (double init_quantity, double final_quantity, int id) {
+		this.init_quantity = init_quantity;
+		this.final_quantity = final_quantity;
+		this.id = id;
+	}
+	
 	public MachinesDTO (int id, String model, double init_quantity, double final_quantity) {
 		this.id = id;
 		this.model = model;

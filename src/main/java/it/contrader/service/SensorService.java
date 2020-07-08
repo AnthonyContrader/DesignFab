@@ -14,6 +14,6 @@ public class SensorService extends AbstractService<Sensor, SensorDTO>{
 		this.dao = new SensorDAO();
 		this.converter = new SensorConverter();
 	}
-	
+
 	
 }

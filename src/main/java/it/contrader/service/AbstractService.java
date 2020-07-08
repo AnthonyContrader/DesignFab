@@ -49,5 +49,10 @@ public abstract class AbstractService<Entity,DTO> implements Service<DTO> {
 		// Questo mtodo chiama direttamente il DAO
 		return dao.delete(id);
 	}
+	@Override
+	public boolean updateQuantity(DTO dto) {
+		
+		return dao.updateQuantity(converter.toEntity(dto));
+	}
 
 }

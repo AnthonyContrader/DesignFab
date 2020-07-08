@@ -12,6 +12,7 @@ public class MaterialsDAO implements DAO<Materials> {
 	private final String CREATE = "INSERT INTO materials(material_name, quantity_materials) VALUES (?, ?)";
 	private final String READ = "Select * from materials WHERE id= ?";
 	private final String UPDATE = "UPDATE materials SET material_name=?, quantity_materials=? WHERE id= ?";
+	private final String UPDATE_QUANTITY = "UPDATE materials SET quantity_materials=? WHERE id= ?";
 	private final String DELETE = "DELETE FROM materials WHERE id= ?";
 
 	public MaterialsDAO() {
@@ -105,6 +106,37 @@ public class MaterialsDAO implements DAO<Materials> {
 		return false;
 	}
 
+	public boolean updateQuantity(Materials materialToUpdate) {
+		Connection connection = ConnectionSingleton.getInstance();
+
+		if (materialToUpdate.getId() == 0)
+			return false;
+		Materials materialRead = read(materialToUpdate.getId());
+		//if (!materialRead.equals(materialToUpdate)) {
+			try {
+				//if (materialToUpdate.getMaterial_name() == null || materialToUpdate.getMaterial_name().equals("")) {
+				//	materialToUpdate.setMaterial_name(materialRead.getMaterial_name());
+				//}
+				if (materialToUpdate.getQuantity() < 0) {
+					materialToUpdate.setQuantity(materialRead.getQuantity());
+				}
+		
+				PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_QUANTITY);
+				preparedStatement.setDouble(1, materialToUpdate.getQuantity());
+				preparedStatement.setInt(2, materialToUpdate.getId());
+				int check = preparedStatement.executeUpdate();
+				if (check > 0)
+					return true;
+				else
+					return false;
+			} catch (SQLException e) {
+				e.printStackTrace();
+				return false;
+			}
+		//}
+		//return false;
+	}
+	
 	public boolean delete(int id) {
 		Connection connection = ConnectionSingleton.getInstance();
 		try {

@@ -11,4 +11,5 @@ public class MachineService extends AbstractService<Machines, MachinesDTO>{
 		this.dao = new MachinesDAO();
 		this.converter = new MachinesConverter();
 	}
+
 }

@@ -2,6 +2,8 @@ package it.contrader.service;
 
 import java.util.List;
 
+import it.contrader.dto.MaterialsDTO;
+
 /**
  * 
  * @author Vittorio
@@ -21,5 +23,7 @@ public interface Service<DTO> {
 	public boolean update(DTO dto);
 	
 	public boolean delete(int id);
+
+	public boolean updateQuantity(DTO dto);
 
 }

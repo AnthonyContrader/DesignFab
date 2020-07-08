@@ -12,5 +12,6 @@ public class MaterialsService extends AbstractService<Materials, MaterialsDTO>  
 		this.dao = new MaterialsDAO();
 		this.converter = new MaterialsConverter();
 	}
+
 	
 }

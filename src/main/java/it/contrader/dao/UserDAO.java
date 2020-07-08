@@ -145,4 +145,10 @@ public class UserDAO implements DAO<User> {
 	}
 
 
+	public boolean updateQuantity(User dto) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+
 }
