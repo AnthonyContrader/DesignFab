@@ -44,7 +44,7 @@ public class WorkServlet extends HttpServlet {
     	
  
 	 double init_quantity_machine = Double.parseDouble(request.getParameter("quantity"));
-	 double final_quantity_machine = (init_quantity_machine *70) /100;
+	 double final_quantity_machine = (init_quantity_machine *70) /100 ;
 	 double quantity = final_quantity_machine /3;
 	 
 	 id_machine = Integer.parseInt(request.getParameter("id_machine"));
@@ -53,7 +53,9 @@ public class WorkServlet extends HttpServlet {
 	 dtoMachine = new MachinesDTO( init_quantity_machine,final_quantity_machine, id_machine);
 	 ansMaterials = serviceMaterials.updateQuantity(dtoMaterials);
 	 ansMachine = serviceMachine.updateQuantity(dtoMachine);
-	 getServletContext().getRequestDispatcher("/homeWork.jsp").forward(request, response);
+	 request.setAttribute("dtoMaterials", dtoMaterials);
+	 request.setAttribute("dtoMachine", dtoMachine);
+	 getServletContext().getRequestDispatcher("/homeResult.jsp").forward(request, response);
 
     
     
