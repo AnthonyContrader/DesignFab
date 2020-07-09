@@ -80,4 +80,14 @@
     <servlet-name>WorkServlet</servlet-name>
     <url-pattern>/WorkServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>MachineSernsor</display-name>
+    <servlet-name>MachineSernsor</servlet-name>
+    <servlet-class>it.contrader.servlets.MachineSernsor</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MachineSernsor</servlet-name>
+    <url-pattern>/MachineSernsor</url-pattern>
+  </servlet-mapping>
 </web-app>

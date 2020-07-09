@@ -28,4 +28,10 @@ public class MaterialsConverter implements Converter<Materials, MaterialsDTO> {
 		return userDTOList;
 	}
 
+	@Override
+	public MaterialsDTO toDTOModel(Materials entity, String modelloMacchina) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

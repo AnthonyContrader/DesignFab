@@ -18,4 +18,6 @@ public interface Converter<Entity, DTO> {
 	public Entity toEntity(DTO dto);
 	
 	public List<DTO> toDTOList(List<Entity> entityList);
+
+	public DTO toDTOModel(Entity entity,String modelloMacchina);
 }

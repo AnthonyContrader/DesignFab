@@ -52,6 +52,12 @@ public class UserConverter  implements Converter<User, UserDTO> {
 		return userDTOList;
 	}
 
+	@Override
+	public UserDTO toDTOModel(User entity, String modelloMacchina) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	
 	
 }

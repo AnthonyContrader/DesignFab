@@ -1,6 +1,7 @@
 package it.contrader.servlets;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -25,7 +26,14 @@ public class SensorServlet extends HttpServlet {
 	public void updateList(HttpServletRequest request) {
 		Service<SensorDTO> service = new SensorService();
 		List<SensorDTO> listDTO = service.getAll();
-		request.setAttribute("list", listDTO);
+		
+		List<SensorDTO> listFinaleDTO= new ArrayList<SensorDTO>();
+		for (SensorDTO sensorDTO : listDTO) {
+			SensorDTO i=((SensorService) service).getModelloMacchina(sensorDTO.getId_machine());
+			listFinaleDTO.add(i);
+			
+		}
+		request.setAttribute("list", listFinaleDTO);
 	}
 
 	public SensorServlet() {
@@ -58,7 +66,8 @@ public class SensorServlet extends HttpServlet {
 
 		case "INSERT":
 			String sensor_type = req.getParameter("sensor_type").toString();
-			sensorDTO = new SensorDTO(sensor_type);
+			int id_machine = Integer.parseInt(req.getParameter("id_machine"));
+			sensorDTO = new SensorDTO(sensor_type, id_machine);
 			ans = sensorService.insert(sensorDTO);
 			updateList(req);
 			getServletContext().getRequestDispatcher("/sensor/sensormanager.jsp").forward(req, resp);

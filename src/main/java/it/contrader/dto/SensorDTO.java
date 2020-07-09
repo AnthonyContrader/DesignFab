@@ -4,6 +4,9 @@ public class SensorDTO{
 	private int id;
 	private String sensortype;
 	private int id_machine;
+	private String modello_macchina;
+	
+	
 	
 	public int getId_machine() {
 		return id_machine;
@@ -15,6 +18,11 @@ public class SensorDTO{
 
 	public SensorDTO(){
 		
+	}
+	
+	public SensorDTO (String sensortype, String modello_macchina ) {
+		this.modello_macchina=modello_macchina;
+		this.sensortype = sensortype;
 	}
 	
 	public SensorDTO (String sensortype) {
@@ -55,6 +63,14 @@ public class SensorDTO{
 	@Override
 	public String toString() {
 		return  id + "\t"  + sensortype + "\t" + id_machine;
+	}
+
+	public String getModello_macchina() {
+		return modello_macchina;
+	}
+
+	public void setModello_macchina(String modello_macchina) {
+		this.modello_macchina = modello_macchina;
 	}
 	
 }

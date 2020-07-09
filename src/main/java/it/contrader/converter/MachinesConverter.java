@@ -34,5 +34,11 @@ public class MachinesConverter implements Converter<Machines, MachinesDTO>{
 		}
 		return machineDTOList;
 	}
+
+	@Override
+	public MachinesDTO toDTOModel(Machines entity, String modelloMacchina) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 }

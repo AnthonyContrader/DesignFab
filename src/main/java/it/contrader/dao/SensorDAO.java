@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import it.contrader.utils.ConnectionSingleton;
+import it.contrader.dto.SensorDTO;
 import it.contrader.model.Sensor;
 
 public class SensorDAO implements DAO<Sensor>{
@@ -14,11 +15,31 @@ public class SensorDAO implements DAO<Sensor>{
 	private final String READ = "Select * from sensor where id=?";
 	private final String UPDATE = "UPDATE sensor SET sensor_type=? where id=?";
 	private final String DELETE = "DELETE from sensor where id=?";
-	private final String MACHINE_SENSOR_READ = "SELECT model from machine, sensor where machine.id = sensor.id_machine";
+	private final String MACHINE_SENSOR_READ = "SELECT model from machine, sensor where machine.id = ?";
 	public SensorDAO() {
 	}
+   
+	public String getModelloMacchina(int id_sensor) {
+		Connection connection = ConnectionSingleton.getInstance();
+		String model="";
+		try {
+			PreparedStatement preparedStatement = connection.prepareStatement(MACHINE_SENSOR_READ);
+			preparedStatement.setInt(1, id_sensor);
+			ResultSet resultSet = preparedStatement.executeQuery();
+			resultSet.next();
+			model= resultSet.getString("model");
+		}
+		
+		
+			catch (SQLException e) {
+				e.printStackTrace();
+			}
 
-
+			
+		
+		return model;
+	}
+  
 
 	public List<Sensor> getAll() {
 
@@ -32,6 +53,7 @@ public class SensorDAO implements DAO<Sensor>{
 				int id = resultSet.getInt("id");
 				int id_machine = resultSet.getInt("id_machine");
 				String sensor_type = resultSet.getString("sensor_type");
+						
 				sensor = new Sensor(sensor_type, id_machine);
 				sensor.setId(id);
 				sensorList.add(sensor);

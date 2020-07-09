@@ -14,6 +14,11 @@ public class SensorService extends AbstractService<Sensor, SensorDTO>{
 		this.dao = new SensorDAO();
 		this.converter = new SensorConverter();
 	}
-
+ public SensorDTO getModelloMacchina(int id) {
+	 
+	 
+	 return converter.toDTOModel(dao.read(id), ((SensorDAO) dao).getModelloMacchina(id));
+	 
+ }
 	
 }
