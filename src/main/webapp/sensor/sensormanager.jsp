@@ -38,7 +38,7 @@
 			<td><a href=SensorServlet?mode=read&id=<%=u.getId()%>>
 					<%=u.getSensortype()%>
 			</a></td>
-			<td><a href=SensorServlet?mode=read&update=true&id=<%=u.getId()%>>Edit</a>
+			<td><a href=SensorServlet?mode=read&update=true&id=<%=u.getId()%>>Edit <%=u.getId()%></a>
 			</td>
 			<td><a href=SensorServlet?mode=delete&id=<%=u.getId()%>>Delete</a>
 			</td>
@@ -55,9 +55,13 @@
   <div class="row">
     <div class="col-25">
       <label for="sensor_type">Sensor Type</label>
+      <label for="id_machine">ID Machine</label>
     </div>
     <div class="col-75">
       <input type="text" id="sensor_type" name="sensor_type" placeholder="inserisci il tipo di Sensore">
+    </div>
+    <div class="col-75">
+      <input type="text" id="id_machine" name="id_machine" placeholder="inserisci l'id della macchina">
     </div>
   </div> 
       <button type="submit" >Insert</button>
