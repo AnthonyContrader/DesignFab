@@ -3,6 +3,7 @@ package it.contrader.servlets;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Random;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -41,10 +42,11 @@ public class WorkServlet extends HttpServlet {
 		int id_materials;
 		boolean ansMaterials;
 		boolean ansMachine;
-    	
+		Random random = new Random();
+		int randomInteger = random.nextInt(96);
  
 	 double init_quantity_machine = Double.parseDouble(request.getParameter("quantity"));
-	 double final_quantity_machine = (init_quantity_machine *70) /100 ;
+	 double final_quantity_machine = (init_quantity_machine * randomInteger) /100 ;
 	 double quantity = final_quantity_machine /3;
 	 
 	 id_machine = Integer.parseInt(request.getParameter("id_machine"));

@@ -24,9 +24,13 @@
   <div class="row">
     <div class="col-25">
       <label for="sensor_type">Sensor Type</label>
+       <label for="id_machine">Id Machine</label>
     </div>
     <div class="col-75">
       <input type="text" id="sensor_type" name="sensor_type" value=<%=u.getSensortype()%>>
+    </div>
+    <div class="col-75">
+      <input type="text" id="id_machine" name="id_machine" value=<%=u.getId_machine()%>>
     </div>
   </div>
 
