@@ -68,7 +68,7 @@ public class MaterialsDAO implements DAO<Materials> {
 			String material_name = resultSet.getString("material_name");
 			double quantity_materials = Double.parseDouble(resultSet.getString("quantity_materials"));			
 			Materials material = new Materials(material_name, quantity_materials);
-			material.setId(resultSet.getInt(id));
+			material.setId(resultSet.getInt("id"));
 			return material;
 		} catch (SQLException e) {
 			// e.printStackTrace();

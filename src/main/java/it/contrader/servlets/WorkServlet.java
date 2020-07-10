@@ -42,16 +42,28 @@ public class WorkServlet extends HttpServlet {
 		model = request.getParameter("model_machine");
 		init_quantity_machine = Double.parseDouble(request.getParameter("quantity"));
 
-		double final_quantity_machine = (init_quantity_machine * randomInteger) / 100;
-		double quantity = final_quantity_machine / 3;
-
+		int final_quantity_machine = (int) ((init_quantity_machine * randomInteger) / 100);
+		System.out.println("Quantità finale prima del while: " + final_quantity_machine);
 		dtoMachine = new MachinesDTO(model, init_quantity_machine, final_quantity_machine);
 
 		List<MaterialsDTO> listDB = serviceMaterials.getAll();
 
+//		double quantity = final_quantity_machine / listDB.size();
+
+		double quantity = 0; // = Math.random() * 0.0 + final_quantity_machine;
+		int i = 0;
+		while (final_quantity_machine > 0 && i < listDB.size() - 1) {
+			System.out.println("1 final quantity: " + final_quantity_machine + "  quantity: " + quantity);
+			quantity = (Math.random() * (final_quantity_machine - 0.0) + 0.0);
+			final_quantity_machine -= quantity;
+			System.out.println("2 final quantity: " + final_quantity_machine + "  quantity: " + quantity);
+			listDTO = ((MaterialsService) serviceMaterials).updateAll(listDB, quantity);
+			i++;
+		}
+
 		ansMachine = serviceMachine.updateQuantity(dtoMachine);
 
-		listDTO = ((MaterialsService) serviceMaterials).updateAll(listDB, quantity);
+	//	listDTO = ((MaterialsService) serviceMaterials).updateAll(listDB, quantity);
 
 		request.setAttribute("dtoMachine", dtoMachine);
 		request.setAttribute("list", listDTO);
