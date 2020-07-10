@@ -26,8 +26,8 @@
    <label for="ID_macchine">Inserisci ID macchina:</label>
   <input type="number" id="ID_macchine" name="id_machine">
     <br>
-   <label for="ID_materiali">Inserisci ID materiale:</label>
-   <input type="number" id="ID_materiali" name="id_materials">
+   <label for="Nome_materiali">Inserisci materiale:</label>
+   <input type="text" id="Nome_materiali" name="material_name">
   <button type="submit" value="work" name="button" style = background-color:Tomato;>Avvio</button>
 </form>
 

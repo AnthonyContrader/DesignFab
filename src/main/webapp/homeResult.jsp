@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1" import="it.contrader.dto.MaterialsDTO" import="it.contrader.dto.MachinesDTO"%>
+    pageEncoding="ISO-8859-1" import="it.contrader.dto.MaterialsDTO" import="it.contrader.dto.MachinesDTO" import="java.util.List" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,22 +32,35 @@ img:hover {
 <%@include file="css/header.jsp"%>
 
 
-<%MaterialsDTO material = (MaterialsDTO) request.getAttribute("dtoMaterials"); %>
-<%MachinesDTO machines = (MachinesDTO) request.getAttribute("dtoMachine"); %>
+<%-- <% MaterialsDTO material = (MaterialsDTO) request.getAttribute("dtoMaterials"); %>--%>
+<% MachinesDTO machines = (MachinesDTO) request.getAttribute("dtoMachine"); %> 
+<% List<MaterialsDTO> list = (List<MaterialsDTO>) request.getAttribute("list"); %>
 
-<%= machines.getFinal_quantity() %>
+	<%= machines.getFinal_quantity() %>
 
-<br>
+
+
+
+
+
 <form>
-<p>TEST:</p>
-	<img src="Immagini/plastic.png" alt="Plastic" width="100" height="200">
-	<label><%= material.getQuantity() %></label>
+<p>TEST NUMERO 2:</p>
+
+		<%
+			for (MaterialsDTO u : list) {
+		%>
+		<% if (u.getMaterialName() != null) { %>
+		
+	<label><%=u.getMaterialName()%></label>
+	<!-- <img src="Immagini/plastic.png" alt="Plastic" width="100" height="200"> -->
+	<label><%= u.getQuantity() %></label>
 	<br>
-	<img src="Immagini/Paper.png" alt="Paper" width="100" height="200">
-	<label><%= material.getQuantity() %></label>
-	<br>
-	<img src="Immagini/Glass.png" alt="Glass" width="100" height="200">
-	<label><%= material.getQuantity() %></label>
+		<%
+			}
+		%>
+			<%
+				}
+			%>
 </form>
 
 

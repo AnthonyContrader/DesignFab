@@ -26,22 +26,20 @@ public class WorkServlet extends HttpServlet {
        
     }
     
-	public void updateList(HttpServletRequest request) {
-		Service<MaterialsDTO> service = new MaterialsService();
-		List<MaterialsDTO> listDTO = service.getAll();
-		request.setAttribute("list", listDTO);
-	}
-	
+
     @Override
 	public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	Service<MaterialsDTO> serviceMaterials = new MaterialsService();
     	Service<MachinesDTO> serviceMachine = new MachineService();
+    	List<MaterialsDTO> listDTO = serviceMaterials.getAll();
+    	
 		MaterialsDTO dtoMaterials;
 		MachinesDTO dtoMachine;
 		int id_machine;
-		int id_materials;
+		String material_name;
 		boolean ansMaterials;
 		boolean ansMachine;
+		
 		Random random = new Random();
 		int randomInteger = random.nextInt(96);
  
@@ -50,13 +48,18 @@ public class WorkServlet extends HttpServlet {
 	 double quantity = final_quantity_machine /3;
 	 
 	 id_machine = Integer.parseInt(request.getParameter("id_machine"));
-	 id_materials =Integer.parseInt(request.getParameter("id_materials"));
-	 dtoMaterials = new MaterialsDTO( quantity,id_materials);
+	 material_name =request.getParameter("material_name");
+	 
+	 dtoMaterials = new MaterialsDTO(material_name,quantity);
 	 dtoMachine = new MachinesDTO( init_quantity_machine,final_quantity_machine, id_machine);
+	 
 	 ansMaterials = serviceMaterials.updateQuantity(dtoMaterials);
 	 ansMachine = serviceMachine.updateQuantity(dtoMachine);
-	 request.setAttribute("dtoMaterials", dtoMaterials);
+	 listDTO.add(dtoMaterials);
+	 
+	// request.setAttribute("dtoMaterials", dtoMaterials);
 	 request.setAttribute("dtoMachine", dtoMachine);
+	 request.setAttribute("list", listDTO);
 	 getServletContext().getRequestDispatcher("/homeResult.jsp").forward(request, response);
 
     
