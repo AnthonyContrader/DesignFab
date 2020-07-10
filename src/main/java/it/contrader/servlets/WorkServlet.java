@@ -53,17 +53,17 @@ public class WorkServlet extends HttpServlet {
 		double quantity = 0; // = Math.random() * 0.0 + final_quantity_machine;
 		int i = 0;
 		while (final_quantity_machine > 0 && i < listDB.size() - 1) {
-			System.out.println("1 final quantity: " + final_quantity_machine + "  quantity: " + quantity);
+			
 			quantity = (Math.random() * (final_quantity_machine - 0.0) + 0.0);
 			final_quantity_machine -= quantity;
-			System.out.println("2 final quantity: " + final_quantity_machine + "  quantity: " + quantity);
-			listDTO = ((MaterialsService) serviceMaterials).updateAll(listDB, quantity);
+			
+			listDTO = ((MaterialsService) serviceMaterials).updateAll(listDB.get(i), quantity);
 			i++;
 		}
 
 		ansMachine = serviceMachine.updateQuantity(dtoMachine);
-
-	//	listDTO = ((MaterialsService) serviceMaterials).updateAll(listDB, quantity);
+		
+		listDTO = ((MaterialsService) serviceMaterials).updateAll(listDB.get(listDB.size()-1), final_quantity_machine);
 
 		request.setAttribute("dtoMachine", dtoMachine);
 		request.setAttribute("list", listDTO);

@@ -15,15 +15,18 @@ public class MaterialsService extends AbstractService<Materials, MaterialsDTO>  
 		this.converter = new MaterialsConverter();
 	}
 	// questo metodo aggiorna tutte le quantità  della tabella Materials
-	public List<MaterialsDTO> updateAll(List<MaterialsDTO> listDTO, double quantity) {
+	public List<MaterialsDTO> updateAll(MaterialsDTO m, double quantity) {
 		
-		for(MaterialsDTO m : listDTO) {
+		
 			m.setQuantity(quantity);
 			this.updateQuantity(m);						
-		}
+		
+		
 		
 		
 		return this.getAll();
 		
 	}
+	
+	
 }
