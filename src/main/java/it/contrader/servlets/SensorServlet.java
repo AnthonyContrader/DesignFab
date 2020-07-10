@@ -26,12 +26,12 @@ public class SensorServlet extends HttpServlet {
 	public void updateList(HttpServletRequest request) {
 		Service<SensorDTO> service = new SensorService();
 		List<SensorDTO> listDTO = service.getAll();
-		
-		List<SensorDTO> listFinaleDTO= new ArrayList<SensorDTO>();
+
+		List<SensorDTO> listFinaleDTO = new ArrayList<SensorDTO>();
 		for (SensorDTO sensorDTO : listDTO) {
-			SensorDTO i=((SensorService) service).getModelloMacchina(sensorDTO.getId_machine());
+			SensorDTO i = ((SensorService) service).getModelloMacchina(sensorDTO.getId(), sensorDTO.getId_machine());
 			listFinaleDTO.add(i);
-			
+
 		}
 		request.setAttribute("list", listFinaleDTO);
 	}
@@ -48,12 +48,12 @@ public class SensorServlet extends HttpServlet {
 		int id;
 		boolean ans;
 		switch (mode.toUpperCase()) {
-		
+
 		case "SENSORLIST":
 			updateList(req);
 			getServletContext().getRequestDispatcher("/sensor/sensormanager.jsp").forward(req, resp);
 			break;
-			
+
 		case "READ":
 			id = Integer.parseInt(req.getParameter("id"));
 			sensorDTO = sensorService.read(id);
@@ -72,15 +72,16 @@ public class SensorServlet extends HttpServlet {
 			updateList(req);
 			getServletContext().getRequestDispatcher("/sensor/sensormanager.jsp").forward(req, resp);
 			break;
-			
+
 		case "UPDATE":
-			 sensor_type = req.getParameter("sensor_type");
-			 sensorDTO = new SensorDTO(sensor_type);
-			 ans = sensorService.update(sensorDTO);
-			 updateList(req);
-			 getServletContext().getRequestDispatcher("/sensor/sensormanager.jsp").forward(req, resp);
-			 break;
-			 
+			sensor_type = req.getParameter("sensor_type");
+			id = Integer.parseInt(req.getParameter("id"));
+			sensorDTO = new SensorDTO(id, sensor_type);
+			ans = sensorService.update(sensorDTO);
+			updateList(req);
+			getServletContext().getRequestDispatcher("/sensor/sensormanager.jsp").forward(req, resp);
+			break;
+
 		case "DELETE":
 			id = Integer.parseInt(req.getParameter("id"));
 			ans = sensorService.delete(id);
@@ -89,8 +90,7 @@ public class SensorServlet extends HttpServlet {
 			getServletContext().getRequestDispatcher("/sensor/sensormanager.jsp").forward(req, resp);
 			break;
 		}
-			
-	}
 
+	}
 
 }

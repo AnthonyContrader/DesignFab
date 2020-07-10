@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1" import="it.contrader.dto.MaterialsDTO"%>
+    pageEncoding="ISO-8859-1" import="it.contrader.dto.MaterialsDTO" errorPage="error.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,7 +16,7 @@
 </div>
 <br>
 <div class="main">
-
+<%try{ %>
 <%MaterialsDTO u = (MaterialsDTO) request.getAttribute("dto");%>
 
 
@@ -40,8 +40,8 @@
   </div>
 
       <button type="submit" >Edit</button>
-</form>
-
+</form> <%}catch(NullPointerException e) { %>
+<% e.printStackTrace(); } %>
 	
 </div>
 <br>

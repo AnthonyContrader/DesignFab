@@ -43,9 +43,7 @@ public class SensorConverter implements Converter<Sensor, SensorDTO> {
 
 	@Override
 	public SensorDTO toDTOModel(Sensor entity,String modelloMacchina) {
-		SensorDTO sensordto= new SensorDTO(entity.getSensor_type(), modelloMacchina );
-		sensordto.setId(entity.getId());
+		SensorDTO sensordto= new SensorDTO(entity.getId(),entity.getSensor_type(), modelloMacchina);
 		return sensordto ;
 	}
-
 }

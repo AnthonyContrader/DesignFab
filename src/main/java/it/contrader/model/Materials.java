@@ -1,13 +1,13 @@
 package it.contrader.model;
 
 public class Materials {
-	
+
 	private int id;
-	
+
 	private String material_name;
-	
+
 	private double quantity_materials;
-	
+
 	public double getQuantity() {
 		return quantity_materials;
 	}
@@ -17,26 +17,32 @@ public class Materials {
 	}
 
 	public Materials() {
-		
+
 	}
 
-	public Materials (String name) {
+	public Materials(String name) {
 		this.material_name = name;
 	}
-	public Materials (String name, double quantity_materials) {
+
+	public Materials(String name, double quantity_materials) {
 		this.material_name = name;
 		this.quantity_materials = quantity_materials;
 	}
-	
-	public Materials (String name, int id) {
+
+	public Materials(String name, int id) {
 		this.material_name = name;
 		this.id = id;
 	}
-	
-	public Materials (String name, double quantity_materials, int id) {
+
+	public Materials(String name, double quantity_materials, int id) {
 		this.material_name = name;
 		this.quantity_materials = quantity_materials;
 		this.id = id;
+	}
+
+	public Materials(String material_name2, Double quantity) {
+		material_name = material_name2;
+		this.quantity_materials = quantity;
 	}
 
 	public int getId() {
@@ -57,9 +63,9 @@ public class Materials {
 
 	@Override
 	public String toString() {
-		return  id + "\t\t"  + material_name + "\t" + quantity_materials;
+		return id + "\t\t" + material_name + "\t" + quantity_materials;
 	}
-	
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -68,19 +74,19 @@ public class Materials {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		
+
 		Materials other = (Materials) obj;
 		if (id != other.id)
 			return false;
 		if (quantity_materials != other.quantity_materials)
 			return false;
-		if (material_name == null) 
+		if (material_name == null)
 			if (other.material_name != null)
 				return false;
-	    else if (!material_name.equals(other.material_name))
-	    	return false;
-	
+			else if (!material_name.equals(other.material_name))
+				return false;
+
 		return true;
 	}
-	
+
 }

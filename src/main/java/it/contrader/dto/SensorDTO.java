@@ -27,6 +27,7 @@ public class SensorDTO{
 	
 	public SensorDTO (String sensortype) {
 		this.sensortype = sensortype;
+		
 	}
 	
 	public SensorDTO (int id, String sensortype) {
@@ -44,8 +45,15 @@ public class SensorDTO{
 		this.id = id;
 		this.sensortype = sensortype;
 		this.id_machine = id_machine;
+		this.modello_macchina = "";
 	}
 	
+	public SensorDTO(int id2, String sensor_type, String modelloMacchina) {
+		this.id = id2;
+		this.sensortype = sensor_type;
+		this.modello_macchina = modelloMacchina;
+	}
+
 	public int getId() {
 		return this.id;
 	}
