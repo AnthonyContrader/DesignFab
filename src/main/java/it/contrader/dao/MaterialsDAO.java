@@ -30,7 +30,8 @@ public class MaterialsDAO implements DAO<Materials> {
 			while (resultSet.next()) {
 				int id = resultSet.getInt("id");
 				String material_name = resultSet.getString("material_name");
-				material = new Materials(material_name);
+				Double quantity = Double.parseDouble(resultSet.getString("quantity_materials"));
+				material = new Materials(material_name,quantity);
 				material.setId(id);
 				MaterialsList.add(material);
 			}
