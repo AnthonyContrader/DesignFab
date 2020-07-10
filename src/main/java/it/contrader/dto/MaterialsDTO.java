@@ -6,6 +6,7 @@ public class MaterialsDTO {
 	private double quantity_materials;
 	
 	public MaterialsDTO() {
+		
 	}
 
 	public MaterialsDTO(String material_name) {
