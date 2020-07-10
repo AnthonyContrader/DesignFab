@@ -23,11 +23,11 @@
   <label for="quantity">Inserisci rifiuti nella macchina:</label>
   <input type="number" id="quantity" name="quantity">
   <br>
-   <label for="ID_macchine">Inserisci ID macchina:</label>
-  <input type="number" id="ID_macchine" name="id_machine">
+   <label for="Model_macchine">Inserisci il macchinario:</label>
+  <input type="text" id="Model_macchine" name="model_machine">
     <br>
-   <label for="Nome_materiali">Inserisci materiale:</label>
-   <input type="text" id="Nome_materiali" name="material_name">
+  <!--  <label for="Nome_materiali">Inserisci il materiale:</label>
+   <input type="text" id="Nome_materiali" name="material_name"> -->
   <button type="submit" value="work" name="button" style = background-color:Tomato;>Avvio</button>
 </form>
 

@@ -32,38 +32,24 @@ img:hover {
 <%@include file="css/header.jsp"%>
 
 
-<%-- <% MaterialsDTO material = (MaterialsDTO) request.getAttribute("dtoMaterials"); %>--%>
+<%-- <% MaterialsDTO material = (MaterialsDTO) request.getAttribute("dtoMaterials"); %> --%>
 <% MachinesDTO machines = (MachinesDTO) request.getAttribute("dtoMachine"); %> 
 <% List<MaterialsDTO> list = (List<MaterialsDTO>) request.getAttribute("list"); %>
 
-	<%= machines.getFinal_quantity() %>
+<label>La quantità finale di materiale lavorato è: <%=machines.getFinal_quantity() %> Ripartiti in: </label>
 
-
-
-
-
-
-<form>
-<p>TEST NUMERO 2:</p>
-
-		<%
-			for (MaterialsDTO u : list) {
-		%>
-		<% if (u.getMaterialName() != null) { %>
-		
-	<label><%=u.getMaterialName()%></label>
-	<!-- <img src="Immagini/plastic.png" alt="Plastic" width="100" height="200"> -->
-	<label><%= u.getQuantity() %></label>
+	<form>
+	<%for(MaterialsDTO m : list) { %>	
+	<%= m.getMaterialName() %>
+	<%= m.getQuantity() %>	
 	<br>
-		<%
-			}
-		%>
-			<%
-				}
-			%>
+	<% }%>
 </form>
 
 
+	
+
+<img src="Immagini/plastic.png" alt="Plastic" width="100" height="200"> 
 <%@ include file="../css/footer.jsp" %>
 </body>
 </html>

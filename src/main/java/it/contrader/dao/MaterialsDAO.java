@@ -27,11 +27,11 @@ public class MaterialsDAO implements DAO<Materials> {
 			Statement statement = connection.createStatement();
 			ResultSet resultSet = statement.executeQuery(QUERY_ALL);
 			Materials material;
-			while (resultSet.next()) {
-				int id = resultSet.getInt("id");
+			while (resultSet.next()) {		
 				String material_name = resultSet.getString("material_name");
-				material = new Materials(material_name);
-				material.setId(id);
+				Double quantity_materials = Double.parseDouble(resultSet.getString("quantity_materials"));
+				int id = resultSet.getInt("id");
+				material = new Materials(material_name, quantity_materials, id);
 				MaterialsList.add(material);
 			}
 
@@ -64,7 +64,7 @@ public class MaterialsDAO implements DAO<Materials> {
 			ResultSet resultSet = preparedStatement.executeQuery();
 			resultSet.next();
 			String material_name = resultSet.getString("material_name");
-			double quantity_materials = Double.parseDouble(resultSet.getString("quantity_materials"));
+			double quantity_materials = Double.parseDouble(resultSet.getString("quantity_materials"));			
 			Materials material = new Materials(material_name, quantity_materials);
 			material.setId(resultSet.getInt(id));
 			return material;
