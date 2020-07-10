@@ -40,6 +40,7 @@ public abstract class AbstractService<Entity,DTO> implements Service<DTO> {
 
 	@Override
 	public boolean update(DTO dto) {
+		
 		// Converte un DTO in entità e lo passa al DAO per la modifica
 		return dao.update(converter.toEntity(dto));
 	}

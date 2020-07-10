@@ -33,6 +33,7 @@
 		</tr>
 		<%
 			for (SensorDTO u : list) {
+				
 		%>
 		<tr>
 			<td><a href=SensorServlet?mode=read&id=<%=u.getId()%>>

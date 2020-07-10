@@ -15,16 +15,16 @@ public class SensorDAO implements DAO<Sensor>{
 	private final String READ = "Select * from sensor where id=?";
 	private final String UPDATE = "UPDATE sensor SET sensor_type=? where id=?";
 	private final String DELETE = "DELETE from sensor where id=?";
-	private final String MACHINE_SENSOR_READ = "SELECT model from machine, sensor where machine.id = ?";
+	private final String MACHINE_SENSOR_READ = "SELECT model from machine, sensor where sensor.id_machine=machine.id and machine.id=?";
 	public SensorDAO() {
 	}
    
-	public String getModelloMacchina(int id_sensor) {
+	public String getModelloMacchina(int id_machine) {
 		Connection connection = ConnectionSingleton.getInstance();
 		String model="";
 		try {
 			PreparedStatement preparedStatement = connection.prepareStatement(MACHINE_SENSOR_READ);
-			preparedStatement.setInt(1, id_sensor);
+			preparedStatement.setInt(1, id_machine);
 			ResultSet resultSet = preparedStatement.executeQuery();
 			resultSet.next();
 			model= resultSet.getString("model");
@@ -94,7 +94,7 @@ public class SensorDAO implements DAO<Sensor>{
 			sensor_type = resultSet.getString("sensor_type");
 			id_machine = resultSet.getInt("id_machine");
 			Sensor sensor = new Sensor(sensor_type, id_machine);
-			sensor.setId(resultSet.getInt(id));
+			sensor.setId(resultSet.getInt("id"));
 			return sensor;
 		} catch (SQLException e) {
 			// e.printStackTrace();
@@ -104,6 +104,7 @@ public class SensorDAO implements DAO<Sensor>{
 
 	public boolean update(Sensor sensorToUpdate) {
 		Connection connection = ConnectionSingleton.getInstance();
+		System.out.println("Entro in update");
 		if (sensorToUpdate.getId() == 0)
 			return false;
 
@@ -118,7 +119,6 @@ public class SensorDAO implements DAO<Sensor>{
 				PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement(UPDATE);
 				preparedStatement.setInt(2, sensorToUpdate.getId());
 				preparedStatement.setString(1, sensorToUpdate.getSensor_type());
-
 				int check = preparedStatement.executeUpdate();
 				if (check > 0)
 					return true;
