@@ -40,13 +40,12 @@ public class MachineController {
 
 	@PostMapping("/insert")
 	public String insert(HttpServletRequest request, @RequestParam("machine_name") String machineName,
-			@RequestParam("material_name") String materialName, @RequestParam("materials") List<Materials> materials) {
+			@RequestParam("material_name") String materialName) {
 		
 		MachineDTO dto = new MachineDTO();
 		
 		dto.setMachineName(machineName);
 		dto.setMaterialName(materialName);
-		dto.setMaterials(materials);
 		service.insert(dto);
 		setAll(request);
 		return "machines";

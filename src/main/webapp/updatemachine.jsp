@@ -15,8 +15,8 @@
 	<%@ include file="./css/header.jsp"%>
 	<div class="navbar">
 		<a href="/homeadmin.jsp">Home</a> <a class="active"
-			href="/machine/getall">Machines</a> 
-			<a href="/user/logout" id="logout">Logout</a>
+			href="/machine/getall">Machines</a> <a href="/user/logout"
+			id="logout">Logout</a>
 	</div>
 	<br>
 	<div class="main">
@@ -45,7 +45,7 @@
 			</div>
 			<div class="row">
 				<div class="col-25">
-					<label for="materialsName">material ID</label>
+					<label for="materialsName">ID material </label>
 				</div>
 				<div class="col-75">
 					<input type="text" id="materialsName" name="materials"

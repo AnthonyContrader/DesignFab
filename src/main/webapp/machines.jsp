@@ -25,7 +25,7 @@
 		<table>
 			<tr>
 				<th>Name</th>
-				<th>Materials</th>
+				<th>Type</th>
 				<th>id materials</th>
 				<th></th>
 				<th></th>
