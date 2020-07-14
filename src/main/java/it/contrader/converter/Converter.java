@@ -10,4 +10,6 @@ public interface Converter<Entity, DTO> {
 
 	public List<DTO> toDTOList(Iterable<Entity> entityList);
 
+	public String toDTO(String modelMachine);
+
 }

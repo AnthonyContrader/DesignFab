@@ -45,7 +45,7 @@
 		</table>
 
 
-		<form id="floatright" action="/machine/insert" method="post">
+		<form id="floatright" action="/sensor/insert" method="post">
 			<div class="row">
 				<div class="col-25">
 					<label for="machine">Sensor Name</label>

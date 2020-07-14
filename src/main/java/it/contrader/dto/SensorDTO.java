@@ -18,6 +18,6 @@ public class SensorDTO {
 
 	private List<Machine> id_machine;
 
-	//private String machine_name;
+	private String machine_name;
 
 }

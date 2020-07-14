@@ -32,6 +32,7 @@
 			</tr>
 			<tr>
 				<td><%=u.getSensor_name()%></td>
+				<td><%=u.getMachine_name()%></td>
 			</tr>
 		</table>
 
