@@ -1,5 +1,8 @@
 package it.contrader.dto;
 
+import java.util.List;
+
+import it.contrader.model.Machine;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -10,9 +13,11 @@ import lombok.NoArgsConstructor;
 
 public class MaterialsDTO {
 	
-	private long IdMaterials;
+	private Long IdMaterials;
 	
 	private String MaterialName;
 	
-	private int MaterialsQuantity;
+	private Double MaterialsQuantity;
+	
+	private List<Machine> machines;
 }
