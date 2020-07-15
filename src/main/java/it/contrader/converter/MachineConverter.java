@@ -13,7 +13,7 @@ public class MachineConverter extends AbstractConverter<Machine, MachineDTO> {
 		Machine machine = null;
 		if (machineDTO != null) {
 			machine = new Machine(machineDTO.getId_machine(), machineDTO.getMachineName(),
-					machineDTO.getMaterialName(), machineDTO.getMaterials());
+					machineDTO.getMaterialName(), machineDTO.getMaterialsOnMachine());
 
 		}
 		return machine;
@@ -24,7 +24,7 @@ public class MachineConverter extends AbstractConverter<Machine, MachineDTO> {
 		MachineDTO machineDTO = null;
 		if (machineEntity != null) {
 			machineDTO = new MachineDTO(machineEntity.getId_machine(), machineEntity.getMachine_name(),
-					machineEntity.getMaterialName(), machineEntity.getMaterials());
+					machineEntity.getMaterialName(), machineEntity.getMaterialsOnMachine());
 		}
 
 		return machineDTO;

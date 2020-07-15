@@ -17,9 +17,9 @@ public class SensorService extends AbstractService<Sensor, SensorDTO> {
 	@Autowired
 	private SensorDAO sensorDao;
 
-	public String getModelMachine() {
+	/*public String getModelMachine() {
 		return sensorConverter.toDTO(sensorDao.getModelMachine());
 
-	}
+	}*/
 
 }

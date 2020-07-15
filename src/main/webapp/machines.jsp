@@ -37,7 +37,7 @@
 				<td><a href="/machine/read?id=<%=u.getId_machine()%>"> <%=u.getMachineName()%>
 				</a></td>
 				<td><%=u.getMaterialName()%></td>
-				<td><%=u.getMaterials()%></td>
+				<td><%=u.getMaterialsOnMachine()%></td>
 				<td><a href="/machine/preupdate?id=<%=u.getId_machine()%>">Edit</a></td>
 
 				<td><a href="/machine/delete?id=<%=u.getId_machine()%>">Delete</a></td>

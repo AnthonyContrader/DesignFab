@@ -68,7 +68,7 @@ public class MachineController {
 		dto.setId_machine(idMachine);
 		dto.setMachineName(machineName);
 		dto.setMaterialName(materialName);
-		dto.setMaterials(materials);
+		dto.setMaterialsOnMachine(materials);
 		service.insert(dto);
 		setAll(request);
 		return "machines";

@@ -1,10 +1,12 @@
 package it.contrader.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -31,11 +33,11 @@ public class Machine {
 	
 	private String materialName;
 	
-	@ManyToMany(cascade = { CascadeType.ALL })
+	@ManyToMany(fetch = FetchType.EAGER,cascade = { CascadeType.PERSIST })
     @JoinTable(
-        name = "Materials", 
-        joinColumns = { @JoinColumn(name = "machine_id_FK") }, 
-        inverseJoinColumns = { @JoinColumn(name = "materials_id_FK") }
+        name = "machine_materials", 
+        joinColumns =  @JoinColumn(name = "machine_id_FK"),
+        inverseJoinColumns = @JoinColumn(name = "material_id_FK") 
     )
-	private List<Materials> materials;
+	private List<Materials> materialsOnMachine = new ArrayList<Materials>();
 }

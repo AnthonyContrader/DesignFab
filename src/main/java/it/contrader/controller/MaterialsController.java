@@ -39,15 +39,15 @@ public class MaterialsController {
 	}
 
 	@PostMapping("/insert")
-	public String insert(HttpServletRequest request, @RequestParam("Material_name") String MaterialName,
-			@RequestParam("Material_quantity") Double MaterialsQuantity,
-			@RequestParam("machines") List<Machine> machines) {
+	public String insert(HttpServletRequest request, @RequestParam("material_name") String materialName,
+			@RequestParam("material_quantity") Double materialsQuantity/*,
+			@RequestParam("machines") List<Machine> machines*/) {
 		
 		MaterialsDTO dto = new MaterialsDTO();
 		
-		dto.setMaterialName(MaterialName);
-		dto.setMaterialsQuantity(MaterialsQuantity);
-		dto.setMachines(machines);
+		dto.setMaterialName(materialName);
+		dto.setMaterialsQuantity(materialsQuantity);
+		//dto.setMachines(machines);
 		return "materials";
 
 	}
@@ -68,7 +68,7 @@ public class MaterialsController {
 		dto.setIdMaterials(idMaterials);
 		dto.setMaterialName(MaterialName);
 		dto.setMaterialsQuantity(MaterialsQuantity);
-		dto.setMachines(machines);
+		dto.setMachinesOnMaterial(machines);
 		return "materials";
 	}
 	

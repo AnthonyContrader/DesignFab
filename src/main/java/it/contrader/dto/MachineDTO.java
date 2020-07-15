@@ -18,5 +18,5 @@ public class MachineDTO {
 
 	private String materialName;
 	
-	private List<Materials> materials;
+	private List<Materials> materialsOnMachine;
 }
