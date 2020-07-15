@@ -1,6 +1,6 @@
 <%@page import="it.contrader.dto.SensorDTO"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1" import="it.contrader.dto.UserDTO"%>
+	pageEncoding="ISO-8859-1" import="it.contrader.dto.SensorDTO"%>
 <html>
 <head>
 <meta charset="utf-8">
@@ -21,18 +21,17 @@
 
 	<div class="main">
 		<%
-			SensorDTO u = (SensorDTO) request.getSession().getAttribute("sensorRead");
+			SensorDTO u = (SensorDTO) request.getSession().getAttribute("readSensor");
 		%>
 
 
 		<table>
 			<tr>
 				<th>Sensor name</th>
-				<th>Machine name</th>
+				
 			</tr>
 			<tr>
 				<td><%=u.getSensor_name()%></td>
-				<td><%=u.getMachine_name()%></td>
 			</tr>
 		</table>
 

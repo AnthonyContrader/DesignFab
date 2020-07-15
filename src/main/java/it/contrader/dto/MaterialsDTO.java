@@ -19,5 +19,4 @@ public class MaterialsDTO {
 	
 	private Double MaterialsQuantity;
 	
-	//private List<Machine> machinesOnMaterial;
-}
+	}

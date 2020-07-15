@@ -13,16 +13,16 @@
 <title>Edit Machine</title>
 </head>
 <body>
-	<%@ include file="./css/header.jsp"%>
+	<%@ include file="/css/header.jsp"%>
 	<div class="navbar">
 		<a href="/homeadmin.jsp">Home</a> <a class="active"
-			href="/machine/getall">Machines</a> <a href="/user/logout"
+			href="/sensor/getall">Sensor</a> <a href="/user/logout"
 			id="logout">Logout</a>
 	</div>
 	<br>
 	<div class="main">
 		<%
-			SensorDTO u = (SensorDTO) request.getSession().getAttribute("sensorRead");
+			SensorDTO u = (SensorDTO) request.getSession().getAttribute("dto");
 		%>
 
 		<form id="floatleft" action="/sensor/update" method="post">
@@ -34,6 +34,7 @@
 					<input type="text" id="sensor" name="sensor_name"
 						value=<%=u.getSensor_name()%>>
 				</div>
+				<input type="hidden" name="id" value =<%=u.getId_sensor()%>>
 			</div>
 			<button type="submit">Edit</button>
 		</form>

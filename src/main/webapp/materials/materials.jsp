@@ -11,12 +11,11 @@
 
 </head>
 <body>
-	<%@ include file="./css/header.jsp"%>
+	<%@ include file="/css/header.jsp"%>
 
 	<div class="navbar">
 		<a href="/homeadmin.jsp">Home</a> <a class="active"
-			href="/materials/getall">Materials</a> <a href="/materials/logout"
-			id="logout">Logout</a>
+			href="/materials/getall">Materials</a> <a href="/user/logout" id="logout">Logout</a>
 	</div>
 	<div class="main">
 		<%
@@ -38,9 +37,10 @@
 			<tr>
 				<td><a href="/materials/read?id=<%=u.getIdMaterials()%>"> <%=u.getMaterialName()%>
 				</a></td>
-				<td><%=u.getMaterialName()%></td>
 				<td><%=u.getMaterialsQuantity()%></td>
 				<td><a href="/materials/preupdate?id=<%=u.getIdMaterials()%>">Edit</a></td>
+
+
 				<td><a href="/materials/delete?id=<%=u.getIdMaterials()%>">Delete</a></td>
 
 			</tr>
@@ -57,24 +57,23 @@
 					<label for="materials">Material Name</label>
 				</div>
 				<div class="col-75">
-					<input type="text" id="materials" name="material_name"
+					<input type="text" id="materials" name="Material_name"
 						placeholder="inserisci materiale">
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-25">
-					<label for="materials_q">Quantity Name</label>
+					<label for="pass">Quantity </label>
 				</div>
 				<div class="col-75">
-					<input type="number" id="materials_q" name="material_quantity"
+					<input type="text" id="materials" name="Material_quantity"
 						placeholder="inserisci quantità">
 				</div>
 			</div>
-		
+
+
 			<button type="submit">Insert</button>
 		</form>
 	</div>
-	<br>
-	<%@ include file="css/footer.jsp"%>
 </body>
 </html>

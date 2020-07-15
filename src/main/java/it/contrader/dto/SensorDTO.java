@@ -16,8 +16,5 @@ public class SensorDTO {
 
 	private String sensor_name;
 
-	private List<Machine> id_machine;
-
-	//private String machine_name;
 
 }

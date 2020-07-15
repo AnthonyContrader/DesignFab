@@ -1,4 +1,4 @@
- 
+
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -21,7 +21,8 @@
 
 
 	<div class="navbar">
-		<a class="active" href="/homeadmin.jsp">Home</a> <a href=/user/getall>Users</a>
+		<a class="active" href="/homeadmin.jsp">Home</a> 
+		<a href=/user/getall>Users</a>
 		<a href=/machine/getall>Machines</a>
 		<a href=/sensor/getall>Sensors</a>
 		<a href=/materials/getall>Materials</a>

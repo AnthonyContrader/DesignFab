@@ -12,7 +12,7 @@ public class SensorConverter extends AbstractConverter<Sensor, SensorDTO>{
 	public Sensor toEntity(SensorDTO sensordto) {
 		Sensor sensor = null;
 		if (sensordto != null)
-			sensor= new Sensor(sensordto.getId_sensor(), sensordto.getSensor_name(), sensordto.getId_machine());
+			sensor= new Sensor(sensordto.getId_sensor(), sensordto.getSensor_name());
 		return sensor;
 	}
 
@@ -20,7 +20,7 @@ public class SensorConverter extends AbstractConverter<Sensor, SensorDTO>{
 	public SensorDTO toDTO(Sensor sensor) {
 		SensorDTO sensordto = null;
 		if (sensor != null)
-			sensordto= new SensorDTO(sensor.getId_sensor(), sensor.getName_sensor(), sensor.getMachine());
+			sensordto= new SensorDTO(sensor.getId_sensor(), sensor.getName_sensor());
 		return sensordto;
 	}
 

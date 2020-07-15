@@ -10,16 +10,12 @@ import it.contrader.dto.SensorDTO;
 import it.contrader.model.Sensor;
 
 @Service
-public class SensorService extends AbstractService<Sensor, SensorDTO> {
+public class SensorService extends AbstractService<Sensor, SensorDTO>{
 
 	@Autowired
 	private SensorConverter sensorConverter;
 	@Autowired
 	private SensorDAO sensorDao;
-
-	/*public String getModelMachine() {
-		return sensorConverter.toDTO(sensorDao.getModelMachine());
-
-	}*/
-
+	
+	
 }

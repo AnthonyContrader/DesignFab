@@ -26,7 +26,7 @@
 		<table>
 			<tr>
 				<th>Name Sensor</th>
-				<th>Name machine</th>
+				
 				<th></th>
 				<th></th>
 			</tr>
@@ -48,22 +48,13 @@
 		<form id="floatright" action="/sensor/insert" method="post">
 			<div class="row">
 				<div class="col-25">
-					<label for="machine">Sensor Name</label>
+					<label for="sensor">Sensor Name</label>
 				</div>
 				<div class="col-75">
 					<input type="text" id="sensor" name="sensor_name"
 						placeholder="inserisci nome Sensor">
 				</div>
-			</div>
-			<div class="row">
-				<div class="col-25">
-					<label for="material_name">Id machine</label>
-				</div>
-				<div class="col-75">
-					<input type="text" id="machine_id" name="machine_id"
-						placeholder="inserisci l'id della macchina da associare">
-				</div>
-			</div>
+			
 			<button type="submit">Insert</button>
 		</form>
 	</div>

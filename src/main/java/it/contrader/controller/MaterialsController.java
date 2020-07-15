@@ -29,54 +29,56 @@ public class MaterialsController {
 	@GetMapping("/getall")
 	public String getAll(HttpServletRequest request) {
 		setAll(request);
-		return "materials";
+		return "materials/materials";
 	}
 
 	@GetMapping("/read")
 	public String read(HttpServletRequest request, @RequestParam("id") Long id) {
 		request.getSession().setAttribute("dto", service.read(id));
-		return "readmaterials";
+		return "material/materialsRead";
 	}
 
 	@PostMapping("/insert")
-	public String insert(HttpServletRequest request, @RequestParam("material_name") String materialName,
-			@RequestParam("material_quantity") Double materialsQuantity/*,
-			@RequestParam("machines") List<Machine> machines*/) {
+	public String insert(HttpServletRequest request, @RequestParam("Material_name") String MaterialName,
+			@RequestParam("Material_quantity") Double MaterialsQuantity)
+			 {
 		
 		MaterialsDTO dto = new MaterialsDTO();
 		
-		dto.setMaterialName(materialName);
-		dto.setMaterialsQuantity(materialsQuantity);
-		//dto.setMachines(machines);
-		return "materials";
+		dto.setMaterialName(MaterialName);
+		dto.setMaterialsQuantity(MaterialsQuantity);
+		service.insert(dto);
+		setAll(request);
+
+		return "materials/materials";
 
 	}
 	
 	@GetMapping("/preupdate")
 	public String preUpdate(HttpServletRequest request, @RequestParam("id") Long id) {
 		request.getSession().setAttribute("dto", service.read(id));
-		return "updatematerials";
+		return "materials/materialsUpdate";
 	}
 	
 	@PostMapping("/update")
-	public String update(HttpServletRequest request,@RequestParam("id_materials") Long idMaterials, @RequestParam("Material_name") String MaterialName,
-			@RequestParam("Material_quantity") Double MaterialsQuantity/*,
-			@RequestParam("machines") List<Machine> machines*/) {
+	public String update(HttpServletRequest request,@RequestParam("id") Long idMaterials, @RequestParam("materials_name") String MaterialName,
+			@RequestParam("Material_quantity") Double MaterialsQuantity) {
 		
 		MaterialsDTO dto = new MaterialsDTO();
 		
 		dto.setIdMaterials(idMaterials);
 		dto.setMaterialName(MaterialName);
 		dto.setMaterialsQuantity(MaterialsQuantity);
-		//dto.setMachinesOnMaterial(machines);
-		return "materials";
+		service.update(dto);
+		setAll(request);
+		return "materials/materials";
 	}
 	
 	@GetMapping("/delete")
 	public String delete(HttpServletRequest request, @RequestParam("id") Long id) {
 		service.delete(id);
 		setAll(request);
-		return "materials";
+		return "materials/materials";
 	}
 
 }

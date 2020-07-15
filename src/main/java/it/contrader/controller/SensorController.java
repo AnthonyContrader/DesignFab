@@ -39,30 +39,31 @@ public class SensorController {
 	}
 
 	@PostMapping("/insert")
-	public String insert(HttpServletRequest request, @RequestParam("sensor_name") String sensor_name,
-			@RequestParam("machine_id") List<Machine> machine_id) {
+	public String insert(HttpServletRequest request, @RequestParam("sensor_name") String sensor_name) {
 		// passare il machine_name nel dto
 		SensorDTO sensorDto = new SensorDTO();
-		sensorDto.setId_machine(machine_id);
+		
 		sensorDto.setSensor_name(sensor_name);
+		sensorService.insert(sensorDto);
+		setAll(request);
 		return "sensor/sensors";
 
 	}
 
 	@GetMapping("/preupdate")
 	public String preupdate(HttpServletRequest request, @RequestParam("id") Long id) {
-		request.getSession().setAttribute("listSensor", sensorService.getAll());
+		request.getSession().setAttribute("dto",  sensorService.read(id));
 		return "sensor/sensorUpdate";
 	}
 
 	@PostMapping("/update")
-	public String update(HttpServletRequest request, @RequestParam("id_sensor") Long id_sensor,
-			@RequestParam("name_sensor") String name_sensor) {
+	public String update(HttpServletRequest request, @RequestParam("id") Long id_sensor,
+			@RequestParam("sensor_name") String name_sensor) {
 
 		SensorDTO sensorDTO = new SensorDTO();
 		sensorDTO.setId_sensor(id_sensor);
 		sensorDTO.setSensor_name(name_sensor);
-		sensorService.insert(sensorDTO);
+		sensorService.update(sensorDTO);
 		setAll(request);
 		return "sensor/sensors";
 	}
