@@ -60,15 +60,15 @@ public class MaterialsController {
 	
 	@PostMapping("/update")
 	public String update(HttpServletRequest request,@RequestParam("id_materials") Long idMaterials, @RequestParam("Material_name") String MaterialName,
-			@RequestParam("Material_quantity") Double MaterialsQuantity,
-			@RequestParam("machines") List<Machine> machines) {
+			@RequestParam("Material_quantity") Double MaterialsQuantity/*,
+			@RequestParam("machines") List<Machine> machines*/) {
 		
 		MaterialsDTO dto = new MaterialsDTO();
 		
 		dto.setIdMaterials(idMaterials);
 		dto.setMaterialName(MaterialName);
 		dto.setMaterialsQuantity(MaterialsQuantity);
-		dto.setMachinesOnMaterial(machines);
+		//dto.setMachinesOnMaterial(machines);
 		return "materials";
 	}
 	

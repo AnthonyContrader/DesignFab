@@ -26,7 +26,7 @@
 			<tr>
 				<th>Name</th>
 				<th>Type</th>
-				<th>id materials</th>
+				<th>ID sensor</th>
 				<th></th>
 				<th></th>
 			</tr>
@@ -37,7 +37,6 @@
 				<td><a href="/machine/read?id=<%=u.getId_machine()%>"> <%=u.getMachineName()%>
 				</a></td>
 				<td><%=u.getMaterialName()%></td>
-				<td><%=u.getMaterialsOnMachine()%></td>
 				<td><a href="/machine/preupdate?id=<%=u.getId_machine()%>">Edit</a></td>
 
 				<td><a href="/machine/delete?id=<%=u.getId_machine()%>">Delete</a></td>
@@ -66,18 +65,14 @@
 					<input type="text" id="materialName" name="material_name"
 						placeholder="inserisci tipo materiale">
 				</div>
-			</div>
-			<div class="row">
 				<div class="col-25">
-					<label for="id_materials">ID material </label>
+					<label for="id_sensor">ID sensor</label>
 				</div>
 				<div class="col-75">
-					<input type="text" id="materials" name="materials"
-						placeholder="inserisci tipo materiale">
+					<input type="text" id="id_sensor" name="id_sensor"
+						placeholder="inserisci id sensore">
 				</div>
 			</div>
-
-
 			<button type="submit">Insert</button>
 		</form>
 	</div>

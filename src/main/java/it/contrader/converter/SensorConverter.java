@@ -20,7 +20,7 @@ public class SensorConverter extends AbstractConverter<Sensor, SensorDTO>{
 	public SensorDTO toDTO(Sensor sensor) {
 		SensorDTO sensordto = null;
 		if (sensor != null)
-			sensordto= new SensorDTO(sensor.getId_sensor(), sensor.getName_sensor(), sensor.getId_machine());
+			sensordto= new SensorDTO(sensor.getId_sensor(), sensor.getName_sensor(), sensor.getMachine());
 		return sensordto;
 	}
 

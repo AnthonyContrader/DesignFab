@@ -52,7 +52,7 @@ public class SensorController {
 	@GetMapping("/preupdate")
 	public String preupdate(HttpServletRequest request, @RequestParam("id") Long id) {
 		request.getSession().setAttribute("listSensor", sensorService.getAll());
-		return "sensor/updatemachine";
+		return "sensor/sensorUpdate";
 	}
 
 	@PostMapping("/update")

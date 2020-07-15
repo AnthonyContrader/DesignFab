@@ -8,7 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -27,9 +27,8 @@ public class Sensor {
 	@Column(unique = true)
 	private String name_sensor;
 	
-	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-	@JoinColumn(name="id_machine")
-	private List<Machine> id_machine;
+	@OneToMany(mappedBy = "id_machine", cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<Machine> machine;
 	
 	
 

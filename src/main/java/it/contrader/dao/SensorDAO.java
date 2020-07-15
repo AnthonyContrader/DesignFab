@@ -16,6 +16,6 @@ import it.contrader.model.Sensor;
 @Transactional //
 public interface SensorDAO extends CrudRepository<Sensor, Long> {
 
-	@Query("Select m.machine_name from Machine as m, Sensor as s where m.id_machine = s.id_machine")
-	public String getModelMachine();
+/*	@Query("Select m.machine_name from Machine as m, Sensor as s where m.id_machine = s.id_machine")
+	public String getModelMachine();*/
 }

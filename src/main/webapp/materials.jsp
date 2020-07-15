@@ -29,7 +29,7 @@
 			<tr>
 				<th>Material Name</th>
 				<th>Material Quantity</th>
-				<th>ID macchina</th>
+				<th></th>
 				<th></th>
 			</tr>
 			<%
@@ -40,7 +40,6 @@
 				</a></td>
 				<td><%=u.getMaterialName()%></td>
 				<td><%=u.getMaterialsQuantity()%></td>
-				<td><%=u.getMachinesOnMaterial()%></td>
 				<td><a href="/materials/preupdate?id=<%=u.getIdMaterials()%>">Edit</a></td>
 				<td><a href="/materials/delete?id=<%=u.getIdMaterials()%>">Delete</a></td>
 
@@ -71,15 +70,7 @@
 						placeholder="inserisci quantità">
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-25">
-					<label for="machines">ID macchina</label>
-				</div>
-				<div class="col-75">
-					<input type="number" id="machines" name="machines"
-						placeholder="inserisci macchina da associare">
-				</div>
-			</div>
+		
 			<button type="submit">Insert</button>
 		</form>
 	</div>

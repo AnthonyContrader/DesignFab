@@ -47,10 +47,7 @@
 				<div class="col-25">
 					<label for="materialsName">ID material </label>
 				</div>
-				<div class="col-75">
-					<input type="text" id="materialsName" name="materials"
-						value=<%=u.getMaterials()%>>
-				</div>
+				<input type="hidden" name="id" value =<%=u.getId_machine() %>>
 			</div>
 			<button type="submit">Edit</button>
 		</form>

@@ -31,8 +31,8 @@ public class Materials {
 	
 	private Double MaterialsQuantity;
 	
-	@ManyToMany(mappedBy = "materialsOnMachine", cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
-	private List<Machine> machinesOnMaterial = new ArrayList<Machine>();
+	/*@ManyToMany(mappedBy = "materialsOnMachine", cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+	private List<Machine> machinesOnMaterial = new ArrayList<Machine>();*/
 	
 
 }
