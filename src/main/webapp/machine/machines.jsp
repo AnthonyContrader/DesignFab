@@ -1,3 +1,4 @@
+<%@page import="it.contrader.dto.SensorDTO"%>
 <%@ page import="it.contrader.dto.MachineDTO" import="java.util.*"%>
 <html>
 <head>
@@ -18,14 +19,15 @@
 	</div>
 	<div class="main">
 		<%
-			List<MachineDTO> list = (List<MachineDTO>) request.getSession().getAttribute("list");
+			List<MachineDTO> list = (List<MachineDTO>) request.getSession().getAttribute("machineList");
+			List<SensorDTO> sensorList = (List<SensorDTO>) request.getSession().getAttribute("sensorList");
 		%>
 
 		<br>
 		<table>
 			<tr>
 				<th>Name</th>
-			
+
 				<th></th>
 				<th></th>
 			</tr>
@@ -35,8 +37,9 @@
 			<tr>
 				<td><a href="/machine/read?id=<%=u.getId_machine()%>"> <%=u.getMachineName()%>
 				</a></td>
-				
-				<td><a href="/machine/preupdate?id=<%=u.getId_machine()%>">Edit</a></td>
+
+				<td><a
+					href="/machine/preupdate?id=<%=u.getId_machine()%>&id_sensor=<%=u.getSensorDto().getId_sensor()%>">Edit</a></td>
 
 				<td><a href="/machine/delete?id=<%=u.getId_machine()%>">Delete</a></td>
 			</tr>
@@ -55,10 +58,26 @@
 					<input type="text" id="machine" name="machine_name"
 						placeholder="inserisci nome Macchina">
 				</div>
-			
-		
 
-			<button type="submit">Insert</button>
+				<div class="col-25">
+					<label for="sensor">Sensor Name</label>
+				</div>
+				<div class="col-75">
+
+					<select name="sensor_id" id="sensor">
+						<%
+							for (SensorDTO sensor : sensorList) {
+						%>
+						<option value="<%=sensor.getId_sensor()%>">
+							<%=sensor.getSensor_name()%>
+						</option>
+						<%
+							}
+						%>
+					</select>
+				</div>
+
+				<button type="submit">Insert</button>
 		</form>
 	</div>
 </body>

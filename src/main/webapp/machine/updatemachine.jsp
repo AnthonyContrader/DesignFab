@@ -22,6 +22,7 @@
 	<div class="main">
 		<%
 			MachineDTO u = (MachineDTO) request.getSession().getAttribute("dto");
+			Long idsensor = (Long) request.getSession().getAttribute("id_sensor");
 		%>
 
 		<form id="floatleft" action="/machine/update" method="post">
@@ -33,7 +34,8 @@
 					<input type="text" id="machine" name="machine_name"
 						value=<%=u.getMachineName()%>>
 				</div>
-			<input type="hidden" name="id" value =<%=u.getId_machine()%>>
+				<input type="hidden" name="id" value=<%=u.getId_machine()%>>
+				<input  name="id_sensor" style="display:none;" value=<%=idsensor%>>
 			</div>
 			<button type="submit">Edit</button>
 		</form>

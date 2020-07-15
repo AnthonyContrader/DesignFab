@@ -16,5 +16,4 @@ public class SensorDTO {
 
 	private String sensor_name;
 
-
 }

@@ -3,16 +3,17 @@ package it.contrader.converter;
 import org.springframework.stereotype.Component;
 
 import it.contrader.dto.SensorDTO;
+import it.contrader.model.Machine;
 import it.contrader.model.Sensor;
 
 @Component
-public class SensorConverter extends AbstractConverter<Sensor, SensorDTO>{
+public class SensorConverter extends AbstractConverter<Sensor, SensorDTO> {
 
 	@Override
 	public Sensor toEntity(SensorDTO sensordto) {
 		Sensor sensor = null;
 		if (sensordto != null)
-			sensor= new Sensor(sensordto.getId_sensor(), sensordto.getSensor_name());
+			sensor = new Sensor(sensordto.getId_sensor(), sensordto.getSensor_name(), new Machine());
 		return sensor;
 	}
 
@@ -20,9 +21,8 @@ public class SensorConverter extends AbstractConverter<Sensor, SensorDTO>{
 	public SensorDTO toDTO(Sensor sensor) {
 		SensorDTO sensordto = null;
 		if (sensor != null)
-			sensordto= new SensorDTO(sensor.getId_sensor(), sensor.getName_sensor());
+			sensordto = new SensorDTO(sensor.getId_sensor(), sensor.getName_sensor());
 		return sensordto;
 	}
 
-	
 }

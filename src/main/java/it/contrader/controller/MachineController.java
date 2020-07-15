@@ -11,19 +11,26 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import it.contrader.converter.MachineConverter;
+import it.contrader.converter.SensorConverter;
 import it.contrader.dto.MachineDTO;
+import it.contrader.dto.SensorDTO;
 import it.contrader.model.Materials;
 import it.contrader.service.MachineService;
+import it.contrader.service.SensorService;
 
 @Controller
 @RequestMapping("/machine")
 public class MachineController {
 
 	@Autowired
-	private MachineService service;
+	private MachineService machineService;
+	@Autowired
+	private SensorService sensorService;
 
 	private void setAll(HttpServletRequest request) {
-		request.getSession().setAttribute("list", service.getAll());
+		request.getSession().setAttribute("machineList", machineService.getAll());
+		request.getSession().setAttribute("sensorList", sensorService.getAll());
 	}
 
 	@GetMapping("/getall")
@@ -34,47 +41,51 @@ public class MachineController {
 
 	@GetMapping("/read")
 	public String read(HttpServletRequest request, @RequestParam("id") Long id) {
-		request.getSession().setAttribute("dto", service.read(id));
+		request.getSession().setAttribute("dto", machineService.read(id));
 		return "machine/readmachine";
 	}
 
 	@PostMapping("/insert")
-	public String insert(HttpServletRequest request, @RequestParam("machine_name") String machineName){
-		
+	public String insert(HttpServletRequest request, @RequestParam("machine_name") String machineName,
+			@RequestParam("sensor_id") Long idSensorFk) {
+
 		MachineDTO dto = new MachineDTO();
-		
+		SensorDTO sensdto = new SensorDTO();
 		dto.setMachineName(machineName);
-		
-		service.insert(dto);
+		sensdto = sensorService.read(idSensorFk);
+		dto.setSensorDto(sensdto);
+		machineService.insert(dto);
 		setAll(request);
 		return "machine/machines";
 	}
-	
+
 	@GetMapping("/preupdate")
-	public String preUpdate(HttpServletRequest request, @RequestParam("id") Long id) {
-		request.getSession().setAttribute("dto", service.read(id));
+	public String preUpdate(HttpServletRequest request, @RequestParam("id") Long id,
+			@RequestParam("id_sensor") Long idSensor) {
+		request.getSession().setAttribute("dto", machineService.read(id));
+		request.getSession().setAttribute("id_sensor", idSensor);
 		return "machine/updatemachine";
 	}
 
 	@PostMapping("/update")
 	public String update(HttpServletRequest request, @RequestParam("id") Long idMachine,
-			@RequestParam("machine_name") String machineName)
-			 {
+			@RequestParam("machine_name") String machineName, @RequestParam("id_sensor") Long idSensor) {
 
 		MachineDTO dto = new MachineDTO();
-
+		SensorDTO sensdto = sensorService.read(idSensor);
+		dto.setSensorDto(sensdto);
 		dto.setId_machine(idMachine);
 		dto.setMachineName(machineName);
-		
-		service.update(dto);
+
+		machineService.update(dto);
 		setAll(request);
 		return "machine/machines";
 
 	}
-	
+
 	@GetMapping("/delete")
 	public String delete(HttpServletRequest request, @RequestParam("id") Long id) {
-		service.delete(id);
+		machineService.delete(id);
 		setAll(request);
 		return "machine/machines";
 	}
