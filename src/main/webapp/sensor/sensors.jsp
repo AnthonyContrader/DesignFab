@@ -1,5 +1,6 @@
 <%@page import="it.contrader.dto.SensorDTO"%>
-<%@ page import="it.contrader.dto.MachineDTO" import="java.util.*"%>
+<%@ page import="it.contrader.dto.MachineDTO"
+	import="it.contrader.dto.MaterialsDTO" import="java.util.*"%>
 <html>
 <head>
 <meta charset="utf-8">
@@ -14,19 +15,19 @@
 	<%@ include file="../css/header.jsp"%>
 	<div class="navbar">
 		<a href="/homeadmin.jsp">Home</a> <a class="active"
-			href="/sensor/getall">Sensor</a> <a href="/user/logout"
-			id="logout">Logout</a>
+			href="/sensor/getall">Sensor</a> <a href="/user/logout" id="logout">Logout</a>
 	</div>
 	<div class="main">
 		<%
 			List<SensorDTO> list = (List<SensorDTO>) request.getSession().getAttribute("listSensor");
+		List<MaterialsDTO> listMaterials = (List<MaterialsDTO>) request.getSession().getAttribute("listMaterials");
 		%>
 
 		<br>
 		<table>
 			<tr>
 				<th>Name Sensor</th>
-				
+
 				<th></th>
 				<th></th>
 			</tr>
@@ -36,7 +37,8 @@
 			<tr>
 				<td><a href="/sensor/read?id=<%=u.getId_sensor()%>"> <%=u.getSensor_name()%>
 				</a></td>
-				<td><a href="/sensor/preupdate?id=<%=u.getId_sensor()%>">Edit</a></td>
+				<td><a
+					href="/sensor/preupdate?id=<%=u.getId_sensor()%>&material_id=<%=u.getMaterialsDTO().getIdMaterials()%>">Edit</a></td>
 				<td><a href="/sensor/delete?id=<%=u.getId_sensor()%>">Delete</a></td>
 			</tr>
 			<%
@@ -54,7 +56,24 @@
 					<input type="text" id="sensor" name="sensor_name"
 						placeholder="inserisci nome Sensor">
 				</div>
-			
+			</div>
+			<div class="col-25">
+				<label for="materials">Materials Name</label>
+			</div>
+			<div class="col-75">
+
+				<select name="material_id" id="materials">
+					<%
+						for (MaterialsDTO material : listMaterials) {
+					%>
+					<option value="<%=material.getIdMaterials()%>">
+								<%=material.getMaterialName()%>
+					</option>
+					<%
+						}
+					%>
+				</select>
+			</div>
 			<button type="submit">Insert</button>
 		</form>
 	</div>

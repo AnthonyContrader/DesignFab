@@ -16,4 +16,5 @@ public class SensorDTO {
 
 	private String sensor_name;
 
+	private MaterialsDTO materialsDTO;
 }
