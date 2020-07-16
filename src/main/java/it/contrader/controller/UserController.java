@@ -33,7 +33,7 @@ public class UserController {
 			return "homeadmin";
 
 		case USER:
-			return "index";
+			return "homeuser";
 
 		default:
 			return "index";
@@ -70,7 +70,7 @@ public class UserController {
 		dto.setUsertype(usertype);
 		service.update(dto);
 		setAll(request);
-		return "user/users";
+		return "workResult";
 
 	}
 

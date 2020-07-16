@@ -28,8 +28,8 @@ public class Materials {
 	private String MaterialName;
 	private Double MaterialsQuantity;
 	
-	@OneToOne(mappedBy = "materials", cascade = CascadeType.ALL)
-	private Sensor sensor;
+	/*@OneToOne(mappedBy = "materials", cascade = CascadeType.ALL)
+	private Sensor sensor;*/
 	
 
 }

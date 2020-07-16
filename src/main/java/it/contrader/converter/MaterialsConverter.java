@@ -14,7 +14,7 @@ public class MaterialsConverter extends AbstractConverter<Materials, MaterialsDT
 	public Materials toEntity(MaterialsDTO materialsDTO) {
 		Materials material = null;
 		if(materialsDTO != null) {
-			material = new Materials(materialsDTO.getIdMaterials(), materialsDTO.getMaterialName(), materialsDTO.getMaterialsQuantity(), new Sensor());
+			material = new Materials(materialsDTO.getIdMaterials(), materialsDTO.getMaterialName(), materialsDTO.getMaterialsQuantity());
 		}
 		return material;
 	}

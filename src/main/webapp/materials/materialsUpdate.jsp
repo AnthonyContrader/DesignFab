@@ -35,7 +35,7 @@
 				</div>
 				<div class="row">
 					<div class="col-25">
-						<label for="quant">materials qunatity</label>
+						<label for="quant">materials quantity</label>
 					</div>
 					<div class="col-75">
 						<input type="text" id="quant" name="Material_quantity"
