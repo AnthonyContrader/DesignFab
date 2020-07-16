@@ -12,8 +12,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import it.contrader.dto.MaterialsDTO;
+import it.contrader.dto.SensorDTO;
 import it.contrader.model.Machine;
 import it.contrader.service.MaterialsService;
+import it.contrader.service.SensorService;
 
 @Controller
 @RequestMapping("/materials")
@@ -21,6 +23,8 @@ public class MaterialsController {
 
 	@Autowired
 	private MaterialsService service;
+	@Autowired
+	private SensorService serviceSensor;
 
 	private void setAll(HttpServletRequest request) {
 		request.getSession().setAttribute("list", service.getAll());
@@ -44,7 +48,6 @@ public class MaterialsController {
 			 {
 		
 		MaterialsDTO dto = new MaterialsDTO();
-		
 		dto.setMaterialName(MaterialName);
 		dto.setMaterialsQuantity(MaterialsQuantity);
 		service.insert(dto);

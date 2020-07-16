@@ -56,6 +56,7 @@ public class SensorController {
 		return "sensor/sensors";
 
 	}
+	
 
 	@GetMapping("/preupdate")
 	public String preupdate(HttpServletRequest request, @RequestParam("id") Long id,
