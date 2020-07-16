@@ -38,7 +38,7 @@
 						<label for="quant">materials quantity</label>
 					</div>
 					<div class="col-75">
-						<input type="text" id="quant" name="Material_quantity"
+						<input type="text" id="quant" name="material_quantity"
 							value=<%=u.getMaterialsQuantity()%>>
 					</div>
 					<input type="hidden" name="id" value=<%=u.getIdMaterials()%>>

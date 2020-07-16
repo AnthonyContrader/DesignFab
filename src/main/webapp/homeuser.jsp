@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" import="java.util.*" import="java.lang.Long"
 	pageEncoding="ISO-8859-1" import="it.contrader.dto.MaterialsDTO"
 	import="it.contrader.dto.MachineDTO"%>
 <!DOCTYPE html>
@@ -6,7 +6,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	content="width=device-width, initial-scale=1, shrink-to-fit=no ">
 <meta name="description" content="User Edit page">
 <meta name="author" content="Vittorio Valent">
 <link href="/css/vittoriostyle.css" rel="stylesheet">
@@ -19,21 +19,22 @@
 </head>
 <body>
 	<%@include file="css/header.jsp"%>
-
-	<div class="main">
-		<%
-			MaterialsDTO u = (MaterialsDTO) request.getSession().getAttribute("dtoWork");
-		%>
+	<div class="navbar">
+	
+	
 
 			
 		<form class="work" action="/work/update" method="post">
 			<label for="quantity">Inserisci rifiuti nella macchina:</label> <input
-				type="number" id="quantity" name="quantity">
-
+				type="number" id="quantity" name="material_quantity">
+				
+				
+			
+				
 			<button type="submit" value="work" name="button"
 				style="background-color: Tomato;">Avvio</button>
 		</form>
-	</div>
+	</div> 
 
 
 	<%@ include file="css/footer.jsp"%>

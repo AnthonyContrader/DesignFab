@@ -64,7 +64,7 @@ public class MaterialsController {
 	}
 	
 	@PostMapping("/update")
-	public String update(HttpServletRequest request,@RequestParam("id") Long idMaterials, @RequestParam("material_name") String MaterialName,
+	public String update(HttpServletRequest request,@RequestParam("id") Long idMaterials, @RequestParam("materials_name") String MaterialName,
 			@RequestParam("material_quantity") Double MaterialsQuantity) {
 		
 		MaterialsDTO dto = new MaterialsDTO();
