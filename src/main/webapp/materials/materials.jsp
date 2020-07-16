@@ -57,7 +57,7 @@
 					<label for="materials">Material Name</label>
 				</div>
 				<div class="col-75">
-					<input type="text" id="materials" name="Material_name"
+					<input type="text" id="materials" name="material_name"
 						placeholder="inserisci materiale">
 				</div>
 			</div>
@@ -66,7 +66,7 @@
 					<label for="pass">Quantity </label>
 				</div>
 				<div class="col-75">
-					<input type="text" id="materials" name="Material_quantity"
+					<input type="text" id="materials" name="material_quantity"
 						placeholder="inserisci quantità">
 				</div>
 			</div>

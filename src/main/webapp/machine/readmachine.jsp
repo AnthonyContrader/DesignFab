@@ -32,8 +32,8 @@
 			<tr>
 				<td><%=u.getId_machine()%></td>
 				<td><%=u.getMachineName()%></td>
-				<td><%=u.getMaterialName()%></td>
-				<td><%=u.getMaterials()%></td>
+				<td><%=u.getSensorDto().getSensor_name()%></td>
+				<td></td>
 			</tr>
 		</table>
 

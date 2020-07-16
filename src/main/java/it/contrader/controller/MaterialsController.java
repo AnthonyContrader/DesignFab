@@ -35,12 +35,12 @@ public class MaterialsController {
 	@GetMapping("/read")
 	public String read(HttpServletRequest request, @RequestParam("id") Long id) {
 		request.getSession().setAttribute("dto", service.read(id));
-		return "material/materialsRead";
+		return "materials/materialsRead";
 	}
 
 	@PostMapping("/insert")
-	public String insert(HttpServletRequest request, @RequestParam("Material_name") String MaterialName,
-			@RequestParam("Material_quantity") Double MaterialsQuantity)
+	public String insert(HttpServletRequest request, @RequestParam("material_name") String MaterialName,
+			@RequestParam("material_quantity") Double MaterialsQuantity)
 			 {
 		
 		MaterialsDTO dto = new MaterialsDTO();
@@ -61,8 +61,8 @@ public class MaterialsController {
 	}
 	
 	@PostMapping("/update")
-	public String update(HttpServletRequest request,@RequestParam("id") Long idMaterials, @RequestParam("materials_name") String MaterialName,
-			@RequestParam("Material_quantity") Double MaterialsQuantity) {
+	public String update(HttpServletRequest request,@RequestParam("id") Long idMaterials, @RequestParam("material_name") String MaterialName,
+			@RequestParam("material_quantity") Double MaterialsQuantity) {
 		
 		MaterialsDTO dto = new MaterialsDTO();
 		

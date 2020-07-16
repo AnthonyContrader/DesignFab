@@ -43,14 +43,14 @@ public class SensorController {
 
 	@PostMapping("/insert")
 	public String insert(HttpServletRequest request, @RequestParam("sensor_name") String sensor_name,
-			@RequestParam("material_id") Long idMaterialFK) {
+			@RequestParam("id_material") Long idMaterialFK) {
 
 		SensorDTO sensorDto = new SensorDTO();
 		MaterialsDTO materialsDTO = new MaterialsDTO();
 
 		materialsDTO = materialsService.read(idMaterialFK);
-		sensorDto.setMaterialsDTO(materialsDTO);
 		sensorDto.setSensor_name(sensor_name);
+		sensorDto.setMaterialsDTO(materialsDTO);		
 		sensorService.insert(sensorDto);
 		setAll(request);
 		return "sensor/sensors";
@@ -59,15 +59,15 @@ public class SensorController {
 
 	@GetMapping("/preupdate")
 	public String preupdate(HttpServletRequest request, @RequestParam("id") Long id,
-			@RequestParam("material_id") Long idMaterialFK) {
+			@RequestParam("id_material") Long idMaterialFK) {
 		request.getSession().setAttribute("dto", sensorService.read(id));
-		request.getSession().setAttribute("material_id", sensorService.read(id));
+		request.getSession().setAttribute("id_material", sensorService.read(id));
 		return "sensor/sensorUpdate";
 	}
 
 	@PostMapping("/update")
 	public String update(HttpServletRequest request, @RequestParam("id") Long id_sensor,
-			@RequestParam("sensor_name") String sensor_name, @RequestParam("material_id") Long idMaterialFK) {
+			@RequestParam("sensor_name") String sensor_name, @RequestParam("id_material") Long idMaterialFK) {
 
 		SensorDTO sensorDto = new SensorDTO();
 		MaterialsDTO materialsDTO = new MaterialsDTO();

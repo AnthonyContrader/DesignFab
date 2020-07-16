@@ -6,10 +6,10 @@
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="description" content="Machine Management">
+<meta name="description" content="Sensor Management">
 <meta name="author" content="Vittorio Valent">
 <link href="/css/vittoriostyle.css" rel="stylesheet">
-<title>Sensor manager</title>
+<title>Sensor Manager</title>
 </head>
 <body>
 	<%@ include file="../css/header.jsp"%>
@@ -38,7 +38,7 @@
 				<td><a href="/sensor/read?id=<%=u.getId_sensor()%>"> <%=u.getSensor_name()%>
 				</a></td>
 				<td><a
-					href="/sensor/preupdate?id=<%=u.getId_sensor()%>&material_id=<%=u.getMaterialsDTO().getIdMaterials()%>">Edit</a></td>
+					href="/sensor/preupdate?id=<%=u.getId_sensor()%>&id_material=<%=u.getMaterialsDTO().getIdMaterials()%>">Edit</a></td>
 				<td><a href="/sensor/delete?id=<%=u.getId_sensor()%>">Delete</a></td>
 			</tr>
 			<%
@@ -58,16 +58,16 @@
 				</div>
 			</div>
 			<div class="col-25">
-				<label for="materials">Materials Name</label>
+				<label for="material_name">Materials Name</label>
 			</div>
 			<div class="col-75">
 
-				<select name="material_id" id="materials">
+				<select name="id_material" id="material_name">
 					<%
 						for (MaterialsDTO material : listMaterials) {
 					%>
 					<option value="<%=material.getIdMaterials()%>">
-								<%=material.getMaterialName()%>
+						<%=material.getMaterialName()%>
 					</option>
 					<%
 						}
