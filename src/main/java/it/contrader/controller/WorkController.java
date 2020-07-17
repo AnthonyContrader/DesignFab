@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import it.contrader.dto.MaterialsDTO;
+import it.contrader.model.Materials.Materialtype;
 import it.contrader.service.MachineService;
 import it.contrader.service.MaterialsService;
 
@@ -43,7 +44,6 @@ public class WorkController {
 
 	@PostMapping("/update")
 	public String insert(HttpServletRequest request, @RequestParam("material_quantity") Double MaterialsQuantity)
-
 	{
 		List<MaterialsDTO> list = materialService.getAll();
 		Long id_materialsGenerico = null;
@@ -89,6 +89,25 @@ public class WorkController {
 
 		return "workresult";
 
+	}
+
+	@PostMapping("/test")
+	public String test(HttpServletRequest request, @RequestParam("material_type") String materialType) {
+		MaterialsDTO dto = materialService.findByMaterialName(materialType);
+		
+		switch (dto.getMaterialType()) {
+
+		case PLASTIC:
+			return "plasticResult";
+		case PAPER:
+			request.getSession().setAttribute("dtoWork", dto);
+			return "paperResult";
+		case GLASS:
+			//request.getSession().setAttribute("dtoWork", dto);
+			return "glassResult";
+		default:
+			return "workresult";
+		}
 	}
 
 }

@@ -23,6 +23,9 @@
 
 			
 		<form class="work" action="/work/update" method="post">
+			<!--  <select id="type" name="machine_type" style="display:none">
+				<option value="GENERIC">GENERIC</option>
+				</select>-->
 			<label for="quantity">Inserisci rifiuti nella macchina:</label> <input
 				type="number" id="quantity" name="material_quantity">
 				
