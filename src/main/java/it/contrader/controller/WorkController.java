@@ -47,13 +47,16 @@ public class WorkController {
 	{
 		List<MaterialsDTO> list = materialService.getAll();
 		Long id_materialsGenerico = null;
+		Materialtype material_type = null;
 		String material_name = "GENERIC";
 		for (MaterialsDTO u : list) {
 			if (u.getMaterialName().equals("GENERIC")) {
 				id_materialsGenerico = u.getIdMaterials();
+				material_type = u.getMaterialType();
 			}
 		}
 		MaterialsDTO dto = new MaterialsDTO();
+		dto.setMaterialType(material_type);
 		dto.setIdMaterials(id_materialsGenerico);
 		dto.setMaterialsQuantity(MaterialsQuantity);
 		dto.setMaterialName(material_name);
@@ -103,7 +106,7 @@ public class WorkController {
 			request.getSession().setAttribute("dtoWork", dto);
 			return "paperResult";
 		case GLASS:
-			//request.getSession().setAttribute("dtoWork", dto);
+			request.getSession().setAttribute("dtoWork", dto);
 			return "glassResult";
 		default:
 			return "workresult";
