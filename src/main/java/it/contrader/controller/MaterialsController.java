@@ -44,12 +44,11 @@ public class MaterialsController {
 	}
 
 	@PostMapping("/insert")
-	public String insert(HttpServletRequest request, @RequestParam("material_name") String MaterialName,
-			@RequestParam("material_quantity") Double MaterialsQuantity, @RequestParam("material_type") Materialtype materialType)
-			 {
-		
+	public String insert(HttpServletRequest request, @RequestParam("material_quantity") Double MaterialsQuantity,
+			@RequestParam("material_type") Materialtype materialType) {
+
 		MaterialsDTO dto = new MaterialsDTO();
-		dto.setMaterialName(MaterialName);
+		dto.setMaterialName(materialType.toString());
 		dto.setMaterialType(materialType);
 		dto.setMaterialsQuantity(MaterialsQuantity);
 		service.insert(dto);
@@ -58,32 +57,31 @@ public class MaterialsController {
 		return "materials/materials";
 
 	}
-	
+
 	@GetMapping("/preupdate")
 	public String preUpdate(HttpServletRequest request, @RequestParam("id") Long id) {
 		request.getSession().setAttribute("dto", service.read(id));
 		return "materials/materialsUpdate";
 	}
-	
-	
-	
+
 	@PostMapping("/update")
-	public String update(HttpServletRequest request,@RequestParam("id") Long idMaterials, @RequestParam("materials_name") String MaterialName,
-			@RequestParam("material_quantity") Double MaterialsQuantity, @RequestParam("material_type") Materialtype materialType) {
-		
+	public String update(HttpServletRequest request, @RequestParam("id") Long idMaterials,
+			@RequestParam("materials_name") String MaterialName,
+			@RequestParam("material_quantity") Double MaterialsQuantity,
+			@RequestParam("material_type") Materialtype materialType) {
+
 		MaterialsDTO dto = new MaterialsDTO();
-		
+
 		dto.setIdMaterials(idMaterials);
 		dto.setMaterialType(materialType);
 		dto.setMaterialName(MaterialName);
 		dto.setMaterialsQuantity(MaterialsQuantity);
-	
-		
+
 		service.update(dto);
 		setAll(request);
 		return "materials/materials";
 	}
-	
+
 	@GetMapping("/delete")
 	public String delete(HttpServletRequest request, @RequestParam("id") Long id) {
 		service.delete(id);
