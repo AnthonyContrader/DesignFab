@@ -63,6 +63,8 @@ public class MaterialsController {
 		return "materials/materialsUpdate";
 	}
 	
+	
+	
 	@PostMapping("/update")
 	public String update(HttpServletRequest request,@RequestParam("id") Long idMaterials, @RequestParam("materials_name") String MaterialName,
 			@RequestParam("material_quantity") Double MaterialsQuantity) {
@@ -72,6 +74,8 @@ public class MaterialsController {
 		dto.setIdMaterials(idMaterials);
 		dto.setMaterialName(MaterialName);
 		dto.setMaterialsQuantity(MaterialsQuantity);
+	
+		
 		service.update(dto);
 		setAll(request);
 		return "materials/materials";
