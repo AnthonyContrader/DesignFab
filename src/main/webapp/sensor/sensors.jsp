@@ -38,7 +38,7 @@
 				<td><a href="/sensor/read?id=<%=u.getId_sensor()%>"> <%=u.getSensor_name()%>
 				</a></td>
 				<td><a
-					href="/sensor/preupdate?id=<%=u.getId_sensor()%>&id_material=<%=u.getMaterialsDTO().getIdMaterials()%>">Edit</a></td>
+					href="/sensor/preupdate?id=<%=u.getId_sensor()%>">Edit</a></td>
 				<td><a href="/sensor/delete?id=<%=u.getId_sensor()%>">Delete</a></td>
 			</tr>
 			<%

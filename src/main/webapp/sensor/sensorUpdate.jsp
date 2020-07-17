@@ -35,6 +35,7 @@
 						value=<%=u.getSensor_name()%>>
 				</div>
 				<input type="hidden" name="id" value =<%=u.getId_sensor()%>>
+				<input type="hidden" name="id_material" value =<%=u.getMaterialsDTO().getIdMaterials()%>>
 			</div>
 			<button type="submit">Edit</button>
 		</form>

@@ -60,7 +60,8 @@
 					<option value="GENERIC">GENERIC</option>
 					<option value="PAPER">CARTA</option>
 					<option value="GLASS">VETRO</option>
-					<option value="PLASTIC">PLASTICA</option>			
+					<option value="PLASTIC">PLASTICA</option>	
+					<option value="INDIFFERENZIATA">INDIFFERENZIATA</option>		
 				</select>
 				<!-- <label for="materials_select">TIPO</label>
 				<select id="materials_select" name="material_type">

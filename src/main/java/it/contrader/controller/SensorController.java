@@ -59,23 +59,25 @@ public class SensorController {
 	
 
 	@GetMapping("/preupdate")
-	public String preupdate(HttpServletRequest request, @RequestParam("id") Long id,
-			@RequestParam("id_material") Long idMaterialFK) {
+	public String preupdate(HttpServletRequest request, @RequestParam("id") Long id)
+			 {
 		request.getSession().setAttribute("dto", sensorService.read(id));
-		request.getSession().setAttribute("id_material", sensorService.read(id));
-		return "sensor/sensorUpdate";
+		System.out.println(sensorService.read(id));
+			return "sensor/sensorUpdate";
 	}
 
 	@PostMapping("/update")
-	public String update(HttpServletRequest request, @RequestParam("id") Long id_sensor,
-			@RequestParam("sensor_name") String sensor_name, @RequestParam("id_material") Long idMaterialFK) {
+	public String update(HttpServletRequest request, @RequestParam("id") Long id_sensor, @RequestParam("id_material") Long id_material,
+			@RequestParam("sensor_name") String sensor_name) {
 
 		SensorDTO sensorDto = new SensorDTO();
 		MaterialsDTO materialsDTO = new MaterialsDTO();
-
-		materialsDTO = materialsService.read(idMaterialFK);
+		System.out.println(materialsService.read(id_material));
+		materialsDTO = materialsService.read(id_material);
 		sensorDto.setMaterialsDTO(materialsDTO);
 		sensorDto.setSensor_name(sensor_name);
+		sensorDto.setId_sensor(id_sensor);
+		System.out.println(sensorDto);
 		sensorService.update(sensorDto);
 		setAll(request);
 

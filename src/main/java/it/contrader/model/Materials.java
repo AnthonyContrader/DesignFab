@@ -21,7 +21,7 @@ import lombok.NoArgsConstructor;
 public class Materials {
 	
 	public enum Materialtype {
-		GENERIC, GLASS, PAPER, PLASTIC
+		GENERIC, GLASS, PAPER, PLASTIC, INDIFFERENZIATA
 	}
 	
 	@Id 

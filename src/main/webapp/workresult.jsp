@@ -17,6 +17,7 @@
 				<option value="PAPER">PAPER</option>
 				<option value="PLASTIC">PLASTIC</option>
 				<option value="GLASS">GLASS</option>
+				<option value="INDIFFERENZIATA">INDIFFERENZIATA</option>
 			</select>
 			<button type="submit" style="background-color: Tomato;">AVVIO</button>
 		</div>		
