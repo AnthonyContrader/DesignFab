@@ -56,10 +56,19 @@
 				<div class="col-25">
 					<label for="materials">Material Name</label>
 				</div>
-				<div class="col-75">
+				
+				<select id="materials" name="material_name">
+					<option value="GENERIC">GENERIC</option>
+					<option value="CARTA">CARTA</option>
+					<option value="VETRO">VETRO</option>
+					<option value="PLASTICA">PLASTICA</option>
+					<option value="INDIFFERENZIATA">INDIFFERENZIATA</option>				
+				</select>
+				
+				<!-- <div class="col-75">
 					<input type="text" id="materials" name="material_name"
 						placeholder="inserisci materiale">
-				</div>
+				</div> -->
 			</div>
 			<div class="row">
 				<div class="col-25">
