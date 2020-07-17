@@ -10,17 +10,16 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<%
-			List<MaterialsDTO> list = (List<MaterialsDTO>) request.getSession().getAttribute("list");
-		%>
-	<%
-				for (MaterialsDTO u : list) {
-			%>
-	<%=u.getMaterialsQuantity()%>
-	<%=u.getIdMaterials()%>
 
-	<%
-				}
-			%>
+	<form id="floatright" action="/work/test" method="post">
+		<div>
+			<select id="type" name="material_type">
+				<option value="PAPER">PAPER</option>
+				<option value="PLASTIC">PLASTIC</option>
+				<option value="GLASS">GLASS</option>
+			</select>
+			<button type="submit" style="background-color: Tomato;">AVVIO</button>
+		</div>		
+	</form>
 </body>
 </html>

@@ -18,5 +18,10 @@ public class MaterialsService extends AbstractService<Materials, MaterialsDTO> {
 	@Autowired
 	private MaterialsRepository repository;
 	
+	public MaterialsDTO findByMaterialName(String materialName) {
+		return converter.toDTO(repository.findByMaterialName(materialName));
+		
+	}
+	
 
 }

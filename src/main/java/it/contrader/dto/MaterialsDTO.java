@@ -1,6 +1,7 @@
 package it.contrader.dto;
 
 
+import it.contrader.model.Materials.Materialtype;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -11,10 +12,11 @@ import lombok.NoArgsConstructor;
 
 public class MaterialsDTO {
 	
-	private Long IdMaterials;
+	private Long idMaterials;
 	
-	private String MaterialName;
+	private String materialName;
 	
-	private Double MaterialsQuantity;
+	private Double materialsQuantity;
 	
+	private Materialtype materialType;
 	}

@@ -13,7 +13,7 @@ import it.contrader.model.Materials;
 @Transactional
 public interface MaterialsRepository extends CrudRepository<Materials, Long> {
 	
-	//List<Materials> findAllByMaterialsQuantity(Double quantity);
+	 Materials findByMaterialName(String materialName);
 }
 
 
