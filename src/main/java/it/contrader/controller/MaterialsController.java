@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import it.contrader.dto.MaterialsDTO;
 import it.contrader.dto.SensorDTO;
 import it.contrader.model.Machine;
+import it.contrader.model.Materials.Materialtype;
 import it.contrader.service.MaterialsService;
 import it.contrader.service.SensorService;
 
@@ -44,11 +45,12 @@ public class MaterialsController {
 
 	@PostMapping("/insert")
 	public String insert(HttpServletRequest request, @RequestParam("material_name") String MaterialName,
-			@RequestParam("material_quantity") Double MaterialsQuantity)
+			@RequestParam("material_quantity") Double MaterialsQuantity, @RequestParam("material_type") Materialtype materialType)
 			 {
 		
 		MaterialsDTO dto = new MaterialsDTO();
 		dto.setMaterialName(MaterialName);
+		dto.setMaterialType(materialType);
 		dto.setMaterialsQuantity(MaterialsQuantity);
 		service.insert(dto);
 		setAll(request);
@@ -67,11 +69,12 @@ public class MaterialsController {
 	
 	@PostMapping("/update")
 	public String update(HttpServletRequest request,@RequestParam("id") Long idMaterials, @RequestParam("materials_name") String MaterialName,
-			@RequestParam("material_quantity") Double MaterialsQuantity) {
+			@RequestParam("material_quantity") Double MaterialsQuantity, @RequestParam("material_type") Materialtype materialType) {
 		
 		MaterialsDTO dto = new MaterialsDTO();
 		
 		dto.setIdMaterials(idMaterials);
+		dto.setMaterialType(materialType);
 		dto.setMaterialName(MaterialName);
 		dto.setMaterialsQuantity(MaterialsQuantity);
 	

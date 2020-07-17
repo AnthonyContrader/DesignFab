@@ -7,11 +7,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h3> HELLO PAPER!</h3>
+<h3> CENTRO LAVORAZIONE CARTA </h3>
 		<%
 			MaterialsDTO dtoWork = (MaterialsDTO) request.getSession().getAttribute("dtoWork");
 		%>
-		
+	<form></form>	
 <%=dtoWork.getMaterialName() %>
 <%=dtoWork.getMaterialsQuantity()%>
 </body>
