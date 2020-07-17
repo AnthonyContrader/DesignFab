@@ -87,7 +87,7 @@ public class WorkController {
 		list.get(list.size() - 1).setMaterialsQuantity(Materialsx + list.get(list.size() - 1).getMaterialsQuantity() );
 		materialService.update(list.get(list.size() - 1));
 
-		return "homeuser";
+		return "workresult";
 
 	}
 

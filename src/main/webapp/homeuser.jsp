@@ -19,8 +19,6 @@
 </head>
 <body>
 	<%@include file="css/header.jsp"%>
-	<div class="navbar">
-	
 	
 
 			
@@ -34,7 +32,6 @@
 			<button type="submit" value="work" name="button"
 				style="background-color: Tomato;">Avvio</button>
 		</form>
-	</div> 
 
 
 	<%@ include file="css/footer.jsp"%>
