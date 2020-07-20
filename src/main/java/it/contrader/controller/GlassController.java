@@ -18,16 +18,16 @@ public class GlassController {
 	private MaterialsService materialService;
 
 	@PostMapping("/updateGlass")
-	public String update(HttpServletRequest request, @RequestParam("material_quantity") double quantit_materials,
+	public String update(HttpServletRequest request, @RequestParam("material_glass") double quantit_materials,
 			@RequestParam("id_material") Long id_material) {
 
 		MaterialsDTO materialsDto = materialService.read(id_material);
-
-		//double materialsQuantity = Math.random() * (quantit_materials - 0.0) + 0;
+		System.out.println("quantità " + quantit_materials);
+		// double materialsQuantity = Math.random() * (quantit_materials - 0.0) + 0;
 		materialsDto.setMaterialsQuantity(quantit_materials);
 		materialsDto.setIdMaterials(id_material);
 		materialService.update(materialsDto);
-		System.out.println("material " + materialsDto);
+		request.getSession().setAttribute("glassquantity", quantit_materials);
 		return "glassResult";
 
 	}

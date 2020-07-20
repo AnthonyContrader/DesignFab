@@ -13,11 +13,11 @@
 	<%
 		MaterialsDTO dtoWork = (MaterialsDTO) request.getSession().getAttribute("dtoWork");
 		Double var = Math.random() * (dtoWork.getMaterialsQuantity() - 0.0) + 0;
+		Double glass = (Double) request.getSession().getAttribute("glassquantity");
 	%>
 	<form></form>
-	<form class="glass" action="/glass/updateGlass" method="post">
-		<!-- <button type="submit" value="glass" name="button"
-			style="background-color: Tomato;">Avvio</button> -->
+	<form class="glass" action="/glass/updateGlass" method="post"
+		id="glassWork" name="glassMaterial">
 		<input type="number" id="quantity"
 			value=<%=dtoWork.getMaterialsQuantity()%> style="display: none"
 			name="material_quantity"> <input type="number"
@@ -37,22 +37,30 @@
 			<div class="w3-light-grey">
 				<div id="myBar" class="w3-green" style="height: 24px; width: 0"></div>
 			</div>
-			<br>
+			<br> <input type="number" id="quantity" value=<%=var%>
+				style="display: none" name="material_glass">
 
-			<button class="w3-button w3-green"
+			<button class="w3-button w3-green" type="submit"
 				onclick="move(); setTimeout(myFunction, 3000)" value="glass">AVVIO
 				PRODUZIONE</button>
 		</div>
 
-		<input type="number" id="quantity" value=<%=(var)%>
-			style="display: none" name="material_quantity">
-		<p style="display: none" id="var_hidden">
-			Sono stati prodotti <strong><%=(var)%></strong> di bottiglie
-		</p>
+
+
 
 	</form>
+	<%
+		if (glass != null) {
+	%>
+	<p id="var_hidden">
+		Sono stati prodotti Glass <strong><%=(glass)%></strong> di bottiglie
+	</p>
+	<%
+		}
+	%>
 	<script>
 		function myFunction() {
+			document.getElementById("glassWork").submit();
 			document.getElementById("var_hidden").style.display = "block";
 		}
 	</script>
