@@ -71,7 +71,7 @@ public class UserController {
 		dto.setUsertype(usertype);
 		service.update(dto);
 		setAll(request);
-		return "workResult";
+		return "user/users";
 
 	}
 

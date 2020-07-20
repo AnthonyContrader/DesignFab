@@ -33,17 +33,28 @@
 							value=<%=u.getMaterialName()%>>
 					</div>
 				</div>
-				<div class="row">
-					<div class="col-25">
-						<label for="quant">materials quantity</label>
-					</div>
-					<div class="col-75">
-						<input type="text" id="quant" name="material_quantity"
-							value=<%=u.getMaterialsQuantity()%>>
-					</div>
-					<input type="hidden" name="id" value=<%=u.getIdMaterials()%>>
+			</div>
+			<div class="row">
+				<div class="col-25">
+					<label for="quant">materials quantity</label>
 				</div>
-				<button type="submit">Edit</button>
+				<div class="col-75">
+					<input type="text" id="quant" name="material_quantity"
+						value=<%=u.getMaterialsQuantity()%>>
+				</div>
+				<input type="hidden" name="id" value=<%=u.getIdMaterials()%>>
+			</div>
+			<div class="row">
+				<div class="col-25">
+					<label for="quant">materials Type</label>
+				</div>
+				<div class="col-75">
+					<input type="text" id="quant" name="material_type"
+						value=<%=u.getMaterialType()%>>
+				</div>
+				<input type="hidden" name="id" value=<%=u.getMaterialType()%>>
+			</div>
+			<button type="submit">Edit</button>
 		</form>
 	</div>
 </body>
