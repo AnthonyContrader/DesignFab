@@ -1,0 +1,75 @@
+<div class="container">
+    <div class="row mt-5">
+      <div class="col-md-1">
+  
+      </div>
+      <div class="col-md-10">
+        <table>
+          <tr>
+            <th>
+              Material Name
+            </th>
+            <th>
+              Quantity
+            </th>
+            <th>
+              Type
+            </th>
+            <th>
+              Edit
+            </th>
+            <th>
+              Material
+            </th>
+          </tr>
+          <tr>
+            <td>
+              <input placeholder="name" [(ngModel)]="materialstoinsert.name">
+            </td>
+            <td>
+              <input placeholder="quantity" [(ngModel)]="materialstoinsert.quantity">
+            </td>
+            <td>
+              <select placeholder="type" [(ngModel)]="materialstoinsert.type">
+                <option value="GENERIC">GENERIC</option>
+                <option value="GLASS">GLASS</option>
+                <option value="PAPER">PAPER</option>
+                <option value="PLASTIC">PLASTIC</option>
+              </select>
+            </td>
+            <td>
+              <button (click)="insert(materialstoinsert)">Insert</button>
+            </td>
+            <td>
+              <button (click)="clear()">Clear</button>
+            </td>
+          </tr>
+          <tr *ngFor="let material of materials">
+            <td>
+              <input [(ngModel)]="material.name">
+            </td>
+            <td>
+              <input [(ngModel)]="material.quantity">
+            </td>
+            <td>
+              <select [(ngModel)]="material.type">
+                <option [selected]="material.type===GENERIC" value="GENERIC">GENERIC</option>
+                <option [selected]="material.type===GLASS" value="GLASS">GLASS</option>
+                <option [selected]="material.type===PAPER" value="PAPER">PAPER</option>
+                <option [selected]="material.type===PLASTIC" value="PLASTIC">PLASTIC</option>
+              </select>
+            </td>
+            <td>
+              <button (click)=update(material)>Save</button>
+            </td>
+            <td>
+              <button (click)="delete(material)">Delete</button>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="col-md-1">
+  
+      </div>
+    </div>
+  </div>
