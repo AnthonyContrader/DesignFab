@@ -13,6 +13,6 @@ import it.contrader.model.Sensor;
 
 @Repository //
 @Transactional //
-public interface SensorDAO extends CrudRepository<Sensor, Long> {
+public interface SensorRepository extends CrudRepository<Sensor, Long> {
 	
 }

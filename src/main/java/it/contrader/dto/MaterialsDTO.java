@@ -12,11 +12,11 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@JsonIdentityInfo(generator=ObjectIdGenerators.PropertyGenerator.class, property="id_sensor")
+@JsonIdentityInfo(generator=ObjectIdGenerators.PropertyGenerator.class, property="idMaterial")
 
 public class MaterialsDTO {
 	
-	private Long idMaterials;
+	private Long idMaterial;
 	
 	private String materialName;
 	

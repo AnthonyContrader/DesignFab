@@ -19,7 +19,7 @@ public class SensorConverter extends AbstractConverter<Sensor, SensorDTO> {
 	public Sensor toEntity(SensorDTO sensordto) {
 		Sensor sensor = null;
 		if (sensordto != null) 
-			sensor = new Sensor(sensordto.getId_sensor(), sensordto.getSensor_name(), materialsConverter.toEntity(sensordto.getMaterialsDTO()));
+			sensor = new Sensor(sensordto.getIdSensor(), sensordto.getSensor_name(), materialsConverter.toEntity(sensordto.getMaterialsDTO()));
 
 		return sensor;
 	}
@@ -29,9 +29,9 @@ public class SensorConverter extends AbstractConverter<Sensor, SensorDTO> {
 		SensorDTO sensordto = null;
 		if (sensor != null) {
 			if(sensor.getMaterials() != null)
-				sensordto = new SensorDTO(sensor.getId_sensor(), sensor.getName_sensor(), materialsConverter.toDTO(sensor.getMaterials()));
+				sensordto = new SensorDTO(sensor.getIdSensor(), sensor.getName_sensor(), materialsConverter.toDTO(sensor.getMaterials()));
 			else {
-				sensordto = new SensorDTO(sensor.getId_sensor(), sensor.getName_sensor(), new MaterialsDTO());
+				sensordto = new SensorDTO(sensor.getIdSensor(), sensor.getName_sensor(), new MaterialsDTO());
 			}
 		}
 			

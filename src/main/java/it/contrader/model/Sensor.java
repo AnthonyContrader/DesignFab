@@ -25,7 +25,7 @@ public class Sensor {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id_sensor;
+	private Long idSensor;
 
 	@Column(unique = true)
 	private String name_sensor;

@@ -11,11 +11,11 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@JsonIdentityInfo(generator=ObjectIdGenerators.PropertyGenerator.class, property="id_sensor")
+@JsonIdentityInfo(generator=ObjectIdGenerators.PropertyGenerator.class, property="idMachine")
 
 public class MachineDTO {
 
-	private Long id_machine;
+	private Long idMachine;
 
 	private String machineName;
 

@@ -26,7 +26,7 @@ public class Materials {
 	
 	@Id 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long idMaterials;
+	private Long idMaterial;
 	
 	@Column(unique = true)
 	private String materialName;

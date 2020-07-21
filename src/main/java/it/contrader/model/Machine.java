@@ -22,7 +22,7 @@ public class Machine {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id_machine;
+	private Long idMachine;
 
 	@Column(unique = true)
 	private String machine_name;

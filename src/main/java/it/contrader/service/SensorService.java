@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import it.contrader.converter.SensorConverter;
-import it.contrader.dao.SensorDAO;
+import it.contrader.dao.SensorRepository;
 import it.contrader.dto.SensorDTO;
 import it.contrader.model.Sensor;
 
@@ -15,7 +15,7 @@ public class SensorService extends AbstractService<Sensor, SensorDTO>{
 	@Autowired
 	private SensorConverter sensorConverter;
 	@Autowired
-	private SensorDAO sensorDao;
+	private SensorRepository sensorDao;
 	
 	
 }
