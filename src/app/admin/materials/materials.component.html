@@ -24,13 +24,13 @@
           </tr>
           <tr>
             <td>
-              <input placeholder="name" [(ngModel)]="materialstoinsert.name">
+              <input placeholder="name" [(ngModel)]="materialstoinsert.materialName">
             </td>
             <td>
-              <input placeholder="quantity" [(ngModel)]="materialstoinsert.quantity">
+              <input placeholder="quantity" [(ngModel)]="materialstoinsert.materialsQuantity">
             </td>
             <td>
-              <select placeholder="type" [(ngModel)]="materialstoinsert.type">
+              <select placeholder="type" [(ngModel)]="materialstoinsert.materialType">
                 <option value="GENERIC">GENERIC</option>
                 <option value="GLASS">GLASS</option>
                 <option value="PAPER">PAPER</option>
@@ -46,13 +46,13 @@
           </tr>
           <tr *ngFor="let material of materials">
             <td>
-              <input [(ngModel)]="material.name">
+              <input [(ngModel)]="material.materialName">
             </td>
             <td>
-              <input [(ngModel)]="material.quantity">
+              <input [(ngModel)]="material.materialsQuantity">
             </td>
             <td>
-              <select [(ngModel)]="material.type">
+              <select [(ngModel)]="material.materialType">
                 <option [selected]="material.type===GENERIC" value="GENERIC">GENERIC</option>
                 <option [selected]="material.type===GLASS" value="GLASS">GLASS</option>
                 <option [selected]="material.type===PAPER" value="PAPER">PAPER</option>
