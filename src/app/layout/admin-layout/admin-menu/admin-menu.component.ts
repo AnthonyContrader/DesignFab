@@ -24,6 +24,7 @@ export class AdminMenuComponent implements OnInit {
   }
 
   userscollapse() {
+    //prova
     if (this.isUserCollapsed === false) {
       this.isUserCollapsed = true;
     } else { this.isUserCollapsed = false; }
