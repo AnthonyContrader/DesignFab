@@ -9,6 +9,16 @@
                 <a [routerLink]="['/admin-dashboard/machines']"> <i class="fas fa-home" style="margin-right: 10px"> </i>
                     Machines </a>
             </button>
+            <button type="button" class="menubtn" data-toggle="collapsebtn" data-target="#materials"
+            (click)="materialcollapse()">
+            <i class="fas fa-home" style="margin-right: 15px"></i>Materials
+            </button>
+            <div class="collapsebtn" id="materials" *ngIf="isMaterialCollapsed">
+                <button class="menubtn" style="padding-left: 40px; background-color: #334247;">
+                    <a [routerLink]="['/admin-dashboard/materials']"> <i class="fas fa-edit" style="margin-right: 10px">
+                        </i> Manage Materials </a>
+                </button>
+            </div>
             <button type="button" class="menubtn" data-toggle="collapsebtn" data-target="#account"
                 (click)="accountcollapse()">
                 <i class="fas fa-user" style="margin-right: 15px"></i> Account
