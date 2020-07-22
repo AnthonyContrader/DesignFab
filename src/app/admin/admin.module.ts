@@ -14,7 +14,7 @@ import { MaterialComponent } from './materials/materials.component';
  * 
  * @author Vittorio Valent
  * 
- * @see AdminRoutingModule
+ * @see AdminRoutingModule 
  */
 @NgModule({
   declarations: [AdminDashboardComponent, UsersComponent, WorkInProgressComponent, MachineComponent, MaterialComponent],
