@@ -3,6 +3,8 @@ import { AbstractService } from './abstractservice';
 import { MaterialsDTO } from 'src/dto/materialsdto';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Materialtype } from 'src/dto/Materialtype';
+
 
 
 
@@ -16,4 +18,9 @@ import { Observable } from 'rxjs';
         super(http);
         this.type = 'materials';
       }
+
+      
+  updateMaterial(materialtypedto: MaterialsDTO): Observable<Materialtype> {
+    return this.http.post<any>('http://localhost:8080/' + this.type + '/materials', materialtypedto);
+  }
     }

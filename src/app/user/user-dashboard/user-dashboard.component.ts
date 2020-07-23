@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MaterialService } from 'src/service/material.service';
 import { MaterialsDTO } from 'src/dto/materialsdto';
+import {UpdateMaterialDTO} from 'src/dto/updatematerialdto';
 
 @Component({
   selector: 'app-user-dashboard',
@@ -24,6 +25,10 @@ export class UserDashboardComponent implements OnInit {
   
   update(material: MaterialsDTO) {
     this.service.update(material).subscribe(() => this.getMaterials());
+  }
+
+  updateMaterial(material :MaterialsDTO){
+    this.service.updateMaterial(material).subscribe(() => this.getMaterials());
   }
 
 }

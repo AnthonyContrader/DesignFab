@@ -11,9 +11,25 @@
         <input placeholder="Inserire quantità" [(ngModel)]="materialstoinsert.materialsQuantity">
       </td>
       <td>
-        <button (click)="insert(materialstoinsert)">Avvio primo macchinario</button>
+        <button (click)="updateMaterial(materialstoinsert.materialType.GENERIC)">Avvio primo macchinario</button>
       </td>
+
     </tr>
+
+ <!--   <tr *ngFor="let material of materials">
+      <td>
+        <input [(ngModel)]="material.materialType">
+      </td>
+      <td>
+
+        <select [(ngModel)]="material.sensorDto">
+          <option [selected]="material.type===GENERIC" value="GENERIC">GENERIC</option>
+          <option [selected]="material.type===GLASS" value="GLASS">GLASS</option>
+          <option [selected]="material.type===PAPER" value="PAPER">PAPER</option>
+          <option [selected]="material.type===PLASTIC" value="PLASTIC">PLASTIC</option>
+        </select>
+     </td>
+    </tr>-->
   </table>
 
 </div>
