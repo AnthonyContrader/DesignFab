@@ -6,6 +6,7 @@ import { UsersComponent } from './users/users.component';
 import { WorkInProgressComponent } from './work-in-progress/work-in-progress.component';
 import { MachineComponent } from './machines/machine.component';
 import { MaterialComponent } from './materials/materials.component';
+import { SensorComponent } from './sensor/sensor.component';
 
 /**
  * Modulo di routing dell'admin. Qui ci sono i percorsi che un admin può seguire:
@@ -26,7 +27,8 @@ const routes: Routes = [
     { path: 'users', component: UsersComponent},
     { path: 'work-in-progress', component: WorkInProgressComponent},
     {path : 'machines', component : MachineComponent},
-    {path : 'materials', component : MaterialComponent}
+    {path : 'materials', component : MaterialComponent},
+    {path : 'sensor', component : SensorComponent}
   ]}
 ];
 
