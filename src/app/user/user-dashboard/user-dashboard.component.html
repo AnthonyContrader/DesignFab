@@ -1,3 +1,19 @@
-<p>
-  user-dashboard works!
-</p>
+
+<div class="col-md-10">
+  <table>
+    <tr>
+      <th>
+        Inserimento rifiuti
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <input placeholder="Inserire quantità" [(ngModel)]="materialstoinsert.materialsQuantity">
+      </td>
+      <td>
+        <button (click)="insert(materialstoinsert)">Avvio primo macchinario</button>
+      </td>
+    </tr>
+  </table>
+
+</div>

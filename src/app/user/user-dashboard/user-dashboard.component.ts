@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { UserDTO } from 'src/dto/userdto';
+import { MaterialService } from 'src/service/material.service';
+import { MaterialsDTO } from 'src/dto/materialsdto';
 
 @Component({
   selector: 'app-user-dashboard',
@@ -8,12 +9,21 @@ import { UserDTO } from 'src/dto/userdto';
 })
 export class UserDashboardComponent implements OnInit {
 
-  user: UserDTO;
+  materials: MaterialsDTO[];
+  materialstoinsert: MaterialsDTO = new MaterialsDTO();
 
-  constructor() { }
+  constructor(private service: MaterialService) { }
 
   ngOnInit() {
-    this.user = JSON.parse(localStorage.getItem('currentUser'));
+    this.getMaterials()
+  }
+
+  getMaterials() {
+    this.service.getAll().subscribe(materials => this.materials = materials);
+  }
+  
+  update(material: MaterialsDTO) {
+    this.service.update(material).subscribe(() => this.getMaterials());
   }
 
 }
