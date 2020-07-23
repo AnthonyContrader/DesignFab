@@ -1,4 +1,4 @@
-import {Materialtype} from './materialtype';
+import {Materialtype} from './Materialtype';
 
 
 

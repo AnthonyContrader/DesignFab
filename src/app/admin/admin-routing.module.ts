@@ -19,6 +19,7 @@ import { MaterialComponent } from './materials/materials.component';
  * 
  * @see layout
  */
+
 const routes: Routes = [
   { path: 'admin-dashboard', component: AdminLayoutComponent, children:[
     { path: '', component: AdminDashboardComponent},

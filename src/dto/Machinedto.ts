@@ -1,4 +1,4 @@
-import {SensorDTO} from './Sensordto';
+import {SensorDTO} from './sensordto';
 
 
 export class MachineDTO {
