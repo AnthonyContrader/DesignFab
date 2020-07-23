@@ -8,6 +8,7 @@ import it.contrader.converter.MaterialsConverter;
 import it.contrader.dao.MaterialsRepository;
 import it.contrader.dto.MaterialsDTO;
 import it.contrader.model.Materials;
+import it.contrader.model.Materials.Materialtype;
 
 
 @Service
@@ -18,10 +19,9 @@ public class MaterialsService extends AbstractService<Materials, MaterialsDTO> {
 	@Autowired
 	private MaterialsRepository repository;
 	
-	public MaterialsDTO findByMaterialName(String materialName) {
-		return converter.toDTO(repository.findByMaterialName(materialName));
+	public MaterialsDTO  findByMaterialType(Materialtype materialType) {
+		return converter.toDTO(((MaterialsRepository)repository).findByMaterialType(materialType));
 		
 	}
-	
 
 }
