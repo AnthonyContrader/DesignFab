@@ -1,114 +1,26 @@
 
- <!--<div class="col-md-10">
+ <div class="col-md-10">
   <table>
     <tr>
       <th>
-        Inserimento rifiuti
+        Nome
+      </th>
+      <th>
+        quantity
       </th>
     </tr>
-    <tr>
+      <tr *ngFor="let material of materials">
+        <td>
+          <input [(ngModel)]="material.materialName">
+        </td>
       <td>
-        <input placeholder="Inserire quantità" [(ngModel)]="materialstoinsert.materialsQuantity">
-      </td>
-     <td>
-       <button (click)="updateMaterial(materialstoinsert.materialType.GENERIC)"  [routerLink]="['/user-2machine']">Avvio macchinario</button>
+        <input placeholder="Inserire quantità" [(ngModel)]="material.materialsQuantity">
       </td>
       <td>
-        <button (click)="insert(materialstoinsert)"  [routerLink]="['/user-2machine']">Avvio macchinario</button>
+        <button (click)="update(material)">Avvio macchinario</button>
        </td>
-
     </tr>
-
-   <tr *ngFor="let material of materials">
-      <td>
-        <input [(ngModel)]="material.materialType">
-      </td>
-      <td>
-
-        <select [(ngModel)]="material.sensorDto">
-          <option [selected]="material.type===GENERIC" value="GENERIC">GENERIC</option>
-          <option [selected]="material.type===GLASS" value="GLASS">GLASS</option>
-          <option [selected]="material.type===PAPER" value="PAPER">PAPER</option>
-          <option [selected]="material.type===PLASTIC" value="PLASTIC">PLASTIC</option>
-        </select>
-     </td>
-    </tr>
+ 
   </table>
 
-</div>
--->
-<div class="container">
-  <div class="row mt-5">
-    <div class="col-md-1">
-
-    </div>
-    <div class="col-md-10">
-      <table>
-        <tr>
-          <th>
-            Material Name
-          </th>
-          <th>
-            Quantity
-          </th>
-          <th>
-            Type
-          </th>
-          <th>
-            Edit
-          </th>
-          <th>
-            Material
-          </th>
-        </tr>
-        <tr>
-          <td>
-            <input placeholder="name" [(ngModel)]="materialstoinsert.materialName">
-          </td>
-          <td>
-            <input placeholder="quantity" [(ngModel)]="materialstoinsert.materialsQuantity">
-          </td>
-          <td>
-            <select placeholder="type" [(ngModel)]="materialstoinsert.materialType">
-              <option value="GENERIC">GENERIC</option>
-              <option value="GLASS">GLASS</option>
-              <option value="PAPER">PAPER</option>
-              <option value="PLASTIC">PLASTIC</option>
-            </select>
-          </td>
-          <td>
-            <button (click)="insert(materialstoinsert)">Insert</button>
-          </td>
-          <td>
-            <button (click)="clear()">Clear</button>
-          </td>
-        </tr>
-        <tr *ngFor="let material of materials">
-          <td>
-            <input [(ngModel)]="material.materialName">
-          </td>
-          <td>
-            <input [(ngModel)]="material.materialsQuantity">
-          </td>
-          <td>
-            <select [(ngModel)]="material.materialType">
-              <option [selected]="material.type===GENERIC" value="GENERIC">GENERIC</option>
-              <option [selected]="material.type===GLASS" value="GLASS">GLASS</option>
-              <option [selected]="material.type===PAPER" value="PAPER">PAPER</option>
-              <option [selected]="material.type===PLASTIC" value="PLASTIC">PLASTIC</option>
-            </select>
-          </td>
-          <td>
-            <button (click)=update(material)>Save</button>
-          </td>
-          <td>
-            <button (click)="delete(material)">Delete</button>
-          </td>
-        </tr>
-      </table>
-    </div>
-    <div class="col-md-1">
-
-    </div>
-  </div>
 </div>

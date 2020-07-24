@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MaterialService } from 'src/service/material.service';
 import { MaterialsDTO } from 'src/dto/materialsdto';
-import {UpdateMaterialDTO} from 'src/dto/updatematerialdto';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-dashboard',
@@ -12,34 +12,25 @@ export class UserDashboardComponent implements OnInit {
 
   materials: MaterialsDTO[];
   materialstoinsert: MaterialsDTO = new MaterialsDTO();
-  updatematerial : UpdateMaterialDTO;
-  constructor(private service: MaterialService) { }
+
+  constructor(private service: MaterialService,  private router: Router) { }
 
   ngOnInit() {
-    this.getMaterials()
+    this.getMaterials();
   }
-
-  updateMaterial(updatematerial :UpdateMaterialDTO){
-    this.service.updateMaterial(updatematerial).subscribe(() => this.getMaterials());
-  }
-
   getMaterials() {
-    this.service.getAll().subscribe(materials => this.materials = materials);
+    this.service.getAllBy('GENERIC').subscribe(materials => this.materials = materials);
   }
 
-  delete(material: MaterialsDTO) {
-    this.service.delete(material.idMaterial).subscribe(() => this.getMaterials());
+
+  update(updatematerial :MaterialsDTO){
+    this.service.update(updatematerial).subscribe(() => { 
+       this.router.navigate(['/user-dashboard/user-2machine']),
+       localStorage.setItem('prova', JSON.stringify(updatematerial));
+      
+      
+      });   
   }
 
-  update(material: MaterialsDTO) {
-    this.service.update(material).subscribe(() => this.getMaterials());
-  }
 
-  insert(material: MaterialsDTO) {
-    this.service.insert(material).subscribe(() => this.getMaterials());
-  }
-
-  clear(){
-    this.materialstoinsert = new MaterialsDTO();
-  }
 }
