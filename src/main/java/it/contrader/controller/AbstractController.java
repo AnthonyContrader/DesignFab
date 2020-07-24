@@ -26,7 +26,7 @@ import it.contrader.service.ServiceDTO;
 public abstract class AbstractController <DTO>{
 
 	@Autowired
-	private ServiceDTO<DTO> service;
+	protected ServiceDTO<DTO> service;
 	
 	@GetMapping("/getall")
 	public Iterable<DTO> getAll(){

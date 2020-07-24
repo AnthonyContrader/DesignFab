@@ -1,5 +1,7 @@
 package it.contrader.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Service;
@@ -8,6 +10,7 @@ import it.contrader.converter.MaterialsConverter;
 import it.contrader.dao.MaterialsRepository;
 import it.contrader.dto.MaterialsDTO;
 import it.contrader.model.Materials;
+import it.contrader.model.Materials.Materialtype;
 
 
 @Service
@@ -20,6 +23,11 @@ public class MaterialsService extends AbstractService<Materials, MaterialsDTO> {
 	
 	public MaterialsDTO findByMaterialName(String materialName) {
 		return converter.toDTO(repository.findByMaterialName(materialName));
+		
+	}
+	
+	public List<MaterialsDTO> findAllByMaterialType(Materialtype materialName) {
+		return converter.toDTOList(repository.findAllByMaterialType(materialName));
 		
 	}
 	
