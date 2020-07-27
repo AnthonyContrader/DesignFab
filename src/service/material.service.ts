@@ -19,9 +19,6 @@ import { Materialtype } from 'src/dto/Materialtype';
         this.type = 'materials';
       }
 
-      
-
-
   getAllBy(materialType: string): Observable<MaterialsDTO[]> {
     return this.http.get<any>('http://localhost:8080/' + this.type + '/getallby/' + materialType);
   }

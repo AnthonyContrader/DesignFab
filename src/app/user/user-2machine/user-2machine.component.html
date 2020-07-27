@@ -1,10 +1,27 @@
-<div class="col-md-10">
-    <table>
-      <tr>
-        <th>
-          PROVA
-        </th>
-      </tr>
-    </table>
-  
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-md-1">
+
+    </div>
+    <div class="col-md-10">
+      <table>
+        <tr>
+          <th>
+            Scegliere la macchina desiderata
+          </th>
+        </tr>
+        <td>
+          <select [(ngModel)]="provaMaterials.materialType" >
+            <option *ngFor = "let material of materialtype" [selected] = "provaMaterials.type === material" value="material">{{material}}</option>
+          </select>
+        </td>
+        <td>
+          <button (click)=update(provaMaterials)>Save</button>
+        </td>
+      </table>
+    </div>
+    <div class="col-md-1">
+
+    </div>
   </div>
+</div>
