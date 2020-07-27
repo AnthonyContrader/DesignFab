@@ -1,3 +1,66 @@
-<p>
-  sensor works!
-</p>
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-md-1">
+
+    </div>
+    <div class="col-md-10">
+      <table>
+        <tr>
+          <th>
+            Sensor Name
+          </th>
+          <th>
+           Material Name
+          </th>
+          <th>
+            Edit
+          </th>
+          <th>
+            User
+          </th>
+        </tr>
+        <tr>
+           <td>
+           <input placeholder="sensor_name" [(ngModel)]="sensorToInsert.sensor_name">
+          </td>
+          
+              <select placeholder="materialname" [(ngModel)]="materialsensorToInsert.idMaterial" >
+              <option *ngFor="let material of materials" value="material.idMaterial" >{{material.materialType}}</option>
+              </select> 
+             
+            <td>
+              <button (click)="insert(sensorToInsert)">Insert</button>
+            </td>
+            <td>
+              <button (click)="clear()">Clear</button>
+            </td>
+          </tr>
+          <tr *ngFor="let sensor of sensor">
+            <td>
+              <input [(ngModel)]="sensor.sensor_name">
+            </td>
+            <td>
+              <select  >
+               <option [selected]="sensor.materialsDTO.materialType" value="GENERIC">GENERIC</option>
+               <option [selected]="sensor.materialsDTO.materialType" value="PAPER">PAPER</option>
+               <option [selected]="sensor.materialsDTO.materialType" value="PLASTIC">PLASTIC</option>
+               <option [selected]="sensor.materialsDTO.materialType" value="GLASS">GLASS</option>
+
+                
+              </select>
+            </td>
+            <td>
+              <button (click)=update(sensor)>Save</button>
+            </td>
+            <td>
+              <button (click)="delete(sensor)">Delete</button>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="col-md-1">
+  
+      </div>
+    </div>
+  </div>
+        

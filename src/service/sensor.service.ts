@@ -12,7 +12,7 @@ export class SensorService extends AbstractService<SensorDTO>{
 
     constructor(http: HttpClient){
         super(http);
-        this.type='machines';
+        this.type='sensor';
     }
 }
 
