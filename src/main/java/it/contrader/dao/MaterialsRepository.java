@@ -19,4 +19,5 @@ public interface MaterialsRepository extends CrudRepository<Materials, Long> {
 	 
 	 List<Materials> findAllByMaterialType(Materialtype materialName);
 
+
 }
