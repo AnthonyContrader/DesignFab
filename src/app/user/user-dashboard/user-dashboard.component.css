@@ -4,3 +4,20 @@ p {
 table{
     font-size: 20px;
 }
+
+td {
+    width: 150px;
+    text-align: center;
+    border: 1px solid black;
+    padding: 5px;
+  }
+
+  th {
+    background-color: #4287f5;
+    text-align: center;
+    color: white;
+  }
+
+  button {
+    text-align: center;
+  }

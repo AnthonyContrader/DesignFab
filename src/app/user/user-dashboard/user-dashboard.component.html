@@ -3,15 +3,15 @@
   <table>
     <tr>
       <th>
-        Nome
+
       </th>
       <th>
-        quantity
+        Quantità Attuale
       </th>
     </tr>
       <tr *ngFor="let material of materials">
         <td>
-          <input [(ngModel)]="material.materialName">
+          Inserire  Kg di materiale da lavorare
         </td>
       <td>
         <input placeholder="Inserire quantità" [(ngModel)]="material.materialsQuantity">

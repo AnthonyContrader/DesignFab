@@ -1,3 +1,6 @@
+
+ <h1 style="text-align: center"> Sono stati inseriti {{provaMaterials.materialsQuantity}} kg nella macchina principale.</h1>
+<br>
 <div class="container">
   <div class="row mt-5">
     <div class="col-md-1">
@@ -7,16 +10,21 @@
       <table>
         <tr>
           <th>
-            Scegliere la macchina desiderata
+            Scegliere la lavorazione
           </th>
         </tr>
         <td>
-          <select [(ngModel)]="provaMaterials.materialType" >
+         <!-- <select [(ngModel)]="provaMaterials.materialType" >
             <option *ngFor = "let material of materialtype" [selected] = "provaMaterials.type === material" value="material">{{material}}</option>
+          </select>-->
+          <select [(ngModel)]="provaMaterials.materialType">
+            <option [selected]="provaMaterials.materialType===PAPER" value="PAPER">Riciclo carta</option>
+            <option [selected]="provaMaterials.materialType===PLASTIC" value="PLASTIC">Riciclo plastica</option>
+            <option [selected]="provaMaterials.materialType===GLASS" value="GLASS">riciclo vetro</option>
           </select>
         </td>
         <td>
-          <button (click)=update(provaMaterials)>Save</button>
+          <button (click)=update(provaMaterials)>Avvio</button>
         </td>
       </table>
     </div>

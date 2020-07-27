@@ -19,7 +19,6 @@ export class User2MachineComponent implements OnInit {
 
     constructor(private service: MaterialService) { 
       this.getMaterials();
-     
       this.materialtype = Object.keys(this.enum).filter(f => isNaN(Number(f)));
     }
 
