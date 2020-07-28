@@ -19,28 +19,33 @@
             User
           </th>
         </tr>
+       
         <tr>
            <td>
            <input placeholder="sensor_name" [(ngModel)]="sensorToInsert.sensor_name">
           </td>
           
-              <select placeholder="materialname" [(ngModel)]="materialsensorToInsert.idMaterial" >
-              <option *ngFor="let material of materials" value="material.idMaterial" >{{material.materialType}}</option>
+              <select placeholder="materialname" [(ngModel)]="materialsensorToInsert.idMaterial">
+              <option *ngFor="let material of materials" value={{material.idMaterial}} >{{material.materialType}}</option>
               </select> 
+              
              
             <td>
-              <button (click)="insert(sensorToInsert)">Insert</button>
+              <button (click)="insert2(materialsensorToInsert.idMaterial,sensorToInsert.sensor_name)">Insert</button>
             </td>
+            
+           
             <td>
               <button (click)="clear()">Clear</button>
             </td>
-          </tr>
+         </tr>
           <tr *ngFor="let sensor of sensor">
             <td>
               <input [(ngModel)]="sensor.sensor_name">
             </td>
+           
             <td>
-              <select  >
+              <select >
                <option [selected]="sensor.materialsDTO.materialType" value="GENERIC">GENERIC</option>
                <option [selected]="sensor.materialsDTO.materialType" value="PAPER">PAPER</option>
                <option [selected]="sensor.materialsDTO.materialType" value="PLASTIC">PLASTIC</option>

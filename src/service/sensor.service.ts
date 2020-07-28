@@ -14,6 +14,10 @@ export class SensorService extends AbstractService<SensorDTO>{
         super(http);
         this.type='sensor';
     }
+
+    insert2(idMaterial: number,sensor_name: String): Observable<any> {
+        return this.http.get<any>('http://localhost:8080/' + this.type + '/insert2/' + idMaterial + sensor_name);
+      }
 }
 
 
