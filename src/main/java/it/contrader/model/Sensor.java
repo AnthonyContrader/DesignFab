@@ -34,7 +34,6 @@ public class Sensor {
 	/*@OneToOne(mappedBy = "sensor", cascade = CascadeType.ALL)
 	private Machine machine;*/
 
-	@OneToOne()
-	@JoinColumn(name = "id_materials")
+	@OneToOne
 	private Materials materials;
 }
