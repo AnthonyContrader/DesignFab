@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import it.contrader.dto.MaterialsDTO;
 import it.contrader.dto.SensorDTO;
-import it.contrader.dto.SensormaterialDTO;
+import it.contrader.dto.SensorMaterialDTO;
 import it.contrader.service.MaterialsService;
 import it.contrader.service.SensorService;
 
@@ -29,7 +29,7 @@ public class SensorController extends AbstractController<SensorDTO>{
 	@Autowired
 	private MaterialsService materialsService;
 	@PostMapping(value ="/insert2") 
-		public SensorDTO insert2( @RequestBody SensormaterialDTO sensormaterialDTO ){
+		public SensorDTO insert2( @RequestBody SensorMaterialDTO sensormaterialDTO ){
             System.out.println(sensormaterialDTO.getIdMaterial()+" "+ sensormaterialDTO.getSensor_name());
 			SensorDTO sensorDto = new SensorDTO();
 			MaterialsDTO materialsDTO = new MaterialsDTO();

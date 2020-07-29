@@ -13,6 +13,9 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -21,6 +24,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor // costruttore vuoto
 @Data // getter e setter
 @Entity // dici che è una tabella
+//@JsonIdentityInfo(generator=ObjectIdGenerators.IntSequenceGenerator.class,property="@idSensor", scope = Sensor.class)
 public class Sensor {
 
 	@Id

@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class SensormaterialDTO {
+public class SensorMaterialDTO {
 	
 	private String sensor_name;
 	
