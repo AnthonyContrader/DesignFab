@@ -19,10 +19,9 @@ import it.contrader.service.MaterialsService;
 public class MaterialsController extends AbstractController<MaterialsDTO> {
 
 	MaterialsService materialService;
-	
 	@GetMapping("/getallby/{materialType}")
 	public List<MaterialsDTO> findAllType(@PathVariable("materialType") String materialType) {
-
+		System.out.println("Ciao sono carlo.");
 		Materialtype type = Materialtype.valueOf(materialType);
 
 		return ((MaterialsService) this.service).findAllByMaterialType(type);
