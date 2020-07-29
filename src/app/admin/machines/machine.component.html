@@ -15,33 +15,31 @@
           </tr>
           <tr>
             <td>
-              <input placeholder="name" [(ngModel)]="machineInsert.machineName">
+              <input placeholder="name" [(ngModel)]="machineToInsert.machineName">
             </td>
             <td>
-              <select placeholder="type" [(ngModel)]="machineInsert.sensorDto">
-              <!--  <option value="GENERIC">GENERIC</option>
-                <option value="GLASS">GLASS</option>
-                <option value="PAPER">PAPER</option>
-                <option value="PLASTIC">PLASTIC</option> --> 
+              <select placeholder="type" [(ngModel)]="machinesensorToInsert.idSensor">
+                <option *ngFor ="let sens of sensor" value={{sens.idSensor}}>{{sens.sensor_name}}</option>
               </select>
             </td>
             <td>
-              <button (click)="insert(machinesToInsert)">Insert</button>
+              <button (click)="insert2(machinesensorToInsert.idSensor, machineToInsert.machineName)">Insert</button>
             </td>
             <td>
               <button (click)="clear()">Clear</button>
             </td>
           </tr>
-          <tr *ngFor="let machine of machines">
-            <td>
+
+        <tr *ngFor="let machine of machines">
+             <td>
               <input [(ngModel)]="machine.machineName">
-            </td>
+            </td> 
+
+           {{machine.sensorDto.sensor_name}}
+
             <td>
-              <select [(ngModel)]="machine.sensorDto">
-                <!--<option [selected]="material.type===GENERIC" value="GENERIC">GENERIC</option>
-                <option [selected]="material.type===GLASS" value="GLASS">GLASS</option>
-                <option [selected]="material.type===PAPER" value="PAPER">PAPER</option>
-                <option [selected]="material.type===PLASTIC" value="PLASTIC">PLASTIC</option> -->
+              <select  [(ngModel)]="machine.sensorDto.sensor_name">
+                <option *ngFor ="let sens of sensor" value={{sens.idSensor}}>{{sens.sensor_name}}</option>
               </select>
             </td>
             <td>

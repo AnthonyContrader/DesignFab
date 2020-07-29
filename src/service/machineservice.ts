@@ -3,6 +3,8 @@ import { AbstractService } from './abstractservice';
 import { MachineDTO } from 'src/dto/Machinedto';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { MachineSensorDTO } from 'src/dto/machinesensordto';
+
 
 @Injectable({
     providedIn: 'root'
@@ -14,4 +16,8 @@ export class MachineService extends AbstractService<MachineDTO>{
         super(http);
         this.type='machines';
     }
+
+    insert2(machinesensorDTO: MachineSensorDTO): Observable<MachineDTO> {
+        return this.http.post<any>('http://localhost:8080/' + this.type + '/insert2', machinesensorDTO);
+      }
 }
