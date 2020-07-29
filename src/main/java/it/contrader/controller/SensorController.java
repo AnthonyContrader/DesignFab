@@ -29,7 +29,7 @@ public class SensorController extends AbstractController<SensorDTO>{
 	@PostMapping("/insertdue/{idMaterial}&{sensor_name}") 
 		public SensorDTO insert2(@PathVariable("sensor_name") String sensor_name,
 				@PathVariable("idMaterial") Long idMaterialFK) {
- System.out.println("ciao");
+ 
 			SensorDTO sensorDto = new SensorDTO();
 			MaterialsDTO materialsDTO = new MaterialsDTO();
 

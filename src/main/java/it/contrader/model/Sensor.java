@@ -30,7 +30,6 @@ public class Sensor {
 	@Column(unique = true)
 	private String name_sensor;
 	
-	
 	/*@OneToOne(mappedBy = "sensor", cascade = CascadeType.ALL)
 	private Machine machine;*/
 
