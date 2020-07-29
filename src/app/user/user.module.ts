@@ -11,6 +11,8 @@ import { User2MachineComponent } from './user-2machine/user-2machine.component';
     CommonModule, 
     UserRoutingModule,
     FormsModule
-  ]
+  ],
+  providers: [],
+  bootstrap: [UserDashboardComponent]
 })
 export class UserModule { }

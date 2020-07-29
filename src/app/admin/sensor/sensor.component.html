@@ -45,11 +45,12 @@
             </td>
            
             <td>
-              <select >
-               <option [selected]="sensor.materialsDTO.materialType" value="GENERIC">GENERIC</option>
-               <option [selected]="sensor.materialsDTO.materialType" value="PAPER">PAPER</option>
-               <option [selected]="sensor.materialsDTO.materialType" value="PLASTIC">PLASTIC</option>
-               <option [selected]="sensor.materialsDTO.materialType" value="GLASS">GLASS</option>
+            
+              <select [(ngModel)]="sensor.materialsDTO.materialType">
+               <option [selected]="sensor.materialsDTO.materialType" value=GENERIC>GENERIC</option>
+               <option [selected]="sensor.materialsDTO.materialType" value=PAPER>PAPER</option>
+               <option [selected]="sensor.materialsDTO.materialType" value=PLASTIC>PLASTIC</option>
+               <option [selected]="sensor.materialsDTO.materialType" value=GLASS>GLASS</option>
 
                 
               </select>

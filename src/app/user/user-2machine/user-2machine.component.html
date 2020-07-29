@@ -18,9 +18,9 @@
             <option *ngFor = "let material of materialtype" [selected] = "provaMaterials.type === material" value="material">{{material}}</option>
           </select>-->
           <select [(ngModel)]="provaMaterials.materialType">
-            <option [selected]="provaMaterials.materialType===PAPER" value="PAPER">Riciclo carta</option>
-            <option [selected]="provaMaterials.materialType===PLASTIC" value="PLASTIC">Riciclo plastica</option>
-            <option [selected]="provaMaterials.materialType===GLASS" value="GLASS">riciclo vetro</option>
+            <option [selected]="provaMaterials.materialType" value="PAPER">Riciclo carta</option>
+            <option [selected]="provaMaterials.materialType" value="PLASTIC">Riciclo plastica</option>
+            <option [selected]="provaMaterials.materialType" value="GLASS">riciclo vetro</option>
           </select>
         </td>
         <td>

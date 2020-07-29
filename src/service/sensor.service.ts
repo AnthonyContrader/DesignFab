@@ -1,3 +1,4 @@
+import { SensormaterialDTO } from 'src/dto/sensormaterialdto';
 import { Injectable } from '@angular/core';
 import { AbstractService} from './abstractservice';
 import { SensorDTO } from 'src/dto/sensordto';
@@ -15,8 +16,8 @@ export class SensorService extends AbstractService<SensorDTO>{
         this.type='sensor';
     }
 
-    insert2(idMaterial: number,sensor_name: String): Observable<any> {
-        return this.http.get<any>('http://localhost:8080/' + this.type + '/insert2/' + idMaterial + sensor_name);
+    insert2(sensormaterialDTO: SensormaterialDTO): Observable<SensorDTO> {
+        return this.http.post<any>('http://localhost:8080/' + this.type + '/insert2', sensormaterialDTO);
       }
 }
 

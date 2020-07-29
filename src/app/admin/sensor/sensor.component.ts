@@ -12,6 +12,7 @@ import { Materialtype } from 'src/dto/Materialtype';
 import { NgForm } from '@angular/forms';
 import { NgForOf } from '@angular/common';
 import { Subscriber } from 'rxjs';
+import { SensormaterialDTO } from 'src/dto/sensormaterialdto';
 
 @Component({
   selector: 'app-sensor',
@@ -24,8 +25,8 @@ export class SensorComponent implements OnInit {
   sensorToInsert: SensorDTO = new SensorDTO();
   materials: MaterialsDTO[];
   materialsensorToInsert: MaterialsDTO = new MaterialsDTO;
-  materials2: MaterialsDTO[];
-  m: MaterialsDTO = new MaterialsDTO;
+  sensormaterialDTO: SensormaterialDTO;
+ 
 
  
 
@@ -58,9 +59,12 @@ export class SensorComponent implements OnInit {
   }
 
   insert2(idMaterial: number,sensor_name: String){
-    console.log(idMaterial);
+    this.sensormaterialDTO= new SensormaterialDTO(sensor_name, idMaterial)
+    this.sensorService.insert2(this.sensormaterialDTO).subscribe(()=>this.getSensor());
     
-    this.sensorService.insert2(idMaterial, sensor_name).subscribe(()=>this.getSensor);
+    console.log(this.sensormaterialDTO);
+    //this.materialService.read(idMaterial).subscribe(m=> this.m = m);
+    //this.sensorService.insert2(idMaterial, sensor_name).subscribe(()=>this.getSensor());
     
     
   }
