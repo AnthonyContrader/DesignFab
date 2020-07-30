@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -28,6 +29,8 @@ public class SensorController extends AbstractController<SensorDTO>{
 	private SensorService sensorService;
 	@Autowired
 	private MaterialsService materialsService;
+	
+	
 	@PostMapping(value ="/insert2") 
 		public SensorDTO insert2( @RequestBody SensorMaterialDTO sensormaterialDTO ){
             System.out.println(sensormaterialDTO.getIdMaterial()+" "+ sensormaterialDTO.getSensor_name());
@@ -39,5 +42,19 @@ public class SensorController extends AbstractController<SensorDTO>{
 			sensorDto.setMaterialsDTO(materialsDTO);		
 			sensorService.insert(sensorDto);
 			return sensorDto;
+	}
+	
+	
+	@PutMapping(value="/update2")
+	public SensorDTO update2(@RequestBody SensorMaterialDTO sensormaterialDTO) {
+		SensorDTO sensorDto = new SensorDTO();
+		MaterialsDTO materialsDto = new MaterialsDTO();
+		
+		materialsDto = materialsService.read(sensormaterialDTO.getIdMaterial());
+		sensorDto.setSensor_name(sensormaterialDTO.getSensor_name());
+		sensorDto.setMaterialsDTO(materialsDto);
+		sensorService.update(sensorDto);
+		return sensorDto;
+		
 	}
 }
