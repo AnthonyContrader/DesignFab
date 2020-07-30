@@ -12,9 +12,11 @@ import { Materialtype } from 'src/dto/Materialtype';
 export class User2MachineComponent implements OnInit {
 
   provaMaterials : MaterialsDTO;
+  materialToUpdate : MaterialsDTO;
   materials: MaterialsDTO[];
   materialtype = [];
   enum = Materialtype;
+  quantity : number;
 
 
     constructor(private service: MaterialService) { 
@@ -36,8 +38,10 @@ export class User2MachineComponent implements OnInit {
 
     update(material: MaterialsDTO) {
     
-      this.provaMaterials.materialsQuantity = material.materialsQuantity/3;
-      this.service.update(this.provaMaterials).subscribe(() => this.read(this.provaMaterials.idMaterial));
+      material.materialsQuantity = this.provaMaterials.materialsQuantity/3;
+      this.quantity = material.materialsQuantity;
+      this.service.update(material).subscribe(() => this.getMaterials());
+     // this.service.update(material).subscribe(() => this.read(material.idMaterial));
     }
     
 }

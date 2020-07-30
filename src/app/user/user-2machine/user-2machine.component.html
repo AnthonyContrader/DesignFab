@@ -1,5 +1,5 @@
 
- <h1 style="text-align: center"> Sono stati inseriti {{provaMaterials.materialsQuantity}} kg nella macchina principale.</h1>
+ <h1 style="text-align: center"> Sono stati inseriti {{provaMaterials.materialsQuantity}} kg  di {{provaMaterials.materialType}} nella macchina principale.</h1> 
 <br>
 <div class="container">
   <div class="row mt-5">
@@ -13,23 +13,27 @@
             Scegliere la lavorazione
           </th>
         </tr>
-        <td>
-         <!-- <select [(ngModel)]="provaMaterials.materialType" >
-            <option *ngFor = "let material of materialtype" [selected] = "provaMaterials.type === material" value="material">{{material}}</option>
-          </select>-->
-          <select [(ngModel)]="provaMaterials.materialType">
-            <option [selected]="provaMaterials.materialType" value="PAPER">Riciclo carta</option>
-            <option [selected]="provaMaterials.materialType" value="PLASTIC">Riciclo plastica</option>
-            <option [selected]="provaMaterials.materialType" value="GLASS">riciclo vetro</option>
-          </select>
+      <tr *ngFor="let material of materials" >  
+          <td>   
+           <select [(ngModel)]="material.materialType">
+             <option [selected]="material.materialType" value="PAPER">Riciclo carta</option>
+             <option [selected]="material.materialType" value="PLASTIC">Riciclo plastica</option>
+             <option [selected]="material.materialType" value="GLASS">riciclo vetro</option>
+           </select>
         </td>
         <td>
-          <button (click)=update(provaMaterials)>Avvio</button>
+          <button (click)=update(material)>Avvio</button>
+          <h1 style="text-align: center" (ngModel)="quantity"> Sono stati inseriti {{quantity}} kg  di {{material.materialType}}nella macchina principale.</h1> 
         </td>
+      </tr>
       </table>
     </div>
     <div class="col-md-1">
 
     </div>
   </div>
-</div>
+</div>  
+
+<!--  <select [(ngModel)]="material.materialType" >
+  <option *ngFor = "let material of materialtype" [selected] = "material.type === material" value="material">{{material}}</option>
+</select> -->
