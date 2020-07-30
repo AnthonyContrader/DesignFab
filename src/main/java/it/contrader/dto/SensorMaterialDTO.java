@@ -1,14 +1,12 @@
 package it.contrader.dto;
 
-
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * Non esiste il model associato, serve solo a trasferire un oggetto dal frontend 
- * che contenga le infrmazioni di username e password.
+ * Non esiste il model associato, serve solo a trasferire un oggetto dal
+ * frontend che contenga le infrmazioni di username e password.
  * 
  * @author Vittorio Valent & Girolamo Murdaca
  */
@@ -16,9 +14,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class SensorMaterialDTO {
-	
-	private String sensor_name;
-	
-	private int idMaterial;
-}
 
+	private String sensor_name;
+
+	private int idMaterial;
+	private int idSensor;
+}

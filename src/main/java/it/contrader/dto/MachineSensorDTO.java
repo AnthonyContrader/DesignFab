@@ -14,5 +14,6 @@ public class MachineSensorDTO {
 	
 	private String machine_name;
 	private int idSensor;
+	private int idMachine;
 	
 }

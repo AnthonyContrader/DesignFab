@@ -51,6 +51,7 @@ public class SensorController extends AbstractController<SensorDTO>{
 		MaterialsDTO materialsDto = new MaterialsDTO();
 		
 		materialsDto = materialsService.read(sensormaterialDTO.getIdMaterial());
+		sensorDto.setIdSensor((long) sensormaterialDTO.getIdSensor());
 		sensorDto.setSensor_name(sensormaterialDTO.getSensor_name());
 		sensorDto.setMaterialsDTO(materialsDto);
 		sensorService.update(sensorDto);

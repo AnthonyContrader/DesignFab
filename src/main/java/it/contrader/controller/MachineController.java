@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -50,5 +51,20 @@ public class MachineController  extends AbstractController<MachineDTO>{
 			machineService.insert(machineDto);
 			return machineDto;
 	}
+	
+	@PutMapping(value="/update2")
+	public MachineDTO update2(@RequestBody MachineSensorDTO machineSensorDto) {
+		SensorDTO sensorDto = new SensorDTO();
+		MachineDTO machineDto = new MachineDTO();
+		
+		sensorDto = sensorService.read(machineSensorDto.getIdSensor());
+		machineDto.setIdMachine((long) machineSensorDto.getIdMachine());
+		machineDto.setMachineName(machineSensorDto.getMachine_name());
+		machineDto.setSensorDto(sensorDto);
+		machineService.update(machineDto);
+		return machineDto;
+		
+	}
+
 
 }
