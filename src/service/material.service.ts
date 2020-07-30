@@ -23,4 +23,9 @@ import { Materialtype } from 'src/dto/Materialtype';
     return this.http.get<any>('http://localhost:8080/' + this.type + '/getallby/' + materialType);
   }
 
+  calcola(genericQuantity: number): Observable<MaterialsDTO[]> {
+    return this.http.get<any>('http://localhost:8080/' + this.type + '/calcola/' + genericQuantity);
+  }
+
+
     }

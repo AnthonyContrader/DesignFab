@@ -13,19 +13,30 @@
             Scegliere la lavorazione
           </th>
         </tr>
-      <tr *ngFor="let material of materials" >  
+     
+          
+      <select placeholder="materialname" [(ngModel)]="materialToUpdate.idMaterial">
+      <option *ngFor="let material of materials" value={{material.idMaterial}} >{{material.materialType}}</option>
+      </select> 
+      
+     
+    <td>
+     <!-- <tr *ngFor="let material of materials" >  
           <td>   
            <select [(ngModel)]="material.materialType">
              <option [selected]="material.materialType" value="PAPER">Riciclo carta</option>
              <option [selected]="material.materialType" value="PLASTIC">Riciclo plastica</option>
              <option [selected]="material.materialType" value="GLASS">riciclo vetro</option>
-           </select>
+           </select>-->
+
         </td>
         <td>
-          <button (click)=update(material)>Avvio</button>
-          <h1 style="text-align: center" (ngModel)="quantity"> Sono stati inseriti {{quantity}} kg  di {{material.materialType}}nella macchina principale.</h1> 
+         <button (click)=read(materialToUpdate.idMaterial) >Prepara</button>
+        <button (click)=update(materialToUpdate) >Avvio</button> 
+          
+          <h1 style="text-align: center"> Sono stati inseriti {{quantity}} kg  di {{materialToUpdate.materialType| json}}nella macchina principale.</h1> 
+          
         </td>
-      </tr>
       </table>
     </div>
     <div class="col-md-1">
@@ -34,6 +45,3 @@
   </div>
 </div>  
 
-<!--  <select [(ngModel)]="material.materialType" >
-  <option *ngFor = "let material of materialtype" [selected] = "material.type === material" value="material">{{material}}</option>
-</select> -->
