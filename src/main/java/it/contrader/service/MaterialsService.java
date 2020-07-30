@@ -32,6 +32,7 @@ public class MaterialsService extends AbstractService<Materials, MaterialsDTO> {
 		Long id_materialsGenerico = null;
 		Materialtype material_type = null;
 		String material_name = null ;
+		double quantity_generic = 0;
 		
 		for (MaterialsDTO u : list) {
 			System.out.println(u.getMaterialType());
@@ -39,12 +40,13 @@ public class MaterialsService extends AbstractService<Materials, MaterialsDTO> {
 				id_materialsGenerico = u.getIdMaterial();
 				material_type = u.getMaterialType();
 				material_name= u.getMaterialName();
+				quantity_generic = u.getMaterialsQuantity() + quantityMaterial;
 			}
 		}
 		MaterialsDTO dto = new MaterialsDTO();
 		dto.setMaterialType(material_type);
 		dto.setIdMaterial(id_materialsGenerico);
-		dto.setMaterialsQuantity(quantityMaterial);
+		dto.setMaterialsQuantity(quantity_generic);
 		dto.setMaterialName(material_name);
 		System.out.println("dtoooooo"+dto);
 		this.update(dto);
