@@ -20,4 +20,8 @@ export class MachineService extends AbstractService<MachineDTO>{
     insert2(machinesensorDTO: MachineSensorDTO): Observable<MachineDTO> {
         return this.http.post<any>('http://localhost:8080/' + this.type + '/insert2', machinesensorDTO);
       }
+
+      update2(machinesensorDTO: MachineSensorDTO): Observable<MachineDTO> {
+        return this.http.put<any>('http://localhost:8080/' + this.type + '/update2', machinesensorDTO);
+      }
 }

@@ -46,17 +46,12 @@
            
             <td>
             
-              <select [(ngModel)]="sensor.materialsDTO.materialType">
-               <option [selected]="sensor.materialsDTO.materialType" value=GENERIC>GENERIC</option>
-               <option [selected]="sensor.materialsDTO.materialType" value=PAPER>PAPER</option>
-               <option [selected]="sensor.materialsDTO.materialType" value=PLASTIC>PLASTIC</option>
-               <option [selected]="sensor.materialsDTO.materialType" value=GLASS>GLASS</option>
-
-                
+              <select [(ngModel)]="sensor.materialsDTO.idMaterial">
+                <option *ngFor="let material of materials" value={{material.idMaterial}} >{{material.materialType}}</option>
               </select>
             </td>
             <td>
-              <button (click)=update(sensor)>Save</button>
+              <button (click)=update2(sensor.materialsDTO.idMaterial,sensor.sensor_name,sensor.idSensor)>Save</button>
             </td>
             <td>
               <button (click)="delete(sensor)">Delete</button>

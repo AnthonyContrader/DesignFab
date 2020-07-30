@@ -57,6 +57,13 @@ export class MachineComponent implements OnInit{
             
           }
 
+
+          update2(idSensor: number, machine_name: String, idMachine: number){
+            console.log("Id Sensor "+idSensor+" Machine Name "+machine_name+" Machine ID "+idMachine);
+            this.machinesensorDTO = new MachineSensorDTO(machine_name,idSensor,idMachine);
+            this.machineService.update2(this.machinesensorDTO).subscribe(()=>this.getMachines());
+          }
+
         clear(){
             this.machineToInsert = new MachineDTO();
         }

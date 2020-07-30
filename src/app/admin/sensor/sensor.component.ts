@@ -55,6 +55,7 @@ export class SensorComponent implements OnInit {
   }
 
   update(sensor :SensorDTO){
+    console.log("a: "+sensor)
     this.sensorService.update(sensor).subscribe(()=>this.getSensor());
   }
 
@@ -65,9 +66,14 @@ export class SensorComponent implements OnInit {
     console.log(this.sensormaterialDTO);
     //this.materialService.read(idMaterial).subscribe(m=> this.m = m);
     //this.sensorService.insert2(idMaterial, sensor_name).subscribe(()=>this.getSensor());
-    
-    
   }
+
+  update2(idMaterial: number, sensor_name: String, idSensor: number){
+    console.log("Id materiale "+idMaterial+" Sensor Name "+sensor_name+" SensorID "+idSensor);
+    this.sensormaterialDTO = new SensormaterialDTO(sensor_name, idMaterial,idSensor);
+    this.sensorService.update2(this.sensormaterialDTO).subscribe(()=>this.getSensor());
+  }
+
   insert(sensor: SensorDTO){
     console.log(sensor);
     this.sensorService.insert(sensor).subscribe(()=>this.getSensor());

@@ -34,16 +34,13 @@
              <td>
               <input [(ngModel)]="machine.machineName">
             </td> 
-
-           {{machine.sensorDto.sensor_name}}
-
             <td>
-              <select  [(ngModel)]="machine.sensorDto.sensor_name">
+              <select  [(ngModel)]="machine.sensorDto.idSensor">
                 <option *ngFor ="let sens of sensor" value={{sens.idSensor}}>{{sens.sensor_name}}</option>
               </select>
             </td>
             <td>
-              <button (click)=update(machine)>Save</button>
+              <button (click)=update2(machine.sensorDto.idSensor,machine.machineName,machine.idMachine)>Save</button>
             </td>
             <td>
               <button (click)="delete(machine)">Delete</button>

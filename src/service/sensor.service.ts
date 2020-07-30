@@ -19,6 +19,10 @@ export class SensorService extends AbstractService<SensorDTO>{
     insert2(sensormaterialDTO: SensormaterialDTO): Observable<SensorDTO> {
         return this.http.post<any>('http://localhost:8080/' + this.type + '/insert2', sensormaterialDTO);
       }
+
+      update2(sensormaterialDTO: SensormaterialDTO): Observable<SensorDTO> {
+        return this.http.put<any>('http://localhost:8080/' + this.type + '/update2', sensormaterialDTO);
+      }
 }
 
 
