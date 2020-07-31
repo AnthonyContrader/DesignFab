@@ -1,25 +1,24 @@
 
  <div class="col-md-10">
   <table>
-    <tr>
-      <th>
-
+    <tr *ngFor="let material of materials3">
+      <th> 
       </th>
       <th>
-        Quantità Attuale
+        Quantità Attualmente Lavorata : {{material.materialsQuantity}}
       </th>
     </tr>
      <tr *ngFor="let material of materials">
         
         <td>
-          Inserire  Kg di materiale da lavorare
+          Inserire Kg di materiale da lavorare
         </td>
       <td>
-        <input placeholder="Inserire quantità" [(ngModel)]="material.materialsQuantity">
+        <input placeholder="Inserire quantità"  [(ngModel)]="material2.materialsQuantity">
       </td>
       <td>
-        <button (click)="calcola(material.materialsQuantity, material)">Avvio macchinario</button>
-       </td>
+        <button (click)="calcola(material2.materialsQuantity, material)">Avvio macchinario</button>
+      </td>
     </tr>
  
   </table>

@@ -11,12 +11,14 @@ import { Materialtype } from 'src/dto/Materialtype';
 
 export class User2MachineComponent implements OnInit {
 
-  provaMaterials : MaterialsDTO;
+  provaMaterials : number;
   materialToUpdate : MaterialsDTO= new MaterialsDTO;
   materials: MaterialsDTO[];
   materialtype = [];
   enum = Materialtype;
   quantity : number;
+  public show:boolean = false;
+  public buttonName:any = 'Show';
 
 
     constructor(private service: MaterialService) { 
@@ -26,6 +28,15 @@ export class User2MachineComponent implements OnInit {
 
     ngOnInit() {
       this.provaMaterials = JSON.parse(localStorage.getItem('prova'));
+    }
+    toggle() {
+      this.show = !this.show;
+  
+      // CHANGE THE NAME OF THE BUTTON.
+      if(this.show)  
+        this.buttonName = "Hide";
+      else
+        this.buttonName = "Show";
     }
 
     getMaterials() {

@@ -1,5 +1,5 @@
 
- <h1 style="text-align: center"> Sono stati inseriti {{provaMaterials.materialsQuantity}} kg  di {{provaMaterials.materialType}} nella macchina principale.</h1> 
+ <h1 style="text-align: center"> Sono stati inseriti {{provaMaterials}} kg  di GENERIC nella macchina principale.</h1> 
 <br>
 <div class="container">
   <div class="row mt-5">
@@ -31,11 +31,15 @@
 
         </td>
         <td>
-         <button (click)=read(materialToUpdate.idMaterial) >Prepara</button>
-        <button (click)=update(materialToUpdate) >Avvio</button> 
+          <button (click)=read(materialToUpdate.idMaterial);toggle() id="bt" >Prepara</button>
+         
+          <ng-container *ngIf="show">
+         
+         
+          <button (click)=update(materialToUpdate) >Avvio</button> 
           
           <h1 style="text-align: center"> Sono stati inseriti {{quantity}} kg  di {{materialToUpdate.materialType| json}}nella macchina principale.</h1> 
-          
+        </ng-container>
         </td>
       </table>
     </div>
