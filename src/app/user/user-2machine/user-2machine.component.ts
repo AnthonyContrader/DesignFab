@@ -39,9 +39,8 @@ export class User2MachineComponent implements OnInit {
      }
 
     update(material: MaterialsDTO) {
-      
-      material.materialsQuantity = this.provaMaterials.materialsQuantity/3;
-      this.quantity = material.materialsQuantity;
+      this.quantity = material.materialsQuantity/3;
+      material.materialsQuantity=this.quantity;
       this.service.update(material).subscribe(() => this.getMaterials());
     }
     
