@@ -1,11 +1,15 @@
 
- <div class="col-md-10">
+ <div class="col-md-10 myImage" src="assets/img/contrader-background.jpg" style="background-image: url(assets/img/contrader-background.jpg);">
   <table>
     <tr *ngFor="let material of materials3">
-      <th> 
+      <th id="primo"> 
+        Quantità  &nbsp;
       </th>
-      <th>
-        Quantità Attualmente Lavorata : {{material.materialsQuantity}}
+      <th id="secondo">
+         attualmente  &nbsp;lavorata: 
+      </th>
+      <th id="terzo">
+        {{material.materialsQuantity}}
       </th>
     </tr>
      <tr *ngFor="let material of materials">

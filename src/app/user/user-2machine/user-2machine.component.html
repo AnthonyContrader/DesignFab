@@ -1,7 +1,7 @@
 
  <h1 style="text-align: center"> Sono stati inseriti {{provaMaterials}} kg  di GENERIC nella macchina principale.</h1> 
 <br>
-<div class="container">
+<div class="container myImage" src="assets/img/contrader-background.jpg" style="background-image: url(assets/img/contrader-background.jpg);">
   <div class="row mt-5">
     <div class="col-md-1">
 
@@ -30,16 +30,18 @@
            </select>-->
 
         </td>
-        <td>
+        <td>  
           <button (click)=read(materialToUpdate.idMaterial);toggle() id="bt" >Prepara</button>
-         
           <ng-container *ngIf="show">
+          <h1 style="text-align: center"> La macchina è pronta a lavorare</h1> 
          
-         
-          <button (click)=update(materialToUpdate) >Avvio</button> 
-          
-          <h1 style="text-align: center"> Sono stati inseriti {{quantity}} kg  di {{materialToUpdate.materialType| json}}nella macchina principale.</h1> 
+      
+          <button (click)=update(materialToUpdate);toggle2() >Avvio</button> 
         </ng-container>
+        <ng-container *ngIf="show2">
+          <h1 style="text-align: center"> Sono stati ottenuti {{quantity}} kg  di {{materialToUpdate.materialType| json}}nella macchina principale.</h1> 
+        </ng-container>
+
         </td>
       </table>
     </div>

@@ -18,7 +18,10 @@ export class User2MachineComponent implements OnInit {
   enum = Materialtype;
   quantity : number;
   public show:boolean = false;
+  public show2:boolean = false;
+
   public buttonName:any = 'Show';
+  public buttonName2:any = 'Show2';
 
 
     constructor(private service: MaterialService) { 
@@ -39,6 +42,18 @@ export class User2MachineComponent implements OnInit {
         this.buttonName = "Show";
     }
 
+    toggle2() {
+      this.show2 = !this.show2;
+  
+      // CHANGE THE NAME OF THE BUTTON.
+      if(this.show2)  
+        this.buttonName2= "Hide";
+      else
+        this.buttonName2 = "Show2";
+    }
+
+    
+
     getMaterials() {
       this.service.getAll().subscribe(materials => this.materials = materials);
     }
@@ -50,8 +65,8 @@ export class User2MachineComponent implements OnInit {
      }
 
     update(material: MaterialsDTO) {
-      this.quantity = material.materialsQuantity/3;
-      material.materialsQuantity=this.quantity;
+      this.quantity = material.materialsQuantity/2;
+      material.materialsQuantity=(this.quantity*100)/100;
       this.service.update(material).subscribe(() => this.getMaterials());
     }
     

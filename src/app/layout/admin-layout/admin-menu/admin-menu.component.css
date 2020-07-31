@@ -9,6 +9,12 @@
     padding-top: 0;
   }
   
+  .modifyImage{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }
   
   .menubtn{
       width: 100%;
