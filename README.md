@@ -56,17 +56,5 @@ In aggiunta è stato introdotto anche un terzo progetto **Shared** scritto in .N
 
 ## Esecuzione
 
-Per eseguire i progetti, lanciare i servizi REST con docker-compose, verificare le porte assegnate a Project1 e Project2 e modificare di conseguenza la configurazione in Shared -> CommonDefine
-
-![image-20200706141319035](C:\prototipi\Microservice .NET\image-20200706141319035.png)
-
-
-
-```c#
-    public class CommonDefine
-    {
-        public const string SERVICE1_BASEURL = "http://localhost:65166/";
-        public const string SERVICE2_BASEURL = "http://localhost:65167/";
-    }
-```
+Per eseguire i progetti, lanciare i servizi REST con docker, cliccare con il secondo tasto su Docker-Compose quindi Debug -> Avvia nuova istanza. Avviati i servizi, cliccare con il secondo tasto sul progetto frontend che si desidera debuggare e ripetere Debug -> Avvia nuova istanza.
 

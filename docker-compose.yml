@@ -2,7 +2,7 @@ version: '3.4'
 
 services:
   project1:
-    image: ${DOCKER_REGISTRY-}project1
+    image: project1
     build:
       context: Project1
       dockerfile: Dockerfile
@@ -12,7 +12,7 @@ services:
         - "65166:80" #only for testing
 
   project2:
-    image: ${DOCKER_REGISTRY-}project2
+    image: project2
     build:
       context: Project2
       dockerfile: Dockerfile
